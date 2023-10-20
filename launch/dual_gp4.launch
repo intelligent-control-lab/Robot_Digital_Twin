@@ -1,0 +1,33 @@
+<launch>
+    <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+    <arg name="paused" default="false"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="debug" default="false"/>
+
+    <!-- <include file="$(find robot_digital_twin)/launch/lego_setup.launch"/> -->
+    <include
+        file="$(find robot_digital_twin)/launch/gp4.launch">
+        <arg name="namespace" value="/r1/"/>
+        <arg name="launch_world" value="true"/>
+        <arg name="x" value="0"/>
+        <arg name="y" value="0"/>
+        <arg name="z" value="0"/>
+        <arg name="roll" value="0"/>
+        <arg name="pitch" value="0"/>
+        <arg name="yaw" value="0"/>
+    </include>
+
+    <include
+        file="$(find robot_digital_twin)/launch/gp4.launch">
+        <arg name="namespace" value="/r2/"/>
+        <arg name="launch_world" value="false"/>
+        <arg name="x" value="1.2"/>
+        <arg name="y" value="0"/>
+        <arg name="z" value="0"/>
+        <arg name="roll" value="0"/>
+        <arg name="pitch" value="0"/>
+        <arg name="yaw" value="3.14159265"/>
+    </include>
+</launch>

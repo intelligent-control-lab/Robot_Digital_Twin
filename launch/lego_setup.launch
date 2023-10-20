@@ -1,0 +1,1793 @@
+<launch>
+
+    <arg name = "assemble_plate" default="assemble_plate"/>
+    <arg name = "assemble_plate_color" default="White" />
+    <param name="assemble_plate_description" command="$(find xacro)/xacro --inorder 
+                                                      $(find robot_digital_twin)/urdf/lego_baseplate.xacro
+                                                      plate_color:=$(arg assemble_plate_color)"/>
+    <node name="spawn_assemble_plate" pkg="gazebo_ros" type="spawn_model"
+      args="-param assemble_plate_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0016
+            -model $(arg assemble_plate)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "storage_plate" default="storage_plate"/>
+    <arg name = "storage_plate_color" default="Grey" />
+    <param name="storage_plate_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_baseplate.xacro 
+                                                    plate_color:=$(arg storage_plate_color)"/>
+    <node name="spawn_storage_plate" pkg="gazebo_ros" type="spawn_model"
+      args="-param storage_plate_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0016
+            -model $(arg storage_plate)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_1" default="b12_1"/>
+    <param name="b12_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_1_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_1)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_2" default="b12_2"/>
+    <param name="b12_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_2_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_2)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_3" default="b12_3"/>
+    <param name="b12_3_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_3" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_3_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_3)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_4" default="b12_4"/>
+    <param name="b12_4_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_4" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_4_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_4)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_5" default="b12_5"/>
+    <param name="b12_5_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_5" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_5_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_5)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_6" default="b12_6"/>
+    <param name="b12_6_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_6" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_6_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_6)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b12_7" default="b12_7"/>
+    <param name="b12_7_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_7" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_7_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_7)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b12_8" default="b12_8"/>
+    <param name="b12_8_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_8" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_8_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_8)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b12_9" default="b12_9"/>
+    <param name="b12_9_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_9" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_9_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_9)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b12_10" default="b12_10"/>
+    <param name="b12_10_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_10" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_10_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_10)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b12_11" default="b12_11"/>
+    <param name="b12_11_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_11" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_11_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_11)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_12" default="b12_12"/>
+    <param name="b12_12_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_12" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_12_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_12)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_13" default="b12_13"/>
+    <param name="b12_13_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_13" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_13_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_13)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_14" default="b12_14"/>
+    <param name="b12_14_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_14" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_14_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_14)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_15" default="b12_15"/>
+    <param name="b12_15_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_15" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_15_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_15)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_16" default="b12_16"/>
+    <param name="b12_16_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_16" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_16_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_16)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_17" default="b12_17"/>
+    <param name="b12_17_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_17" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_17_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_17)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_18" default="b12_18"/>
+    <param name="b12_18_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_18" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_18_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_18)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_19" default="b12_19"/>
+    <param name="b12_19_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_19" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_19_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_19)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_20" default="b12_20"/>
+    <param name="b12_20_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_20" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_20_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_20)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_21" default="b12_21"/>
+    <param name="b12_21_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_21" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_21_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_21)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b12_22" default="b12_22"/>
+    <param name="b12_22_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x2.xacro 
+                                                    brick_color:='Orange'"/>
+    <node name="spawn_b12_22" pkg="gazebo_ros" type="spawn_model"
+      args="-param b12_22_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b12_22)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b14_1" default="b14_1"/>
+    <param name="b14_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x4.xacro 
+                                                    brick_color:='Blue'"/>
+    <node name="spawn_b14_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param b14_1_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b14_1)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b14_2" default="b14_2"/>
+    <param name="b14_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x4.xacro 
+                                                    brick_color:='Blue'"/>
+    <node name="spawn_b14_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param b14_2_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b14_2)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b14_3" default="b14_3"/>
+    <param name="b14_3_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x4.xacro 
+                                                    brick_color:='Blue'"/>
+    <node name="spawn_b14_3" pkg="gazebo_ros" type="spawn_model"
+      args="-param b14_3_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b14_3)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b14_4" default="b14_4"/>
+    <param name="b14_4_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x4.xacro 
+                                                    brick_color:='Blue'"/>
+    <node name="spawn_b14_4" pkg="gazebo_ros" type="spawn_model"
+      args="-param b14_4_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b14_4)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b14_5" default="b14_5"/>
+    <param name="b14_5_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x4.xacro 
+                                                    brick_color:='Blue'"/>
+    <node name="spawn_b14_5" pkg="gazebo_ros" type="spawn_model"
+      args="-param b14_5_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b14_5)"
+      respawn="false" output="screen">
+    </node>
+
+     <arg name = "b14_6" default="b14_6"/>
+    <param name="b14_6_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x4.xacro 
+                                                    brick_color:='Blue'"/>
+    <node name="spawn_b14_6" pkg="gazebo_ros" type="spawn_model"
+      args="-param b14_6_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b14_6)"
+      respawn="false" output="screen">
+    </node>
+
+     <arg name = "b14_7" default="b14_7"/>
+    <param name="b14_7_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x4.xacro 
+                                                    brick_color:='Blue'"/>
+    <node name="spawn_b14_7" pkg="gazebo_ros" type="spawn_model"
+      args="-param b14_7_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b14_7)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b14_8" default="b14_8"/>
+    <param name="b14_8_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x4.xacro 
+                                                    brick_color:='Green'"/>
+    <node name="spawn_b14_8" pkg="gazebo_ros" type="spawn_model"
+      args="-param b14_8_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b14_8)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b14_9" default="b14_9"/>
+    <param name="b14_9_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x4.xacro 
+                                                    brick_color:='Green'"/>
+    <node name="spawn_b14_9" pkg="gazebo_ros" type="spawn_model"
+      args="-param b14_9_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b14_9)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b14_10" default="b14_10"/>
+    <param name="b14_10_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x4.xacro 
+                                                    brick_color:='Green'"/>
+    <node name="spawn_b14_10" pkg="gazebo_ros" type="spawn_model"
+      args="-param b14_10_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b14_10)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b24_1" default="b24_1"/>
+    <param name="b24_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x4.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b24_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param b24_1_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b24_1)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b24_2" default="b24_2"/>
+    <param name="b24_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x4.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b24_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param b24_2_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b24_2)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b24_3" default="b24_3"/>
+    <param name="b24_3_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x4.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b24_3" pkg="gazebo_ros" type="spawn_model"
+      args="-param b24_3_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b24_3)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b24_4" default="b24_4"/>
+    <param name="b24_4_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x4.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b24_4" pkg="gazebo_ros" type="spawn_model"
+      args="-param b24_4_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b24_4)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b24_5" default="b24_5"/>
+    <param name="b24_5_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x4.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b24_5" pkg="gazebo_ros" type="spawn_model"
+      args="-param b24_5_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b24_5)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b24_6" default="b24_6"/>
+    <param name="b24_6_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x4.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b24_6" pkg="gazebo_ros" type="spawn_model"
+      args="-param b24_6_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b24_6)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b24_7" default="b24_7"/>
+    <param name="b24_7_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x4.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b24_7" pkg="gazebo_ros" type="spawn_model"
+      args="-param b24_7_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b24_7)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b24_8" default="b24_8"/>
+    <param name="b24_8_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x4.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b24_8" pkg="gazebo_ros" type="spawn_model"
+      args="-param b24_8_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b24_8)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b16_1" default="b16_1"/>
+    <param name="b16_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x6.xacro 
+                                                    brick_color:='Yellow'"/>
+    <node name="spawn_b16_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param b16_1_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b16_1)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b16_2" default="b16_2"/>
+    <param name="b16_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x6.xacro 
+                                                    brick_color:='Yellow'"/>
+    <node name="spawn_b16_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param b16_1_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b16_2)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b16_3" default="b16_3"/>
+    <param name="b16_3_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x6.xacro 
+                                                    brick_color:='Yellow'"/>
+    <node name="spawn_b16_3" pkg="gazebo_ros" type="spawn_model"
+      args="-param b16_3_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b16_3)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b16_4" default="b16_4"/>
+    <param name="b16_4_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x6.xacro 
+                                                    brick_color:='Yellow'"/>
+    <node name="spawn_b16_4" pkg="gazebo_ros" type="spawn_model"
+      args="-param b16_4_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b16_4)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b16_5" default="b16_5"/>
+    <param name="b16_5_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x6.xacro 
+                                                    brick_color:='Yellow'"/>
+    <node name="spawn_b16_5" pkg="gazebo_ros" type="spawn_model"
+      args="-param b16_5_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b16_5)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b22_1" default="b22_1"/>
+    <param name="b22_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_1_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_1)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b22_2" default="b22_2"/>
+    <param name="b22_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_2_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_2)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b22_3" default="b22_3"/>
+    <param name="b22_3_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_3" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_3_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_3)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b22_4" default="b22_4"/>
+    <param name="b22_4_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_4" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_4_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_4)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b22_5" default="b22_5"/>
+    <param name="b22_5_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_5" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_5_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_5)"
+      respawn="false" output="screen">
+    </node>
+
+    
+    <arg name = "b22_6" default="b22_6"/>
+    <param name="b22_6_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_6" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_6_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_6)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b22_7" default="b22_7"/>
+    <param name="b22_7_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_7" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_7_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_7)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b22_8" default="b22_8"/>
+    <param name="b22_8_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_8" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_8_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_8)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b22_9" default="b22_9"/>
+    <param name="b22_9_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_9" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_9_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_9)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b22_10" default="b22_10"/>
+    <param name="b22_10_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_10" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_10_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_10)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b22_11" default="b22_11"/>
+    <param name="b22_11_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_11" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_11_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_11)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b22_12" default="b22_12"/>
+    <param name="b22_12_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_12" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_12_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_12)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b22_13" default="b22_13"/>
+    <param name="b22_13_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_13" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_13_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_13)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b22_14" default="b22_14"/>
+    <param name="b22_14_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_14" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_14_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_14)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b22_15" default="b22_15"/>
+    <param name="b22_15_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_15" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_15_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_15)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b22_16" default="b22_16"/>
+    <param name="b22_16_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_16" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_16_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_16)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b22_17" default="b22_17"/>
+    <param name="b22_17_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x2.xacro 
+                                                    brick_color:='Black'"/>
+    <node name="spawn_b22_17" pkg="gazebo_ros" type="spawn_model"
+      args="-param b22_17_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b22_17)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b26_1" default="b26_1"/>
+    <param name="b26_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x6.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b26_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param b26_1_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b26_1)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b26_2" default="b26_2"/>
+    <param name="b26_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x6.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b26_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param b26_2_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b26_2)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b26_3" default="b26_3"/>
+    <param name="b26_3_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x6.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b26_3" pkg="gazebo_ros" type="spawn_model"
+      args="-param b26_3_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b26_3)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b26_4" default="b26_4"/>
+    <param name="b26_4_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_2x6.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b26_4" pkg="gazebo_ros" type="spawn_model"
+      args="-param b26_4_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b26_4)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b18_1" default="b18_1"/>
+    <param name="b18_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x8.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b18_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param b18_1_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b18_1)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b18_2" default="b18_2"/>
+    <param name="b18_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x8.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b18_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param b18_2_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b18_2)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b18_3" default="b18_3"/>
+    <param name="b18_3_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x8.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b18_3" pkg="gazebo_ros" type="spawn_model"
+      args="-param b18_3_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b18_3)"
+      respawn="false" output="screen">
+    </node>
+    
+
+
+    <arg name = "b11_1" default="b11_1"/>
+    <param name="b11_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_1_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_1)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b11_2" default="b11_2"/>
+    <param name="b11_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_2_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_2)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_3" default="b11_3"/>
+    <param name="b11_3_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_3" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_3_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_3)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_4" default="b11_4"/>
+    <param name="b11_4_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_4" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_4_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_4)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_5" default="b11_5"/>
+    <param name="b11_5_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_5" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_5_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_5)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_6" default="b11_6"/>
+    <param name="b11_6_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_6" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_6_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_6)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_7" default="b11_7"/>
+    <param name="b11_7_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_7" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_7_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_7)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_8" default="b11_8"/>
+    <param name="b11_8_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_8" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_8_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_8)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_9" default="b11_9"/>
+    <param name="b11_9_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_9" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_9_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_9)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_10" default="b11_10"/>
+    <param name="b11_10_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_10" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_10_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_10)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_11" default="b11_11"/>
+    <param name="b11_11_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_11" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_11_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_11)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_12" default="b11_12"/>
+    <param name="b11_12_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_12" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_12_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_12)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_13" default="b11_13"/>
+    <param name="b11_13_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_13" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_13_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_13)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_14" default="b11_14"/>
+    <param name="b11_14_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_14" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_14_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_14)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_15" default="b11_15"/>
+    <param name="b11_15_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_15" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_15_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_15)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_16" default="b11_16"/>
+    <param name="b11_16_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_16" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_16_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_16)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_17" default="b11_17"/>
+    <param name="b11_17_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_17" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_17_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_17)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_18" default="b11_18"/>
+    <param name="b11_18_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_18" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_18_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_18)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_19" default="b11_19"/>
+    <param name="b11_19_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_19" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_19_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_19)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_20" default="b11_20"/>
+    <param name="b11_20_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_20" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_20_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_20)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_21" default="b11_21"/>
+    <param name="b11_21_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_21" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_21_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_21)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_22" default="b11_22"/>
+    <param name="b11_22_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_22" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_22_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_22)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_23" default="b11_23"/>
+    <param name="b11_23_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_23" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_23_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_23)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_24" default="b11_24"/>
+    <param name="b11_24_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_24" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_24_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_24)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_25" default="b11_25"/>
+    <param name="b11_25_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_25" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_25_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_25)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_26" default="b11_26"/>
+    <param name="b11_26_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_26" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_26_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_26)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_27" default="b11_27"/>
+    <param name="b11_27_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_27" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_27_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_27)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_28" default="b11_28"/>
+    <param name="b11_28_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_28" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_28_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_28)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_29" default="b11_29"/>
+    <param name="b11_29_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_29" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_29_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_29)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_30" default="b11_30"/>
+    <param name="b11_30_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_30" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_30_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_30)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_31" default="b11_31"/>
+    <param name="b11_31_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_31" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_31_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_31)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_32" default="b11_32"/>
+    <param name="b11_32_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_32" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_32_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_32)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_33" default="b11_33"/>
+    <param name="b11_33_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_33" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_33_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_33)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_34" default="b11_34"/>
+    <param name="b11_34_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_34" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_34_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_34)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_35" default="b11_35"/>
+    <param name="b11_35_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_35" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_35_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_35)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_36" default="b11_36"/>
+    <param name="b11_36_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_36" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_36_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_36)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_37" default="b11_37"/>
+    <param name="b11_37_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_37" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_37_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_37)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_38" default="b11_38"/>
+    <param name="b11_38_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_38" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_38_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_38)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_39" default="b11_39"/>
+    <param name="b11_39_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_39" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_39_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_39)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_40" default="b11_40"/>
+    <param name="b11_40_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_40" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_40_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_40)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_41" default="b11_41"/>
+    <param name="b11_41_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_41" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_41_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_41)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <arg name = "b11_42" default="b11_42"/>
+    <param name="b11_42_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_42" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_42_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_42)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_43" default="b11_43"/>
+    <param name="b11_43_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_43" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_43_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_43)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_44" default="b11_44"/>
+    <param name="b11_44_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_44" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_44_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_44)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_45" default="b11_45"/>
+    <param name="b11_45_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_45" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_45_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_45)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_46" default="b11_46"/>
+    <param name="b11_46_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_46" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_46_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_46)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_47" default="b11_47"/>
+    <param name="b11_47_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_47" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_47_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_47)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_48" default="b11_48"/>
+    <param name="b11_48_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_48" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_48_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_48)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_49" default="b11_49"/>
+    <param name="b11_49_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_49" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_49_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_49)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_50" default="b11_50"/>
+    <param name="b11_50_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_50" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_50_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_50)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_51" default="b11_51"/>
+    <param name="b11_51_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_51" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_51_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_51)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_52" default="b11_52"/>
+    <param name="b11_52_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_52" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_52_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_52)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_53" default="b11_53"/>
+    <param name="b11_53_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_53" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_53_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_53)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_54" default="b11_54"/>
+    <param name="b11_54_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_54" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_54_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_54)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_55" default="b11_55"/>
+    <param name="b11_55_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_55" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_55_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_55)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_56" default="b11_56"/>
+    <param name="b11_56_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_56" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_56_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_56)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_57" default="b11_57"/>
+    <param name="b11_57_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_57" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_57_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_57)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_58" default="b11_58"/>
+    <param name="b11_58_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_58" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_58_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_58)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_59" default="b11_59"/>
+    <param name="b11_59_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_59" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_59_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_59)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_60" default="b11_60"/>
+    <param name="b11_60_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_60" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_60_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_60)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_61" default="b11_61"/>
+    <param name="b11_61_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_61" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_61_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_61)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_62" default="b11_62"/>
+    <param name="b11_62_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_62" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_62_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_62)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_63" default="b11_63"/>
+    <param name="b11_63_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_63" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_63_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_63)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_64" default="b11_64"/>
+    <param name="b11_64_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_64" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_64_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_64)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "b11_65" default="b11_65"/>
+    <param name="b11_65_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_1x1.xacro 
+                                                    brick_color:='Red'"/>
+    <node name="spawn_b11_65" pkg="gazebo_ros" type="spawn_model"
+      args="-param b11_65_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0.0112
+            -model $(arg b11_65)"
+      respawn="false" output="screen">
+    </node>
+
+</launch>
