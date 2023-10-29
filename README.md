@@ -1,11 +1,13 @@
 # Robot_Digital_Twin
-This repository includes the digital twin models for (1) Fanuc LR-mate 200id-7L, (2) Yaskawa GP4 and (3) Lego bricks.
+This repository includes the digital twin models for
+* Fanuc LR-mate 200id-7L.
+* Yaskawa GP4.
+* Yaskawa GP50.
+* Lego bricks, including Lego baseplates, 1x1, 1x2, 1x4, 1x6, 1x8, 2x2, 2x4, 2x6, 2x8.
 
-## Rviz visualization
+## Robot Rviz visualization
 ```
-roslaunch robot_digital_twin fanuc_rviz.launch
-// OR
-roslaunch robot_digital_twin gp4_rviz.launch
+roslaunch robot_digital_twin YOUR_ROBOT_rviz.launch
 ```
 
 ## Gazebo Usage
