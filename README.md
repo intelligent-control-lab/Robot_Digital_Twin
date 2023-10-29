@@ -24,3 +24,14 @@ roslaunch robot_digital_twin single_fanuc_lego.launch
 ```
 roslaunch robot_digital_twin dual_gp4.launch
 ```
+
+## Citation
+If you find this repository helpful, please kindly cite our work.
+```
+@article{liu2023simulationaided,
+  title={Simulation-aided Learning from Demonstration for Robotic LEGO Construction}, 
+  author={Ruixuan Liu and Alan Chen and Xusheng Luo and Changliu Liu},
+  journal={arXiv preprint arXiv:2309.11010},
+  year={2023}
+}
+```
