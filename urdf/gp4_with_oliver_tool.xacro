@@ -315,7 +315,7 @@
     </joint>
 
     <joint name="fts_tool" type="revolute">
-      <origin xyz="0 0 ${0.0505/2}" rpy="${pi/2} 0 ${-pi/2}" />
+      <origin xyz="0 0 ${0.0505/2}" rpy="${pi/2} 0 ${pi/2}" />
       <parent link="fts" />
       <child link="link_tool" />
       <axis xyz="0 0 1" />
