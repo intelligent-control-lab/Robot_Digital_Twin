@@ -363,6 +363,9 @@
     </plugin>
   </gazebo>
 
+  <gazebo reference="fts_tool">
+      <provideFeedback>true</provideFeedback>
+  </gazebo>
   <gazebo>
     <provideFeedback>true</provideFeedback>
       <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
