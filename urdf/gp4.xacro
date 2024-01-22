@@ -249,7 +249,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool_base.stl"/>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool_base_tilt.stl"/>
         </geometry>
         <xacro:material_yaskawa_silver />
       </visual>
@@ -377,12 +377,12 @@
       <limit velocity="0" effort="0" lower="0" upper="0" />
     </joint>
     <joint name="tool_precam" type="fixed">
-      <origin xyz="0 -0.04625 0.028" rpy="${pi/2} -${pi/2}  0" />
+      <origin xyz="0 -0.06767 0.01651" rpy="${pi/2} -${pi/2}  0" />
       <parent link="link_tool" />
       <child link="link_precam" />
     </joint>
     <joint name="precam_camera" type="fixed">
-      <origin xyz="0 0 0" rpy="0 ${pi*0.4} 0" />
+      <origin xyz="0 0 0" rpy="0 ${pi*40/180} 0" />
       <parent link="link_precam" />
       <child link="link_camera" />
     </joint>
@@ -453,7 +453,7 @@
         <format>R8G8B8</format>
       </image>
       <clip>
-        <near>0.01</near>
+        <near>0.005</near>
         <far>2</far>
       </clip>
     </camera>
