@@ -15,7 +15,7 @@
   <arg name="pitch" default="0"/>
   <arg name="yaw" default="0"/>
 
-  <include file="$(find robot_digital_twin)/launch/lego_setup.launch"/>
+  <include file="$(find robot_digital_twin)/launch/lego_mfi.launch"/>
 
   <!-- the include to include other launch files  -->
   <group if="$(eval launch_world)">
