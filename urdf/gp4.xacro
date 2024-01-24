@@ -377,12 +377,12 @@
       <limit velocity="0" effort="0" lower="0" upper="0" />
     </joint>
     <joint name="tool_precam" type="fixed">
-      <origin xyz="0 -0.06767 0.01651" rpy="${pi/2} -${pi/2}  0" />
+      <origin xyz="0 -0.062194148 -0.005909903" rpy="${pi/2} -${pi/2}  0" />
       <parent link="link_tool" />
       <child link="link_precam" />
     </joint>
     <joint name="precam_camera" type="fixed">
-      <origin xyz="0 0 0" rpy="0 ${pi*40/180} 0" />
+      <origin xyz="0 0 0" rpy="0 ${pi*45/180} 0" />
       <parent link="link_precam" />
       <child link="link_camera" />
     </joint>
