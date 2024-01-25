@@ -6,7 +6,7 @@
     <arg name="headless" default="false"/>
     <arg name="debug" default="false"/>
 
-    <!-- <include file="$(find robot_digital_twin)/launch/lego_setup.launch"/> -->
+    <include file="$(find robot_digital_twin)/launch/lego_setup.launch"/>
     <include
         file="$(find robot_digital_twin)/launch/gp4.launch">
         <arg name="namespace" value="/r1/"/>
