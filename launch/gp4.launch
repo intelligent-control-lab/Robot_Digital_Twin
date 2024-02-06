@@ -31,7 +31,7 @@
   
   <group ns="$(arg namespace)">
     <arg name = "gp4_arm" default="gp4_arm_$(arg namespace)"/>
-    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/gp4.xacro"/>
+    <param name="robot_description" command="$(find xacro)/xacro $(find robot_digital_twin)/urdf/gp4.xacro"/>
     <node name="spawn_gp4_arm" pkg="gazebo_ros" type="spawn_model" ns="$(arg namespace)"
       args="-param robot_description
             -urdf 
