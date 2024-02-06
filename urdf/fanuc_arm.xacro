@@ -262,7 +262,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool_base.stl"/>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool_base_tilt.stl"/>
         </geometry>
         <xacro:material_fanuc_black />
       </visual>
@@ -272,6 +272,13 @@
           <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool_base.stl"/>
         </geometry>
       </collision> -->
+    </link>
+    <link name="link_precam">
+      <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      </inertial>
     </link>
     <link name="link_camera">
     <inertial>
@@ -380,9 +387,14 @@
       <axis xyz="0 0 1" />
       <limit velocity="0" effort="0" lower="0" upper="0" />
     </joint>
-    <joint name="tool_camera" type="fixed">
-      <origin xyz="0 -0.04625 0.028" rpy="${-pi/2.0} ${-pi/2.0} ${pi}" />
+    <joint name="tool_precam" type="fixed">
+      <origin xyz="0 -0.062194148 -0.005909903" rpy="${pi/2} -${pi/2}  0" />
       <parent link="link_tool" />
+      <child link="link_precam" />
+    </joint>
+    <joint name="precam_camera" type="fixed">
+      <origin xyz="0 0 0" rpy="0 ${pi*45/180} 0" />
+      <parent link="link_precam" />
       <child link="link_camera" />
     </joint>
     <joint name="camera_imgplane" type="fixed">
