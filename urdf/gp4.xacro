@@ -215,13 +215,13 @@
       <collision>
         <origin xyz="0 0 0" rpy=" 0 0 0"/>
         <geometry>
-          <cylinder length="0.041" radius="0.035"/>
+          <cylinder length="0.0505" radius="0.035"/>
         </geometry>
       </collision>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <cylinder length="0.041" radius="0.035"/>
+          <cylinder length="0.0505" radius="0.035"/>
         </geometry>
         <xacro:material_yaskawa_silver />
       </visual>
