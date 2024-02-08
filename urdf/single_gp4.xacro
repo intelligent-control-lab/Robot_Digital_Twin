@@ -9,39 +9,8 @@
 
     <link name="world"/>
 
-    <!-- box shaped table as base for the 1 gp4 -->
-    <link name="base">
-        <visual>
-            <origin xyz="0 0 0.5" rpy="0 0 0" />
-            <geometry>z
-                <box size="2 2 1" />
-            </geometry>
-            <material name="White">
-                <color rgba="1.0 1.0 1.0 1.0" />
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 0.5" rpy="0 0 0" />
-            <geometry>
-                <box size="2 2 1" />
-            </geometry>
-        </collision>
-        <inertial>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
-            <mass value="10.0"/>
-            <inertia ixx="0.001" ixy="0.0" ixz="0.001" iyy="0.0" iyz="0.0" izz="0.001"/>
-        </inertial>
-        
-    </link>
-
-    <joint name="base_to_world" type="fixed">
-        <parent link="world"/>
-        <child link="base"/>
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
-    </joint>
-
     <!-- left arm -->
-    <xacro:Yaskawa_gp4 arm_id="$(arg arm_id_1)" connected_to="base" xyz="0.6 0 1" rpy="0 0 ${pi}" />
+    <xacro:Yaskawa_gp4 arm_id="$(arg arm_id_1)" connected_to="world" xyz="0 0 0" rpy="0 0 0" />
 
     <!-- left arm gazebo-->
     <xacro:gp4_gazebo arm_id="$(arg arm_id_1)" />
