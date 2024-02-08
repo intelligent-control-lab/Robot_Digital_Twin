@@ -5,7 +5,7 @@
   <arg name="paused" default="false" doc="Start Gazebo paused"/>
   <arg name="world_name" default="worlds/empty.world" doc="Gazebo world file"/>
   <arg name="world_pose" default="-x 0 -y 0 -z 0 -R 0 -P 0 -Y 0" doc="Pose to spawn the robot at"/>
-  <arg name="initial_joint_positions" default=" -J left_arm_fts_tool 0 -J left_arm_joint_1 0.0085 -J left_arm_joint_2 0.2469 -J left_arm_joint_3 0.2469 -J left_arm_joint_4 0 -J left_arm_joint_5 0 -J left_arm_joint_6 0 -J right_arm_fts_tool 0 -J right_arm_joint_1 0 -J right_arm_joint_2 0 -J right_arm_joint_3 0 -J right_arm_joint_4 0 -J right_arm_joint_5 0 -J right_arm_joint_6 0" doc="Initial joint configuration of the robot"/>
+  <arg name="initial_joint_positions" default=" -J left_arm_joint_1 -0.0176 -J left_arm_joint_2 0.653 -J left_arm_joint_3 -0.0176 -J left_arm_joint_4 0.0706 -J left_arm_joint_5 -0.7589 -J left_arm_joint_6 0 -J right_arm_joint_1 -0.1412 -J right_arm_joint_2 1.0589 -J right_arm_joint_3 -0.7413 -J right_arm_joint_4 0.0882 -J right_arm_joint_5 1.6413 -J right_arm_joint_6 0.0353" doc="Initial joint configuration of the robot"/>
 
   <!-- Start Gazebo paused to allow the controllers to pickup the initial pose -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch" pass_all_args="true">
@@ -13,7 +13,7 @@
   </include>
 
   <!-- Set the robot urdf on the parameter server -->
-  <param name="robot_description" textfile="$(find robot_digital_twin)/config/gazebo_dual_gp4.urdf" />
+  <param name="robot_description" textfile="$(find dual_gp4_moveit_config)/config/gazebo_dual_gp4.urdf" />
 
   <!-- Unpause the simulation after loading the robot model -->
   <arg name="unpause" value="$(eval '' if arg('paused') else '-unpause')" />
@@ -23,7 +23,7 @@
     respawn="false" output="screen" />
 
   <!-- Load the controller parameters onto the parameter server -->
-  <rosparam file="$(find robot_digital_twin)/config/gazebo_controllers.yaml" />
+  <rosparam file="$(find dual_gp4_moveit_config)/config/gazebo_controllers.yaml" />
   <include file="$(dirname)/ros_controllers.launch"/>
 
   <!-- Spawn the Gazebo ROS controllers -->

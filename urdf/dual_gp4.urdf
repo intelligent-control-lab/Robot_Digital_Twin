@@ -8,7 +8,7 @@
   <!-- box shaped table as base for the 2 GP4 -->
   <link name="base">
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0.5"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.5"/>
       <geometry>
         z
                 
@@ -19,7 +19,7 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.5"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.5"/>
       <geometry>
         <box size="2 2 1"/>
       </geometry>
@@ -38,7 +38,7 @@
   <joint name="left_arm_to_base" type="fixed">
     <parent link="base"/>
     <child link="left_arm_base"/>
-    <origin rpy="0 0 0" xyz="-0.6 0 1"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <dynamics damping="1.0"/>
   </joint>
   <!-- ROS-Industrial 'base' frame: base_link to gp4 World Coordinates transform -->
@@ -542,7 +542,7 @@
   <joint name="right_arm_to_base" type="fixed">
     <parent link="base"/>
     <child link="right_arm_base"/>
-    <origin rpy="0 0 3.141592653589793" xyz="0.6 0 1"/>
+    <origin rpy="0 0 3.141592653589793" xyz="0.7951 0 0"/>
     <dynamics damping="1.0"/>
   </joint>
   <!-- ROS-Industrial 'base' frame: base_link to gp4 World Coordinates transform -->

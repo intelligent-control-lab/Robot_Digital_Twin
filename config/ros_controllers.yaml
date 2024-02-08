@@ -1,5 +1,5 @@
 arm_position_controller:
-  type: position_controllers/JointTrajectoryController
+  type: effort_controllers/JointTrajectoryController
   joints:
     - left_arm_joint_1
     - left_arm_joint_2
@@ -7,14 +7,12 @@ arm_position_controller:
     - left_arm_joint_4
     - left_arm_joint_5
     - left_arm_joint_6
-    - left_arm_fts_tool
     - right_arm_joint_1
     - right_arm_joint_2
     - right_arm_joint_3
     - right_arm_joint_4
     - right_arm_joint_5
     - right_arm_joint_6
-    - right_arm_fts_tool
   gains:
     left_arm_joint_1:
       p: 100
@@ -46,11 +44,6 @@ arm_position_controller:
       d: 1
       i: 1
       i_clamp: 1
-    left_arm_fts_tool:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
     right_arm_joint_1:
       p: 100
       d: 1
@@ -77,11 +70,6 @@ arm_position_controller:
       i: 1
       i_clamp: 1
     right_arm_joint_6:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    right_arm_fts_tool:
       p: 100
       d: 1
       i: 1

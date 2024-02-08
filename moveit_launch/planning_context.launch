@@ -6,20 +6,20 @@
   <arg name="robot_description" default="robot_description"/>
 
   <!-- Load universal robot description format (URDF) -->
-  <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="xacro  '$(find robot_digital_twin)/urdf/dual_gp4.xacro'"/>
+  <param if="$(arg load_robot_description)" name="$(arg robot_description)" textfile="$(find robot_digital_twin)/urdf/dual_gp4.urdf"/>
 
   <!-- The semantic description that corresponds to the URDF -->
-  <param name="$(arg robot_description)_semantic" textfile="$(find robot_digital_twin)/config/dual_gp4.srdf" />
+  <param name="$(arg robot_description)_semantic" textfile="$(find dual_gp4_moveit_config)/config/dual_gp4.srdf" />
 
   <!-- Load updated joint limits (override information from URDF) -->
   <group ns="$(arg robot_description)_planning">
-    <rosparam command="load" file="$(find robot_digital_twin)/config/joint_limits.yaml"/>
-    <rosparam command="load" file="$(find robot_digital_twin)/config/cartesian_limits.yaml"/>
+    <rosparam command="load" file="$(find dual_gp4_moveit_config)/config/joint_limits.yaml"/>
+    <rosparam command="load" file="$(find dual_gp4_moveit_config)/config/cartesian_limits.yaml"/>
   </group>
 
   <!-- Load default settings for kinematics; these settings are overridden by settings in a node's namespace -->
   <group ns="$(arg robot_description)_kinematics">
-    <rosparam command="load" file="$(find robot_digital_twin)/config/kinematics.yaml"/>
+    <rosparam command="load" file="$(find dual_gp4_moveit_config)/config/kinematics.yaml"/>
 
   </group>
 
