@@ -7,29 +7,7 @@
   <link name="world"/>
   <!-- box shaped table as base for the 2 GP4 -->
   <link name="base">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 -0.5"/>
-      <geometry>
-        z
-                
-        <box size="2 2 1"/>
-      </geometry>
-      <material name="White">
-        <color rgba="1.0 1.0 1.0 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 -0.5"/>
-      <geometry>
-        <box size="2 2 1"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-      <mass value="10.0"/>
-      <inertia ixx="0.001" ixy="0.0" ixz="0.001" iyy="0.0" iyz="0.0" izz="0.001"/>
-    </inertial>
-  </link>
+    </link>
   <joint name="base_to_world" type="fixed">
     <parent link="world"/>
     <child link="base"/>
@@ -193,13 +171,13 @@
     <collision>
       <origin rpy=" 0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.041" radius="0.035"/>
+        <cylinder length="0.0505" radius="0.035"/>
       </geometry>
     </collision>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.041" radius="0.035"/>
+        <cylinder length="0.0505" radius="0.035"/>
       </geometry>
       <material name="">
         <color rgba="0.8 0.8 0.8 1"/>
@@ -697,13 +675,13 @@
     <collision>
       <origin rpy=" 0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.041" radius="0.035"/>
+        <cylinder length="0.0505" radius="0.035"/>
       </geometry>
     </collision>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.041" radius="0.035"/>
+        <cylinder length="0.0505" radius="0.035"/>
       </geometry>
       <material name="">
         <color rgba="0.8 0.8 0.8 1"/>
