@@ -3,7 +3,7 @@
     <arg name = "assemble_plate" default="assemble_plate"/>
     <arg name = "assemble_plate_color" default="Blue" />
     <param name="assemble_plate_description" command="$(find xacro)/xacro --inorder 
-                                                      $(find robot_digital_twin)/urdf/lego_baseplate32.xacro
+                                                      $(find robot_digital_twin)/urdf/lego_baseplate48.xacro
                                                       plate_color:=$(arg assemble_plate_color)"/>
     <node name="spawn_assemble_plate" pkg="gazebo_ros" type="spawn_model"
       args="-param assemble_plate_description
@@ -17,7 +17,7 @@
 
     <arg name = "storage_plate" default="storage_plate"/>
     <arg name = "storage_plate_color" default="Green" />
-    <param name="storage_plate_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_baseplate32.xacro 
+    <param name="storage_plate_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/lego_baseplate48.xacro 
                                                     plate_color:=$(arg storage_plate_color)"/>
     <node name="spawn_storage_plate" pkg="gazebo_ros" type="spawn_model"
       args="-param storage_plate_description

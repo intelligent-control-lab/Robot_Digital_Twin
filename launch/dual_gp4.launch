@@ -35,11 +35,11 @@
         file="$(find robot_digital_twin)/launch/gp4.launch">
         <arg name="namespace" value="/r2/"/>
         <arg name="launch_world" value="false"/>
-        <arg name="x" value="0.7951"/>
-        <arg name="y" value="0"/>
+        <arg name="x" value="0.8782"/>
+        <arg name="y" value="-0.0115"/>
         <arg name="z" value="0.9246"/>
         <arg name="roll" value="0"/>
         <arg name="pitch" value="0"/>
-        <arg name="yaw" value="3.14159265"/>
+        <arg name="yaw" value="3.15119196"/>
     </include>
 </launch>
