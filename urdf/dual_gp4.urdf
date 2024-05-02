@@ -198,13 +198,13 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="file:///root/catkin_ws/src/robot_digital_twin/meshes/eoat/tool_base_tilt.stl"/>
+        <mesh filename="file:///root/catkin_ws/src/robot_digital_twin/meshes/eoat/tool_base.stl"/>
       </geometry>
     </collision>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="file:///root/catkin_ws/src/robot_digital_twin/meshes/eoat/tool_base_tilt.stl"/>
+        <mesh filename="file:///root/catkin_ws/src/robot_digital_twin/meshes/eoat/tool_base.stl"/>
       </geometry>
       <material name="">
         <color rgba="0.8 0.8 0.8 1"/>
@@ -702,13 +702,13 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="file:///root/catkin_ws/src/robot_digital_twin/meshes/eoat/tool_base_tilt.stl"/>
+        <mesh filename="file:///root/catkin_ws/src/robot_digital_twin/meshes/eoat/tool_base.stl"/>
       </geometry>
     </collision>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="file:///root/catkin_ws/src/robot_digital_twin/meshes/eoat/tool_base_tilt.stl"/>
+        <mesh filename="file:///root/catkin_ws/src/robot_digital_twin/meshes/eoat/tool_base.stl"/>
       </geometry>
       <material name="">
         <color rgba="0.8 0.8 0.8 1"/>

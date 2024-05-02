@@ -249,7 +249,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool_base_tilt.stl"/>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool_base.stl"/>
         </geometry>
         <xacro:material_yaskawa_silver />
       </visual>
