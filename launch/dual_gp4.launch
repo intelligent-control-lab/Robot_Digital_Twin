@@ -5,8 +5,8 @@
     <arg name="gui" default="true"/>
     <arg name="headless" default="false"/>
     <arg name="debug" default="false"/>
-
-    <include file="$(find robot_digital_twin)/launch/lego_setup.launch"/>
+    <arg name="env" default="lego_setup"/>
+    <include file="$(find robot_digital_twin)/launch/$(arg env).launch"/>
 
     <include
         file="$(find robot_digital_twin)/launch/env.launch">
