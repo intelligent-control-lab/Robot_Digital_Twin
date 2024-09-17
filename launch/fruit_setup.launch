@@ -1,0 +1,15 @@
+<launch>
+    <arg name = "pear" default="pear"/>
+    <param name="pear_description" command="$(find xacro)/xacro $(find robot_digital_twin)/urdf/pear.xacro 
+                                                    fruit_color:='Green'"/>
+    <node name="spawn_pear" pkg="gazebo_ros" type="spawn_model"
+      args="-param pear_description
+            -urdf 
+            -x 0.5
+            -y 0
+            -z 0.1
+            -model $(arg pear)"
+      respawn="false" output="screen">
+    </node>
+
+</launch>

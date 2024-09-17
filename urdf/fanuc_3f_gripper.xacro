@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot 
+  name="fanuc_lrmate200id7l" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="fanuc_lrmate200id7l">
+  <xacro:include 
+    filename="$(find robot_digital_twin)/urdf/common_materials.xacro"/>
+  
+  <link name = "world"/>
+
+  <joint name = "world_fixed"
+    type = "fixed">
+    <parent link = "world" />
+    <child link = "base" />
+  </joint>
+
+  <!-- ROS-Industrial 'base' frame: base_link to Fanuc World Coordinates transform -->
+    <link name="base" />
+    <joint name="base_link-base" type="fixed">
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <parent link="base"/>
+      <child link="base_link"/>
+    </joint>
+
+    <!-- links: main serial chain -->
+    <link name="base_link">
+     <inertial>
+      <origin
+        xyz="-0.073983 0.00022734 0.13031"
+        rpy="0 0 0" />
+      <mass
+        value="42.212" />
+      <inertia
+        ixx="0.64296"
+        ixy="0.0012624"
+        ixz="-0.068804"
+        iyy="1.2709"
+        iyz="-0.0010754"
+        izz="1.3497" />
+    </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/lrmate200id_7L/base_link.stl"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/lrmate200id_7L/base_link.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="link_1">
+    <inertial>
+      <origin
+        xyz="0.058962 0.24363 -0.018725"
+        rpy="0 0 0" />
+      <mass
+        value="37.265" />
+      <inertia
+        ixx="0.95018"
+        ixy="-0.14402"
+        ixz="-0.064915"
+        iyy="1.0578"
+        iyz="0.037699"
+        izz="1.094" />
+    </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/lrmate200id_7L/link_1.stl"/>
+        </geometry>
+        <xacro:material_fanuc_yellow />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/lrmate200id_7L/link_1.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="link_2">
+    <inertial>
+      <origin
+        xyz="3.5083E-05 0.39008 0.15036"
+        rpy="0 0 0" />
+      <mass
+        value="22.632" />
+      <inertia
+        ixx="1.7745"
+        ixy="-0.0054743"
+        ixz="0.00063015"
+        iyy="0.15511"
+        iyz="-0.09224"
+        izz="1.826" />
+    </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/lrmate200id_7L/link_2.stl"/>
+        </geometry>
+        <xacro:material_fanuc_yellow />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/lrmate200id_7L/link_2.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="link_3">
+    <inertial>
+      <origin
+        xyz="0.086423 0.14427 -0.035793"
+        rpy="0 0 0" />
+      <mass
+        value="28.467" />
+      <inertia
+        ixx="0.65771"
+        ixy="-0.13627"
+        ixz="-0.026219"
+        iyy="0.52683"
+        iyz="0.051956"
+        izz="0.69722" />
+    </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/lrmate200id_7L/link_3.stl"/>
+        </geometry>
+        <xacro:material_fanuc_yellow />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/lrmate200id_7L/link_3.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="link_4">
+    <inertial>
+      <origin
+        xyz="0.37337 0.00033491 0.012656"
+        rpy="0 0 0" />
+      <mass
+        value="7.629" />
+      <inertia
+        ixx="0.018151"
+        ixy="-0.00033527"
+        ixz="-0.031589"
+        iyy="0.48072"
+        iyz="3.3917E-05"
+        izz="0.47647" />
+    </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/lrmate200id_7L/link_4.stl"/>
+        </geometry>
+        <xacro:material_fanuc_yellow />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/lrmate200id_7L/link_4.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="link_5">
+    <inertial>
+      <origin
+        xyz="0.062818 3.3289E-05 0.0048991"
+        rpy="0 0 0" />
+      <mass
+        value="2.5794" />
+      <inertia
+        ixx="0.015161"
+        ixy="-2.4835E-06"
+        ixz="0.0016647"
+        iyy="0.021382"
+        iyz="-2.248E-06"
+        izz="0.013473" />
+    </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/lrmate200id_7L/link_5.stl"/>
+        </geometry>
+        <xacro:material_fanuc_yellow />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/lrmate200id_7L/link_5.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="link_6">
+    <inertial>
+      <origin
+        xyz="0.00015982 -0.00063018 -0.008266"
+        rpy="0 0 0" />
+      <mass
+        value="0.10811" />
+      <inertia
+        ixx="9.0129E-05"
+        ixy="-1.0891E-08"
+        ixz="9.1598E-09"
+        iyy="9.2026E-05"
+        iyz="-2.749E-07"
+        izz="0.00017818" />
+    </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/lrmate200id_7L/link_6.stl"/>
+        </geometry>
+        <xacro:material_fanuc_black />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/lrmate200id_7L/link_6.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="fts">
+      <collision>
+        <origin xyz="0 0 0" rpy=" 0 0 0"/>
+        <geometry>
+          <cylinder length="0.041" radius="0.035"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder length="0.041" radius="0.035"/>
+        </geometry>
+      </visual>
+      <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      </inertial>
+    </link>
+
+    <!-- gripper -->
+
+    <link name="finger_A_link_0">
+      <visual>
+        <origin rpy="0 0 0" xyz="0.020 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/visual/link_0.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="0 3.1416 -1.5708" xyz="-0.0455 0.0414 0.036"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/collision/link_0.STL"/>
+        </geometry>
+        <gazebo>
+          <mu>150000</mu>        <!-- Lateral friction coefficient -->
+          <mu2>0.0</mu2>      <!-- Second friction coefficient for anisotropic friction -->
+          <kp>100000</kp>     <!-- Spring coefficient (stiffness) -->
+          <kd>1</kd>          <!-- Damping coefficient -->
+        </gazebo>
+      </collision>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.05"/>
+        <inertia ixx="0.01" ixy="-0.00002" ixz="0.00001" iyy="0.0008" iyz="0" izz="0.001"/>
+      </inertial>
+    </link>
+    <link name="finger_A_link_1">
+      <visual>
+        <origin rpy="0 0 -0.47124" xyz="0.050 -.028 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/visual/link_1.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="0 0 -0.47124" xyz="0.050 -.028 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/collision/link_1.STL"/>
+        </geometry>
+        <gazebo>
+          <mu>150000</mu>        <!-- Lateral friction coefficient -->
+          <mu2>0.0</mu2>      <!-- Second friction coefficient for anisotropic friction -->
+          <kp>100000</kp>     <!-- Spring coefficient (stiffness) -->
+          <kd>1</kd>          <!-- Damping coefficient -->
+        </gazebo>
+      </collision>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.15"/>
+        <inertia ixx="0.001859" ixy="-0.000376" ixz="0.000028" iyy="0.012756" iyz="0" izz="0.0024"/>
+      </inertial>
+    </link>
+    <link name="finger_A_link_2">
+      <!--
+        NOTE: This link has an offset in the z-direction based on the models that were
+        used to generate grap-it poses.  With the offset below the model appears visually
+        correct, but it is suspect.
+        -->
+      <visual>
+        <origin rpy="0 0 0" xyz="0.039 0 0.0075"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/visual/link_2.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0.039 0 0.0075"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/collision/link_2.STL"/>
+        </geometry>
+        <gazebo>
+          <mu>150000</mu>        <!-- Lateral friction coefficient -->
+          <mu2>0.0</mu2>      <!-- Second friction coefficient for anisotropic friction -->
+          <kp>100000</kp>     <!-- Spring coefficient (stiffness) -->
+          <kd>1</kd>          <!-- Damping coefficient -->
+        </gazebo>
+      </collision>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.15"/>
+        <inertia ixx="0.001859" ixy="-0.000376" ixz="0.000028" iyy="0.012756" iyz="0" izz="0.0024"/>
+      </inertial>
+    </link>
+    <link name="finger_A_link_3">
+      <visual>
+        <origin rpy="0 0 0.47124" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/visual/link_3.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="0 0 0.47124" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/collision/link_3.STL"/>
+        </geometry>
+        <gazebo>
+          <mu>150000</mu>        <!-- Lateral friction coefficient -->
+          <mu2>0.0</mu2>      <!-- Second friction coefficient for anisotropic friction -->
+          <kp>100000</kp>     <!-- Spring coefficient (stiffness) -->
+          <kd>1</kd>          <!-- Damping coefficient -->
+        </gazebo>
+      </collision>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.05"/>
+        <inertia ixx="0.001239" ixy="-0.000251" ixz="0.000019" iyy="0.00085" iyz="0" izz="0.001632"/>
+      </inertial>
+    </link>
+    <joint name="finger_A_joint_1" type="revolute">
+      <parent link="finger_A_link_0"/>
+      <child link="finger_A_link_1"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="0 0 0" xyz="0.020 0 0"/>
+      <limit effort="100" lower="0" upper="1.2217" velocity="1"/> 
+      <!-- 0 to 70 deg -->
+    </joint>
+    <joint name="finger_A_joint_2" type="revolute">
+      <parent link="finger_A_link_1"/>
+      <child link="finger_A_link_2"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="0 0 -0.47124" xyz="0.050 -.028 0"/>
+      <limit effort="100" lower="0" upper="1.5708" velocity="1"/> 
+      <!-- 0 to 90 deg -->
+    </joint>
+    <joint name="finger_A_joint_3" type="revolute">
+      <parent link="finger_A_link_2"/>
+      <child link="finger_A_link_3"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="0 0 0" xyz="0.039 0 0"/>
+      <limit effort="100" lower="-0.90757" upper="0.80285" velocity="1"/> 
+      <!-- -52 to 46 deg -->
+    </joint>
+
+    <link name="finger_B_link_0">
+      <visual>
+        <origin rpy="0 0 0" xyz="0.020 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/visual/link_0.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="0 3.1416 -1.5708" xyz="-0.0455 0.0414 0.036"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/collision/link_0.STL"/>
+        </geometry>
+        <gazebo>
+          <mu>150000</mu>        <!-- Lateral friction coefficient -->
+          <mu2>0.0</mu2>      <!-- Second friction coefficient for anisotropic friction -->
+          <kp>100000</kp>     <!-- Spring coefficient (stiffness) -->
+          <kd>1</kd>          <!-- Damping coefficient -->
+        </gazebo>
+      </collision>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.05"/>
+        <inertia ixx="0.01" ixy="-0.00002" ixz="0.00001" iyy="0.0008" iyz="0" izz="0.001"/>
+      </inertial>
+    </link>
+    <link name="finger_B_link_1">
+      <visual>
+        <origin rpy="0 0 -0.47124" xyz="0.050 -.028 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/visual/link_1.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="0 0 -0.47124" xyz="0.050 -.028 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/collision/link_1.STL"/>
+        </geometry>
+        <gazebo>
+          <mu>150000</mu>        <!-- Lateral friction coefficient -->
+          <mu2>0.0</mu2>      <!-- Second friction coefficient for anisotropic friction -->
+          <kp>100000</kp>     <!-- Spring coefficient (stiffness) -->
+          <kd>1</kd>          <!-- Damping coefficient -->
+        </gazebo>
+      </collision>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.15"/>
+        <inertia ixx="0.001859" ixy="-0.000376" ixz="0.000028" iyy="0.012756" iyz="0" izz="0.0024"/>
+      </inertial>
+    </link>
+    <link name="finger_B_link_2">
+      <!--
+        NOTE: This link has an offset in the z-direction based on the models that were
+        used to generate grap-it poses.  With the offset below the model appears visually
+        correct, but it is suspect.
+        -->
+      <visual>
+        <origin rpy="0 0 0" xyz="0.039 0 0.0075"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/visual/link_2.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0.039 0 0.0075"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/collision/link_2.STL"/>
+        </geometry>
+        <gazebo>
+          <mu>150000</mu>        <!-- Lateral friction coefficient -->
+          <mu2>0.0</mu2>      <!-- Second friction coefficient for anisotropic friction -->
+          <kp>100000</kp>     <!-- Spring coefficient (stiffness) -->
+          <kd>1</kd>          <!-- Damping coefficient -->
+        </gazebo>
+      </collision>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.15"/>
+        <inertia ixx="0.001859" ixy="-0.000376" ixz="0.000028" iyy="0.012756" iyz="0" izz="0.0024"/>
+      </inertial>
+    </link>
+    <link name="finger_B_link_3">
+      <visual>
+        <origin rpy="0 0 0.47124" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/visual/link_3.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="0 0 0.47124" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/collision/link_3.STL"/>
+        </geometry>
+        <gazebo>
+          <mu>150000</mu>        <!-- Lateral friction coefficient -->
+          <mu2>0.0</mu2>      <!-- Second friction coefficient for anisotropic friction -->
+          <kp>100000</kp>     <!-- Spring coefficient (stiffness) -->
+          <kd>1</kd>          <!-- Damping coefficient -->
+        </gazebo>
+      </collision>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.05"/>
+        <inertia ixx="0.001239" ixy="-0.000251" ixz="0.000019" iyy="0.00085" iyz="0" izz="0.001632"/>
+      </inertial>
+    </link>
+    <joint name="finger_B_joint_1" type="revolute">
+      <parent link="finger_B_link_0"/>
+      <child link="finger_B_link_1"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="0 0 0" xyz="0.020 0 0"/>
+      <limit effort="100" lower="0" upper="1.2217" velocity="1"/> 
+      <!-- 0 to 70 deg -->
+    </joint>
+    <joint name="finger_B_joint_2" type="revolute">
+      <parent link="finger_B_link_1"/>
+      <child link="finger_B_link_2"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="0 0 -0.47124" xyz="0.050 -.028 0"/>
+      <limit effort="100" lower="0" upper="1.5708" velocity="1"/> 
+      <!-- 0 to 90 deg -->
+    </joint>
+    <joint name="finger_B_joint_3" type="revolute">
+      <parent link="finger_B_link_2"/>
+      <child link="finger_B_link_3"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="0 0 0" xyz="0.039 0 0"/>
+      <limit effort="100" lower="-0.90757" upper="0.80285" velocity="1"/> 
+      <!-- -52 to 46 deg -->
+    </joint>
+    
+    <link name="finger_C_link_0">
+      <visual>
+        <origin rpy="0 0 0" xyz="0.020 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/visual/link_0.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="0 3.1416 -1.5708" xyz="-0.0455 0.0414 0.036"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/collision/link_0.STL"/>
+        </geometry>
+        <gazebo>
+          <mu>150000</mu>        <!-- Lateral friction coefficient -->
+          <mu2>0.0</mu2>      <!-- Second friction coefficient for anisotropic friction -->
+          <kp>100000</kp>     <!-- Spring coefficient (stiffness) -->
+          <kd>1</kd>          <!-- Damping coefficient -->
+        </gazebo>
+      </collision>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.05"/>
+        <inertia ixx="0.01" ixy="-0.00002" ixz="0.00001" iyy="0.0008" iyz="0" izz="0.001"/>
+      </inertial>
+    </link>
+    <link name="finger_C_link_1">
+      <visual>
+        <origin rpy="0 0 -0.47124" xyz="0.050 -.028 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/visual/link_1.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="0 0 -0.47124" xyz="0.050 -.028 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/collision/link_1.STL"/>
+        </geometry>
+        <gazebo>
+          <mu>150000</mu>        <!-- Lateral friction coefficient -->
+          <mu2>0.0</mu2>      <!-- Second friction coefficient for anisotropic friction -->
+          <kp>100000</kp>     <!-- Spring coefficient (stiffness) -->
+          <kd>1</kd>          <!-- Damping coefficient -->
+        </gazebo>
+      </collision>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.15"/>
+        <inertia ixx="0.001859" ixy="-0.000376" ixz="0.000028" iyy="0.012756" iyz="0" izz="0.0024"/>
+      </inertial>
+    </link>
+    <link name="finger_C_link_2">
+      <!--
+        NOTE: This link has an offset in the z-direction based on the models that were
+        used to generate grap-it poses.  With the offset below the model appears visually
+        correct, but it is suspect.
+        -->
+      <visual>
+        <origin rpy="0 0 0" xyz="0.039 0 0.0075"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/visual/link_2.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0.039 0 0.0075"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/collision/link_2.STL"/>
+        </geometry>
+        <gazebo>
+          <mu>150000</mu>        <!-- Lateral friction coefficient -->
+          <mu2>0.0</mu2>      <!-- Second friction coefficient for anisotropic friction -->
+          <kp>100000</kp>     <!-- Spring coefficient (stiffness) -->
+          <kd>1</kd>          <!-- Damping coefficient -->
+        </gazebo>
+      </collision>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.15"/>
+        <inertia ixx="0.001859" ixy="-0.000376" ixz="0.000028" iyy="0.012756" iyz="0" izz="0.0024"/>
+      </inertial>
+    </link>
+    <link name="finger_C_link_3">
+      <visual>
+        <origin rpy="0 0 0.47124" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/visual/link_3.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="0 0 0.47124" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/collision/link_3.STL"/>
+        </geometry>
+        <gazebo>
+          <mu>150000</mu>        <!-- Lateral friction coefficient -->
+          <mu2>0.0</mu2>      <!-- Second friction coefficient for anisotropic friction -->
+          <kp>100000</kp>     <!-- Spring coefficient (stiffness) -->
+          <kd>1</kd>          <!-- Damping coefficient -->
+        </gazebo>
+      </collision>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.05"/>
+        <inertia ixx="0.001239" ixy="-0.000251" ixz="0.000019" iyy="0.00085" iyz="0" izz="0.001632"/>
+      </inertial>
+    </link>
+    <joint name="finger_C_joint_1" type="revolute">
+      <parent link="finger_C_link_0"/>
+      <child link="finger_C_link_1"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="0 0 0" xyz="0.020 0 0"/>
+      <limit effort="100" lower="0" upper="1.2217" velocity="1"/> 
+      <!-- 0 to 70 deg -->
+    </joint>
+    <joint name="finger_C_joint_2" type="revolute">
+      <parent link="finger_C_link_1"/>
+      <child link="finger_C_link_2"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="0 0 -0.47124" xyz="0.050 -.028 0"/>
+      <limit effort="100" lower="0" upper="1.5708" velocity="1"/> 
+      <!-- 0 to 90 deg -->
+    </joint>
+    <joint name="finger_C_joint_3" type="revolute">
+      <parent link="finger_C_link_2"/>
+      <child link="finger_C_link_3"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="0 0 0" xyz="0.039 0 0"/>
+      <limit effort="100" lower="-0.90757" upper="0.80285" velocity="1"/> 
+      <!-- -52 to 46 deg -->
+    </joint>
+
+    <link name="palm">
+      <visual>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/visual/palm.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/robotiq-3f-gripper_articulated/collision/palm.STL"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="1.3"/>
+        <inertia ixx="0.006012" ixy="0.000079" ixz="-0.00024" iyy="0.012892" iyz="0" izz="0.002435"/>
+      </inertial>
+    </link>
+
+    <joint name="finger_A_joint_0" type="revolute">
+      <parent link="palm"/>
+      <child link="finger_A_link_0"/>
+      <axis xyz="0 1 0"/>
+      <origin rpy="0 0 1.5708" xyz="0.0455 0.0214 0"/>
+      <limit effort="100" lower="0.0" upper="0.0" velocity="0"/>
+    </joint>
+    <joint name="finger_B_joint_0" type="revolute">
+      <parent link="palm"/>
+      <child link="finger_B_link_0"/>
+      <axis xyz="0 1 0"/>
+      <origin rpy="0 3.1416 -1.5708" xyz="-0.0455 0.0214 -0.036"/>
+      <limit effort="100" lower="-0.27925" upper="0.17453" velocity="1"/> 
+      <!-- -16 to 10 deg -->
+    </joint>
+    <joint name="finger_C_joint_0" type="revolute">
+      <parent link="palm"/>
+      <child link="finger_C_link_0"/>
+      <axis xyz="0 1 0"/>
+      <origin rpy="0 3.1416 -1.5708" xyz="-0.0455 0.0214 0.036"/>
+      <limit effort="100" lower="-0.17453" upper="0.27925" velocity="1"/> 
+      <!-- -10 to 16 deg -->
+    </joint>
+
+    <joint name="fts_palm_joint" type="fixed">
+      <parent link="fts"/>
+      <child link="palm"/>
+      <axis xyz="0 0 0"/>
+      <origin rpy="1.5708 0 1.047" xyz="0 0 0.047"/> <!-- need to fix the x value -->
+      <limit effort="100" lower="-6.2831853" upper="6.2831853" velocity="100"/>
+    </joint>
+
+    <!-- gripper end -->
+
+    <!-- joints: main serial chain -->
+    <joint name="joint_1" type="continuous">
+      <origin xyz="0 0 0.330" rpy="0 0 0" />
+      <parent link="base_link" />
+      <child link="link_1" />
+      <axis xyz="0 0 1" />
+      <!-- <limit effort="0" lower="${radians(-170)}" upper="${radians(170)}" velocity="${radians(370)}" /> -->
+    </joint>
+    <joint name="joint_2" type="continuous">
+      <origin xyz="0.050 0 0" rpy="0 0 0"/>
+      <parent link="link_1" />
+      <child link="link_2" />
+      <axis xyz="0 1 0" />
+      <!-- <limit effort="100" lower="${radians(-100)}" upper="${radians(145)}" velocity="${radians(310)}" /> -->
+    </joint>
+    <joint name="joint_3" type="continuous">
+      <origin xyz="0 0 0.440" rpy="0 0 0"/>
+      <parent link="link_2" />
+      <child link="link_3" />
+      <axis xyz="0 -1 0" />
+      <!-- <limit effort="0" lower="${radians(-70)}" upper="${radians(213)}" velocity="${radians(410)}" /> -->
+    </joint>
+    <joint name="joint_4" type="continuous">
+      <origin xyz="0 0 0.035" rpy="0 0 0"/>
+      <parent link="link_3"/>
+      <child link="link_4"/>
+      <axis xyz="-1 0 0"/>
+      <!-- <limit effort="0" lower="${radians(-190)}" upper="${radians(190)}" velocity="${radians(550)}" /> -->
+    </joint>
+    <joint name="joint_5" type="continuous">
+      <origin xyz="0.420 0 0" rpy="0 0 0"/>
+      <parent link="link_4"/>
+      <child link="link_5"/>
+      <axis xyz="0 -1 0"/>
+      <!-- <limit effort="0" lower="${radians(-125)}" upper="${radians(125)}" velocity="${radians(545)}" /> -->
+    </joint>
+    <joint name="joint_6" type="continuous">
+      <origin xyz="0.080 0 0" rpy="0 0 0"/>
+      <parent link="link_5"/>
+      <child link="link_6"/>
+      <axis xyz="-1 0 0"/>
+      <!-- <limit effort="0" lower="${radians(-360)}" upper="${radians(360)}" velocity="${radians(1000)}" /> -->
+    </joint>
+
+    <joint name="link_6_fts" type="fixed">
+      <origin xyz="${0.0437/2} 0 0" rpy="0 ${pi/2.0} 0" />
+      <parent link="link_6" />
+      <child link="fts" />
+    </joint>
+
+  </xacro:macro>
+
+  <xacro:fanuc_lrmate200id7l>
+  </xacro:fanuc_lrmate200id7l>
+
+  <xacro:macro name="transmission_block" params="joint_name">
+    <transmission name = "trans_${joint_name}">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name = "${joint_name}">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name = "${joint_name}_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+  <xacro:transmission_block joint_name = "joint_1"/>
+  <xacro:transmission_block joint_name = "joint_2"/>
+  <xacro:transmission_block joint_name = "joint_3"/>
+  <xacro:transmission_block joint_name = "joint_4"/>
+  <xacro:transmission_block joint_name = "joint_5"/>
+  <xacro:transmission_block joint_name = "joint_6"/>
+  <xacro:transmission_block joint_name = "finger_A_joint_0"/>
+  <xacro:transmission_block joint_name = "finger_A_joint_1"/>
+  <xacro:transmission_block joint_name = "finger_A_joint_2"/>
+  <xacro:transmission_block joint_name = "finger_A_joint_3"/>
+  <xacro:transmission_block joint_name = "finger_B_joint_0"/>
+  <xacro:transmission_block joint_name = "finger_B_joint_1"/>
+  <xacro:transmission_block joint_name = "finger_B_joint_2"/>
+  <xacro:transmission_block joint_name = "finger_B_joint_3"/>
+  <xacro:transmission_block joint_name = "finger_C_joint_0"/>
+  <xacro:transmission_block joint_name = "finger_C_joint_1"/>
+  <xacro:transmission_block joint_name = "finger_C_joint_2"/>
+  <xacro:transmission_block joint_name = "finger_C_joint_3"/>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <!-- <robotNamespace>/fanuc_gazebo</robotNamespace> -->
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+   <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
+        <arm>
+           <arm_name>fanuc_arm_/fanuc_gazebo/</arm_name>
+           <palm_link> link_6  </palm_link>
+           <gripper_link> finger_A_link_0 </gripper_link>
+           <gripper_link> finger_A_link_1 </gripper_link>
+           <gripper_link> finger_A_link_2 </gripper_link>
+           <gripper_link> finger_A_link_3 </gripper_link>
+           <gripper_link> finger_B_link_0 </gripper_link>
+           <gripper_link> finger_B_link_1 </gripper_link>
+           <gripper_link> finger_B_link_2 </gripper_link>
+           <gripper_link> finger_B_link_3 </gripper_link>
+           <gripper_link> finger_C_link_0 </gripper_link>
+           <gripper_link> finger_C_link_1 </gripper_link>
+           <gripper_link> finger_C_link_2 </gripper_link>
+           <gripper_link> finger_C_link_3 </gripper_link>
+        </arm>
+       <forces_angle_tolerance>90</forces_angle_tolerance>
+       <update_rate>20</update_rate>
+       <grip_count_threshold>2</grip_count_threshold>
+       <max_grip_count>50</max_grip_count>
+       <release_tolerance>0.005</release_tolerance>
+       <disable_collisions_on_attach>true</disable_collisions_on_attach>
+       <contact_topic>__default_topic__</contact_topic>
+    </plugin>
+</gazebo>
+  
+  <gazebo reference="fts_palm_joint">
+      <provideFeedback>true</provideFeedback>
+  </gazebo>
+  <gazebo>
+    <provideFeedback>true</provideFeedback>
+      <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+      <!-- <robotNamespace>/fanuc_gazebo</robotNamespace> -->
+          <alwaysOn> true </alwaysOn>
+          <updateRate>125.0</updateRate>
+          <topicName>ft_sensor</topicName>
+          <jointName>fts_palm_joint</jointName>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.001</stddev>
+          </noise>
+      </plugin>
+  </gazebo>
+
+  <gazebo reference="base">
+     <material>Gazebo/Black</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo> 
+  <gazebo reference="link_1">
+     <material>Gazebo/Yellow</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo>
+  <gazebo reference="link_2">
+     <material>Gazebo/Yellow</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo>
+  <gazebo reference="link_3">
+     <material>Gazebo/Yellow</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo>
+  <gazebo reference="link_4">
+     <material>Gazebo/Yellow</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo>
+  <gazebo reference="link_5">
+     <material>Gazebo/Yellow</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo>
+  <gazebo reference="link_6">
+     <material>Gazebo/Black</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo>
+  <gazebo reference="fts">
+     <material>Gazebo/Grey</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo> 
+  <gazebo reference="palm">
+     <material>Gazebo/Black</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo> 
+  <gazebo reference="finger_A_link_0">
+     <material>Gazebo/Grey</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo> 
+  <gazebo reference="finger_A_link_2">
+     <material>Gazebo/Grey</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo> 
+  <gazebo reference="finger_B_link_0">
+     <material>Gazebo/Grey</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo> 
+  <gazebo reference="finger_B_link_2">
+     <material>Gazebo/Grey</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo> 
+  <gazebo reference="finger_C_link_0">
+     <material>Gazebo/Grey</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo> 
+  <gazebo reference="finger_C_link_2">
+     <material>Gazebo/Grey</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo> 
+</robot>
