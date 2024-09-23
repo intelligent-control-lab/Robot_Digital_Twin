@@ -7,13 +7,13 @@ from gazebo_msgs.srv import SetModelState
 import rosnode
 
 class Brick():
-    def __init__(self, graph_node, lego_lib):
+    def __init__(self, graph_node, lego_lib, brick_cnt):
         self.brick_id = self.read_brick_id(graph_node["brick_id"])
         self.x = graph_node["x"]
         self.y = graph_node["y"]
-        self.z = graph_node["z"]
+        self.z = graph_node["z"] + 1
         self.ori = graph_node["ori"]
-        self.seq = graph_node["brick_seq"]
+        self.seq = brick_cnt[self.brick_id]
         self.height = lego_lib[str(self.brick_id)]["height"]
         self.width = lego_lib[str(self.brick_id)]["width"]
         self.name = "b" + str(self.brick_id) + "_" + str(self.seq)
@@ -43,9 +43,15 @@ class Lego():
         self.brick_len_offset = 0.0002
         self.task_graph = load_json(task_fname)
         self.lego_lib = load_json(lego_lib)
+        self.brick_cnt = dict()
 
     def parse_brick(self, graph_node):
-        return Brick(graph_node, self.lego_lib)
+        brick_id = graph_node["brick_id"]
+        if(brick_id not in self.brick_cnt.keys()):
+            self.brick_cnt[brick_id] = 1
+        else:
+            self.brick_cnt[brick_id] += 1
+        return Brick(graph_node, self.lego_lib, self.brick_cnt)
     
     def calc_brick_loc(self, graph_node):
         brick = self.parse_brick(graph_node)
@@ -112,6 +118,7 @@ class Lego():
                 name = "b" + str(bid) + "_" + str(cnt)
                 ret = self.set_pose(np.identity(4), name)
                 if(not ret):
+                    self.brick_cnt[bid] = 0
                     break
 
 if __name__ == '__main__':

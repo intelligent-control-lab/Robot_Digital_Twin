@@ -74,6 +74,9 @@
     <xacro:if value="${color == 'Grey'}">
      <material>Gazebo/Grey</material>
     </xacro:if>
+    <xacro:if value="${color == 'Purple'}">
+     <material>Gazebo/Purple</material>
+    </xacro:if>
     <visual> <transparency> 0 </transparency> </visual>
   </gazebo>
   </xacro:macro>
