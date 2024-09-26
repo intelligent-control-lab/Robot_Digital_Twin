@@ -22,7 +22,7 @@
     </include>
 
     <include
-        file="$(find robot_digital_twin)/launch/g1_launch.launch">
+        file="$(find robot_digital_twin)/launch/g1.launch">
         <arg name="paused" value="$(arg paused)"/>
         <arg name="use_sim_time" value="$(arg use_sim_time)"/>
         <arg name="gui" value="$(arg gui)"/>
