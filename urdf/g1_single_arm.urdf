@@ -236,18 +236,7 @@
       </geometry>
     </collision>
   </link>
-  <link name="virtual_right_wrist_link">
-  <visual>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <geometry>
-      <sphere radius="0.05"/>
-      <material name="Red">
-        <color rgba="1.0 0. 0. 1"/>
-      </material>
-    </geometry>
-    
-  </visual>
-  </link>
+  <link name="virtual_right_wrist_link"/>
   <joint name="virtual_right_wrist_joint" type="fixed">
     <parent link="right_wrist_roll_rubber_hand"/>
     <child link="virtual_right_wrist_link"/>
@@ -327,8 +316,67 @@
     </plugin>
   </gazebo>
 
-  <gazebo reference="virtual_right_wrist_link">
-    <material>Gazebo/Red</material>
+  <gazebo reference="torso_link">
+    <visual>
+      <material>
+        <ambient>0.7 0.7 0.7 1</ambient>
+      </material>
+    </visual>
   </gazebo>
 
+  <gazebo reference="logo_link">
+    <visual>
+      <material>
+        <ambient>0.2 0.2 0.2 1</ambient>
+      </material>
+    </visual>
+  </gazebo>
+
+  <gazebo reference="head_link">
+    <visual>
+      <material>
+        <ambient>0.2 0.2 0.2 1</ambient>
+      </material>
+    </visual>
+  </gazebo>
+
+  <gazebo reference="right_shoulder_pitch_link">
+    <visual>
+      <material>
+        <ambient>0.7 0.7 0.7 1</ambient>
+      </material>
+    </visual>
+  </gazebo>
+
+  <gazebo reference="right_shoulder_roll_link">
+    <visual>
+      <material>
+        <ambient>0.7 0.7 0.7 1</ambient>
+      </material>
+    </visual>
+  </gazebo>
+
+  <gazebo reference="right_shoulder_yaw_link">
+    <visual>
+      <material>
+        <ambient>0.7 0.7 0.7 1</ambient>
+      </material>
+    </visual>
+  </gazebo>
+
+  <gazebo reference="right_elbow_link">
+    <visual>
+      <material>
+        <ambient>0.7 0.7 0.7 1</ambient>
+      </material>
+    </visual>
+  </gazebo>
+
+  <gazebo reference="right_wrist_roll_rubber_hand">
+    <visual>
+      <material>
+        <ambient>0.7 0.7 0.7 1</ambient>
+      </material>
+    </visual>
+  </gazebo>
 </robot>
