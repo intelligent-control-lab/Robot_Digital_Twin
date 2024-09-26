@@ -4,9 +4,7 @@
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
-  <arg name="model" default="$(find robot_digital_twin)/urdf/g1_single_arm.urdf"/>
-
-  <arg name="namespace" default="/fanuc_gazebo/"/>
+  <arg name="namespace" default="/g1_single_arm"/>
   <arg name="launch_world" default="true"/>
   <arg name="x" default="0"/>
   <arg name="y" default="0"/>
@@ -15,7 +13,7 @@
   <arg name="pitch" default="0"/>
   <arg name="yaw" default="0"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
+  <param name="robot_description" command="$(find xacro)/xacro $(find robot_digital_twin)/urdf/g1_single_arm.urdf"/>
 
   <rosparam file="$(find robot_digital_twin)/launch/g1_control.yaml" command="load"/>
 
@@ -36,13 +34,13 @@
         -z $(arg z)
         -R $(arg roll)
         -P $(arg pitch)
-        -Y $(arg yaw) 
-        -unpause 
-        -urdf 
-        -model g1_single_arm 
+        -Y $(arg yaw)
+        -unpause
+        -urdf
+        -model g1_single_arm
         -param robot_description"/>
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"
-  ns="/g1_single_arm" args="joint_state_controller arm_position_controller"/>
+  ns="$(arg namespace)" args="joint_state_controller arm_position_controller"/>
 </launch>
