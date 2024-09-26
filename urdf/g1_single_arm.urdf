@@ -230,7 +230,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="-1.57 0 0"/>
       <geometry>
         <mesh filename="package://robot_digital_twin/meshes/g1/right_wrist_roll_rubber_hand.STL"/>
       </geometry>
