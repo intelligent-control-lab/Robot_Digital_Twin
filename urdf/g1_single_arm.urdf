@@ -1,6 +1,51 @@
 <robot name="g1_single_arm">
   <link name="world"/>
 
+  <!-- Torso -->
+  <link name="waist_yaw_link">
+    <inertial>
+      <origin xyz="0.003964 0 0.018769" rpy="0 0 0"/>
+      <mass value="0.244"/>
+      <inertia ixx="9.9587E-05" ixy="-1.833E-06" ixz="-1.2617E-05" iyy="0.00012411" iyz="-1.18E-07" izz="0.00015586"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/waist_yaw_link.STL"/>
+      </geometry>
+      <material name="white">
+        <color rgba="0.7 0.7 0.7 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="waist_yaw_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="waist_yaw_link"/>
+  </joint>
+  <link name="waist_roll_link">
+    <inertial>
+      <origin xyz="0 -0.000236 0.010111" rpy="0 0 0"/>
+      <mass value="0.047"/>
+      <inertia ixx="7.515E-06" ixy="0" ixz="0" iyy="6.398E-06" iyz="9.9E-08" izz="3.988E-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/waist_roll_link.STL"/>
+      </geometry>
+      <material name="white">
+        <color rgba="0.7 0.7 0.7 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="waist_roll_joint" type="fixed">
+    <origin xyz="-0.0039635 0 0.035" rpy="0 0 0"/>
+    <parent link="waist_yaw_link"/>
+    <child link="waist_roll_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.52" upper="0.52" effort="50" velocity="37"/>
+  </joint>
   <link name="torso_link">
     <inertial>
       <origin xyz="0.002601 0.000257 0.153719" rpy="0 0 0"/>
@@ -23,10 +68,9 @@
       </geometry>
     </collision>
   </link>
-
   <joint name="waist_pitch_joint" type="revolute">
     <origin xyz="0 0 0.019" rpy="0 0 0"/>
-    <parent link="world"/>
+    <parent link="waist_roll_link"/>
     <child link="torso_link"/>
     <axis xyz="0 1 0"/>
     <limit lower="-0.52" upper="0.52" effort="50" velocity="37"/>
@@ -314,6 +358,22 @@
       <robotNamespace>/g1_single_arm</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
+  </gazebo>
+
+  <gazebo reference="waist_yaw_link">
+    <visual>
+      <material>
+        <ambient>0.7 0.7 0.7 1</ambient>
+      </material>
+    </visual>
+  </gazebo>
+
+  <gazebo reference="waist_roll_link">
+    <visual>
+      <material>
+        <ambient>0.7 0.7 0.7 1</ambient>
+      </material>
+    </visual>
   </gazebo>
 
   <gazebo reference="torso_link">
