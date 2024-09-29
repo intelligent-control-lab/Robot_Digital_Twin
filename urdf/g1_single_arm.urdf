@@ -1,6 +1,28 @@
 <robot name="g1_single_arm">
   <link name="world"/>
 
+  <link name="pelvis">
+    <inertial>
+      <origin xyz="0 0 -0.07605" rpy="0 0 0"/>
+      <mass value="3.813"/>
+      <inertia ixx="0.010549" ixy="0" ixz="2.1E-06" iyy="0.0093089" iyz="0" izz="0.0079184"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/pelvis.STL"/>
+      </geometry>
+      <material name="dark">
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="pelvis_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="pelvis"/>
+  </joint>
+
   <!-- Torso -->
   <link name="waist_yaw_link">
     <inertial>
@@ -18,10 +40,12 @@
       </material>
     </visual>
   </link>
-  <joint name="waist_yaw_joint" type="fixed">
+  <joint name="waist_yaw_joint" type="revolute">
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="world"/>
+    <parent link="pelvis"/>
     <child link="waist_yaw_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.618" upper="2.618" effort="88" velocity="32"/>
   </joint>
   <link name="waist_roll_link">
     <inertial>
@@ -251,12 +275,10 @@
     <axis xyz="0 1 0"/>
     <limit lower="-1.0472" upper="2.0944" effort="25" velocity="37"/>
   </joint>
-  <joint name="right_wrist_roll_joint" type="revolute">
+  <joint name="right_wrist_roll_joint" type="fixed">
     <origin xyz="0.100 -0.00188791 -0.010" rpy="0 0 0"/>
-    <axis xyz="1 0 0"/>
     <parent link="right_elbow_link"/>
     <child link="right_wrist_roll_rubber_hand"/>
-    <limit effort="25" velocity="37" lower="-1.972222054" upper="1.972222054"/>
   </joint>
   <link name="right_wrist_roll_rubber_hand">
     <inertial>
@@ -286,6 +308,17 @@
     <child link="virtual_right_wrist_link"/>
     <origin xyz="0.121 -0.008 0" rpy="0 0 0"/>
   </joint>
+
+  <transmission name = "trans_waist_yaw_joint">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name = "waist_yaw_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name = "waist_pitch_yaw_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <transmission name = "trans_waist_pitch_joint">
     <type>transmission_interface/SimpleTransmission</type>
@@ -342,38 +375,11 @@
     </actuator>
   </transmission>
 
-  <transmission name = "trans_right_wrist_roll_joint">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name = "right_wrist_roll_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name = "right_wrist_roll_joint_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/g1_single_arm</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
-  </gazebo>
-
-  <gazebo reference="waist_yaw_link">
-    <visual>
-      <material>
-        <ambient>0.7 0.7 0.7 1</ambient>
-      </material>
-    </visual>
-  </gazebo>
-
-  <gazebo reference="waist_roll_link">
-    <visual>
-      <material>
-        <ambient>0.7 0.7 0.7 1</ambient>
-      </material>
-    </visual>
   </gazebo>
 
   <gazebo reference="torso_link">

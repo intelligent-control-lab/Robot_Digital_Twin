@@ -4,23 +4,25 @@ g1_single_arm:
     type: joint_state_controller/JointStateController
     publish_rate: 50
     joints:
+      - waist_yaw_joint
       - waist_pitch_joint
       - right_shoulder_pitch_joint
       - right_shoulder_roll_joint
       - right_shoulder_yaw_joint
       - right_elbow_joint
-      - right_wrist_roll_joint
 
   # Position controller ---------------------------------------
   arm_position_controller:
     type: effort_controllers/JointGroupPositionController
     joints:
+      - waist_yaw_joint
       - waist_pitch_joint
       - right_shoulder_pitch_joint
       - right_shoulder_roll_joint
       - right_shoulder_yaw_joint
       - right_elbow_joint
-      - right_wrist_roll_joint
+    waist_yaw_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
     waist_pitch_joint:
       pid: {p: 100.0, i: 0.01, d: 10.0}
     right_shoulder_pitch_joint:
@@ -31,5 +33,3 @@ g1_single_arm:
       pid: {p: 100.0, i: 0.01, d: 10.0}
     right_elbow_joint:
       pid: {p: 100.0, i: 0.01, d: 10.0}
-    right_wrist_roll_joint:
-      pid: {p: 1.0, i: 0.0001, d: 0.1}
