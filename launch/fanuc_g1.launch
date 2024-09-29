@@ -14,11 +14,11 @@
         <arg name="debug" value="$(arg debug)"/>
         <arg name="launch_world" value="true"/>
         <arg name="x" value="0"/>
-        <arg name="y" value="0"/>
+        <arg name="y" value="1"/>
         <arg name="z" value="0.5"/>
         <arg name="roll" value="0"/>
         <arg name="pitch" value="0"/>
-        <arg name="yaw" value="0"/>
+        <arg name="yaw" value="-1.57"/>
     </include>
 
     <include
@@ -29,12 +29,12 @@
         <arg name="headless" value="$(arg headless)"/>
         <arg name="debug" value="$(arg debug)"/>
         <arg name="launch_world" value="false"/>
-        <arg name="x" value="1.0"/>
-        <arg name="y" value="-0.1"/>
+        <arg name="x" value="-0.15"/>
+        <arg name="y" value="0"/>
         <arg name="z" value="0.5"/>
         <arg name="roll" value="0"/>
         <arg name="pitch" value="0"/>
-        <arg name="yaw" value="3.14159"/>
+        <arg name="yaw" value="1.57"/>
     </include>
 
 </launch>
