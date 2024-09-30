@@ -13,7 +13,7 @@ g1_single_arm:
 
   # Position controller ---------------------------------------
   arm_position_controller:
-    type: effort_controllers/JointGroupPositionController
+    type: position_controllers/JointGroupPositionController
     joints:
       - waist_yaw_joint
       - waist_pitch_joint
