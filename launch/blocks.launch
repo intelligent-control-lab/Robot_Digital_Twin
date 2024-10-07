@@ -1,0 +1,41 @@
+<launch>
+    <arg name = "block_1" default="block_1"/>
+    <param name="block1_description" command="$(find xacro)/xacro $(find robot_digital_twin)/urdf/block.xacro 
+                                                    color:='Red'"/>
+    <node name="spawn_block_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param block1_description
+            -urdf 
+            -x 0.5
+            -y 0
+            -z 0.1
+            -model $(arg block_1)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "block_2" default="block_2"/>
+    <param name="block2_description" command="$(find xacro)/xacro $(find robot_digital_twin)/urdf/block.xacro 
+                                                    color:='Blue'"/>
+    <node name="spawn_block_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param block2_description
+            -urdf 
+            -x 0.5
+            -y 0.1
+            -z 0.1
+            -model $(arg block_2)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "block_3" default="block_3"/>
+    <param name="block3_description" command="$(find xacro)/xacro $(find robot_digital_twin)/urdf/block.xacro 
+                                                    color:='Green'"/>
+    <node name="spawn_block_3" pkg="gazebo_ros" type="spawn_model"
+      args="-param block3_description
+            -urdf 
+            -x 0.5
+            -y -0.2
+            -z 1
+            -model $(arg block_3)"
+      respawn="false" output="screen">
+    </node>
+
+</launch>

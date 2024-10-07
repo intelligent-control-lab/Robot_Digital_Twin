@@ -2,9 +2,9 @@
 <robot
   name="block" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="block">
-  <xacro:arg name="fruit_color" default="Red" />
+  <xacro:arg name="color" default="Red" />
   <xacro:property name="scale" value="1"/>
-  <xacro:property name="color" value="$(arg fruit_color)"/>
+  <xacro:property name="color" value="$(arg color)"/>
   <link
     name="block">
     <inertial>
@@ -48,12 +48,12 @@
         <kd>1</kd>          <!-- Damping coefficient -->
       </gazebo>
     </collision>
-    <gravity>true</gravity>
+    <gravity>1</gravity>
   </link>
   
 
   <gazebo reference="block">
-  <kinematic>false</kinematic>
+  <kinematic>0</kinematic>
   <xacro:if value="${color == 'Orange'}">
      <material>Gazebo/Orange</material>
     </xacro:if>
