@@ -36,14 +36,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool_camera.stl"/>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/L515.stl"/>
         </geometry>
         <xacro:material_fanuc_black />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool_camera.stl"/>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/L515.stl"/>
         </geometry>
       </collision>
     </link>
