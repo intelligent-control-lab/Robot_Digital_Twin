@@ -27,6 +27,21 @@ roslaunch robot_digital_twin single_fanuc_lego.launch
 roslaunch robot_digital_twin dual_gp4.launch
 ```
 
+## Lego Visualization
+1. Specify the Lego structure in `./scripts/task_graph.json`.
+2. Launch the environment
+```
+roslaunch robot_digital_twin vis_lego.launch num_bx:="number of bricks you want" color_bx:="color you want"
+```
+Example
+```
+roslaunch robot_digital_twin vis_lego.launch num_b2:=10 color_b2:=Red
+```
+3. Run script
+```
+python3 ./scripts/vis_lego.py
+```
+
 ## Citation
 If you find this repository helpful, please kindly cite our work.
 ```
