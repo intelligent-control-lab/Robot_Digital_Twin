@@ -1,7 +1,7 @@
 from utils import *
 
 if __name__ == '__main__':
-    task_fname = "./scripts/unstable_chair.json"
+    task_fname = "./scripts/sample0.json"
     task_graph = load_json(task_fname)
     brick_cnt = dict()
     for node_id in task_graph.keys():

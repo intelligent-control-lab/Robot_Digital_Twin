@@ -49,6 +49,21 @@
       respawn="false" output="screen">
     </node>
 
+    <arg name = "storage_plate" default="storage_plate"/>
+    <arg name = "storage_plate_color" default="White" />
+    <param name="storage_plate_description" command="$(find xacro)/xacro --inorder 
+                                                      $(find robot_digital_twin)/urdf/lego_baseplate48.xacro
+                                                      plate_color:=$(arg storage_plate_color)"/>
+    <node name="spawn_storage_plate" pkg="gazebo_ros" type="spawn_model"
+      args="-param storage_plate_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 0
+            -model $(arg storage_plate)"
+      respawn="false" output="screen">
+    </node>
+
     <include file="$(find robot_digital_twin)/launch/b2.launch">
         <arg name="id" value="$(arg num_b2)"/>
         <arg name="color" value="$(arg color_b2)"/>
