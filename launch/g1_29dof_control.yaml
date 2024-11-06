@@ -1,0 +1,86 @@
+g1_29dof:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+    joints:
+      - waist_yaw_joint
+      - waist_roll_joint
+      - waist_pitch_joint
+
+      - left_shoulder_pitch_joint
+      - left_shoulder_roll_joint
+      - left_shoulder_yaw_joint
+      - left_elbow_joint
+      - left_wrist_roll_joint
+      - left_wrist_pitch_joint
+      - left_wrist_yaw_joint
+
+      - right_shoulder_pitch_joint
+      - right_shoulder_roll_joint
+      - right_shoulder_yaw_joint
+      - right_elbow_joint
+      - right_wrist_roll_joint
+      - right_wrist_pitch_joint
+      - right_wrist_yaw_joint
+
+  # Position controller ---------------------------------------
+  arm_position_controller:
+    type: position_controllers/JointGroupPositionController
+    joints:
+      - waist_yaw_joint
+      - waist_roll_joint
+      - waist_pitch_joint
+
+      - left_shoulder_pitch_joint
+      - left_shoulder_roll_joint
+      - left_shoulder_yaw_joint
+      - left_elbow_joint
+      - left_wrist_roll_joint
+      - left_wrist_pitch_joint
+      - left_wrist_yaw_joint
+
+      - right_shoulder_pitch_joint
+      - right_shoulder_roll_joint
+      - right_shoulder_yaw_joint
+      - right_elbow_joint
+      - right_wrist_roll_joint
+      - right_wrist_pitch_joint
+      - right_wrist_yaw_joint
+
+     
+    waist_yaw_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    waist_roll_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    waist_pitch_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    left_shoulder_pitch_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    left_shoulder_roll_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    left_shoulder_yaw_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    left_elbow_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    left_wrist_roll_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    left_wrist_pitch_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    left_wrist_yaw_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    right_shoulder_pitch_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    right_shoulder_roll_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    right_shoulder_yaw_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    right_elbow_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    right_wrist_roll_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    right_wrist_pitch_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    right_wrist_yaw_joint:
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    

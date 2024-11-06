@@ -1,0 +1,352 @@
+<launch>
+    <arg name = "sphere_waist_yaw_joint" default="sphere_waist_yaw_joint"/>
+    <param name="sphere_waist_yaw_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_waist_yaw_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_waist_yaw_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_waist_yaw_joint)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_waist_roll_joint" default="sphere_waist_roll_joint"/>
+    <param name="sphere_waist_roll_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_waist_roll_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_waist_roll_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_waist_roll_joint)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_waist_pitch_joint" default="sphere_waist_pitch_joint"/>
+    <param name="sphere_waist_pitch_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_waist_pitch_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_waist_pitch_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_waist_pitch_joint)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_left_shoulder_pitch_joint" default="sphere_left_shoulder_pitch_joint"/>
+    <param name="sphere_left_shoulder_pitch_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_left_shoulder_pitch_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_left_shoulder_pitch_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_left_shoulder_pitch_joint)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_left_shoulder_roll_joint" default="sphere_left_shoulder_roll_joint"/>
+    <param name="sphere_left_shoulder_roll_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_left_shoulder_roll_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_left_shoulder_roll_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_left_shoulder_roll_joint)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_left_shoulder_yaw_joint" default="sphere_left_shoulder_yaw_joint"/>
+    <param name="sphere_left_shoulder_yaw_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_left_shoulder_yaw_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_left_shoulder_yaw_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_left_shoulder_yaw_joint)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_left_elbow_joint" default="sphere_left_elbow_joint"/>
+    <param name="sphere_left_elbow_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_left_elbow_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_left_elbow_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_left_elbow_joint)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_left_wrist_roll_joint" default="sphere_left_wrist_roll_joint"/>
+    <param name="sphere_left_wrist_roll_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_left_wrist_roll_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_left_wrist_roll_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_left_wrist_roll_joint)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_left_wrist_pitch_joint" default="sphere_left_wrist_pitch_joint"/>
+    <param name="sphere_left_wrist_pitch_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_left_wrist_pitch_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_left_wrist_pitch_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_left_wrist_pitch_joint)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_left_wrist_yaw_joint" default="sphere_left_wrist_yaw_joint"/>
+    <param name="sphere_left_wrist_yaw_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_left_wrist_yaw_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_left_wrist_yaw_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_left_wrist_yaw_joint)"
+      respawn="false" output="screen">
+    </node>
+    
+    <arg name = "sphere_right_shoulder_pitch_joint" default="sphere_right_shoulder_pitch_joint"/>
+    <param name="sphere_right_shoulder_pitch_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_right_shoulder_pitch_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_right_shoulder_pitch_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_right_shoulder_pitch_joint)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_right_shoulder_roll_joint" default="sphere_right_shoulder_roll_joint"/>
+    <param name="sphere_right_shoulder_roll_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_right_shoulder_roll_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_right_shoulder_roll_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_right_shoulder_roll_joint)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_right_shoulder_yaw_joint" default="sphere_right_shoulder_yaw_joint"/>
+    <param name="sphere_right_shoulder_yaw_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_right_shoulder_yaw_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_right_shoulder_yaw_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_right_shoulder_yaw_joint)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_right_elbow_joint" default="sphere_right_elbow_joint"/>
+    <param name="sphere_right_elbow_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_right_elbow_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_right_elbow_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_right_elbow_joint)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_right_wrist_roll_joint" default="sphere_right_wrist_roll_joint"/>
+    <param name="sphere_right_wrist_roll_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_right_wrist_roll_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_right_wrist_roll_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_right_wrist_roll_joint)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_right_wrist_pitch_joint" default="sphere_right_wrist_pitch_joint"/>
+    <param name="sphere_right_wrist_pitch_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_right_wrist_pitch_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_right_wrist_pitch_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_right_wrist_pitch_joint)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_right_wrist_yaw_joint" default="sphere_right_wrist_yaw_joint"/>
+    <param name="sphere_right_wrist_yaw_joint_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_right_wrist_yaw_joint" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_right_wrist_yaw_joint_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_right_wrist_yaw_joint)"
+      respawn="false" output="screen">
+    </node>
+    
+    <arg name = "sphere_L_ee" default="sphere_L_ee"/>
+    <param name="sphere_L_ee_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_L_ee" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_L_ee_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_L_ee)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_R_ee" default="sphere_R_ee"/>
+    <param name="sphere_R_ee_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_R_ee" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_R_ee_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_R_ee)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_torso_link_1" default="sphere_torso_link_1"/>
+    <param name="sphere_torso_link_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.1'"/>
+    <node name="spawn_sphere_torso_link_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_torso_link_1_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_torso_link_1)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_torso_link_2" default="sphere_torso_link_2"/>
+    <param name="sphere_torso_link_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.1'"/>
+    <node name="spawn_sphere_torso_link_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_torso_link_2_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_torso_link_2)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_torso_link_3" default="sphere_torso_link_3"/>
+    <param name="sphere_torso_link_3_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.1'"/>
+    <node name="spawn_sphere_torso_link_3" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_torso_link_3_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_torso_link_3)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_obstacle_1" default="sphere_obstacle_1"/>
+    <param name="sphere_obstacle_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Red'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_obstacle_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_obstacle_1_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_obstacle_1)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_obstacle_2" default="sphere_obstacle_2"/>
+    <param name="sphere_obstacle_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Red'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_obstacle_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_obstacle_2_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_obstacle_2)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_obstacle_3" default="sphere_obstacle_3"/>
+    <param name="sphere_obstacle_3_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Red'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_obstacle_3" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_obstacle_3_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_obstacle_3)"
+      respawn="false" output="screen">
+    </node>
+    
+</launch>
