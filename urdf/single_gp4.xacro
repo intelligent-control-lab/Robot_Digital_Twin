@@ -237,6 +237,85 @@
         <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
       </inertial>
     </link>
+    <link name="${arm_id}_link_mountplate">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.10811" />
+      <inertia
+        ixx="9.0129E-05"
+        ixy="-1.0891E-08"
+        ixz="9.1598E-09"
+        iyy="9.2026E-05"
+        iyz="-2.749E-07"
+        izz="0.00017818" />
+    </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/D405_mount.stl"/>
+        </geometry>
+        <xacro:material_yaskawa_silver />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/D405_mount.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="${arm_id}_link_precam">
+      <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      </inertial>
+    </link>
+    <link name="${arm_id}_link_camera">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.10811" />
+      <inertia
+        ixx="9.0129E-05"
+        ixy="-1.0891E-08"
+        ixz="9.1598E-09"
+        iyy="9.2026E-05"
+        iyz="-2.749E-07"
+        izz="0.00017818" />
+    </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/D405.stl"/>
+        </geometry>
+        <xacro:material_fanuc_black />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/D405.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${arm_id}_link_camera_origin">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0001 0.002 0.001"/>
+      </geometry>
+    </visual>
+      <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      </inertial>
+    </link>
     <link name="${arm_id}_link_tool">
     <inertial>
       <origin
@@ -255,13 +334,13 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool_base.stl"/>
+        <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool.stl"/>
       </geometry>
     </collision>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool_base.stl"/>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool.stl"/>
         </geometry>
         <xacro:material_yaskawa_silver />
       </visual>
@@ -327,8 +406,28 @@
       <child link="${arm_id}_fts" />
     </joint>
 
+    <joint name="${arm_id}_fts_plate" type="fixed">
+      <origin xyz="0 0 ${0.0505/2+0.00001}" rpy="${pi/2.0} 0 0" />
+      <parent link="${arm_id}_fts" />
+      <child link="${arm_id}_link_mountplate" />
+    </joint>
+    <joint name="${arm_id}_plate_precam" type="fixed">
+      <origin xyz="0 0 0" rpy="-${pi/2.0} 0  0" />
+      <parent link="${arm_id}_link_mountplate" />
+      <child link="${arm_id}_link_precam" />
+    </joint>
+    <joint name="${arm_id}_precam_camera" type="fixed">
+      <origin xyz="0 0.053512 ${0.00254+0.023+0.00001}" rpy="0  0  0" />
+      <parent link="${arm_id}_link_precam" />
+      <child link="${arm_id}_link_camera" />
+    </joint>
+    <joint name="${arm_id}_camera_imgplane" type="fixed">
+      <origin xyz="0.009 0 0" rpy="0 ${pi/2 + pi} -${pi/2}" />
+      <parent link="${arm_id}_link_camera" />
+      <child link="${arm_id}_link_camera_origin" />
+    </joint>
     <joint name="${arm_id}_fts_tool" type="revolute">
-      <origin xyz="0 0 ${0.0505/2}" rpy="0 0 ${pi}" />
+      <origin xyz="0 0 ${0.0505/2 + 0.00254}" rpy="0 0 ${pi}" />
       <parent link="${arm_id}_fts" />
       <child link="${arm_id}_link_tool" />
       <axis xyz="0 0 1" />
