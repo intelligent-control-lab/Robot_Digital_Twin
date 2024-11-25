@@ -8,6 +8,9 @@
             -x 0.5
             -y 0
             -z 0.1
+            -R 0
+            -P 0
+            -Y 0
             -model $(arg block_1)"
       respawn="false" output="screen">
     </node>
@@ -21,6 +24,9 @@
             -x 0.5
             -y 0.1
             -z 0.1
+            -R 0
+            -P 0
+            -Y 0
             -model $(arg block_2)"
       respawn="false" output="screen">
     </node>
@@ -34,6 +40,9 @@
             -x 0.5
             -y -0.2
             -z 1
+            -R 0
+            -P 0
+            -Y 0
             -model $(arg block_3)"
       respawn="false" output="screen">
     </node>
