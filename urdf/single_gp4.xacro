@@ -262,7 +262,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/D405_mount.stl"/>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/D405_mount_inflated.stl"/>
         </geometry>
       </collision>
     </link>
@@ -298,7 +298,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/D405.stl"/>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/D405_inflated.stl"/>
         </geometry>
       </collision>
     </link>

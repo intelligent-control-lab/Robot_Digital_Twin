@@ -6,7 +6,7 @@
     <arg name="headless" default="false"/>
     <arg name="debug" default="false"/>
     <arg name="env" default="vis_lego"/>
-    <arg name="num_b2" default="5"/> 
+    <arg name="num_b2" default="15"/> 
     <arg name="num_b3" default="5"/> 
     <arg name="num_b4" default="5"/> 
     <arg name="num_b5" default="5"/> 
