@@ -349,48 +349,48 @@
 
 
     <!-- joints: main serial chain -->
-    <joint name="${arm_id}_joint_1" type="continuous">
+    <joint name="${arm_id}_joint_1" type="revolute">
       <parent link="${arm_id}_base_link"/>
       <child link="${arm_id}_link_1"/>
       <origin xyz="0 0 0.330" rpy="0 0 0" />
       <axis xyz="0 0 1" />
       <!-- <limit lower="${radians(-170)}" upper="${radians(170)}" effort="220.5" velocity="${radians(465)}"/> -->
-      <!-- <limit effort="0" lower="${radians(-170)}" upper="${radians(170)}" velocity="${radians(370)}" /> -->
+      <limit effort="0" lower="${radians(-170)}" upper="${radians(170)}" velocity="${radians(465)}" />
     </joint>
-    <joint name="${arm_id}_joint_2" type="continuous">
+    <joint name="${arm_id}_joint_2" type="revolute">
       <parent link="${arm_id}_link_1"/>
       <child link="${arm_id}_link_2"/>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <axis xyz="0 1 0" />
-      <!-- <limit effort="100" lower="${radians(-100)}" upper="${radians(145)}" velocity="${radians(310)}" /> -->
+      <limit effort="100" lower="${radians(-110)}" upper="${radians(130)}" velocity="${radians(465)}" />
     </joint>
-    <joint name="${arm_id}_joint_3" type="continuous">
+    <joint name="${arm_id}_joint_3" type="revolute">
       <parent link="${arm_id}_link_2"/>
       <child link="${arm_id}_link_3"/>
       <origin xyz="0 0 0.260" rpy="0 0 0" />
       <axis xyz="0 -1 0" />
-      <!-- <limit effort="0" lower="${radians(-70)}" upper="${radians(213)}" velocity="${radians(410)}" /> -->
+      <limit effort="0" lower="${radians(-65)}" upper="${radians(200)}" velocity="${radians(525)}" />
     </joint>
-    <joint name="${arm_id}_joint_4" type="continuous">
+    <joint name="${arm_id}_joint_4" type="revolute">
       <parent link="${arm_id}_link_3"/>
       <child link="${arm_id}_link_4"/>
       <origin xyz="0.290 0 0.015" rpy="0 0 0" />
       <axis xyz="-1 0 0" />
-      <!-- <limit effort="0" lower="${radians(-190)}" upper="${radians(190)}" velocity="${radians(550)}" /> -->
+      <limit effort="0" lower="${radians(-200)}" upper="${radians(200)}" velocity="${radians(550)}" />
     </joint>
-    <joint name="${arm_id}_joint_5" type="continuous">
+    <joint name="${arm_id}_joint_5" type="revolute">
       <parent link="${arm_id}_link_4"/>
       <child link="${arm_id}_link_5"/>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <axis xyz="0 -1 0" />
-      <!-- <limit effort="0" lower="${radians(-125)}" upper="${radians(125)}" velocity="${radians(545)}" /> -->
+      <limit effort="0" lower="${radians(-123)}" upper="${radians(123)}" velocity="${radians(545)}" />
     </joint>
-    <joint name="${arm_id}_joint_6" type="continuous">
+    <joint name="${arm_id}_joint_6" type="revolute">
       <parent link="${arm_id}_link_5"/>
       <child link="${arm_id}_link_6"/>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <axis xyz="-1 0 0" />
-      <!-- <limit effort="0" lower="${radians(-360)}" upper="${radians(360)}" velocity="${radians(1000)}" /> -->
+      <limit effort="0" lower="${radians(-455)}" upper="${radians(455)}" velocity="${radians(1000)}" />
     </joint>
 
     <link name="${arm_id}_flange"/>
