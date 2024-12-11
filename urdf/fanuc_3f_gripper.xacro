@@ -743,7 +743,7 @@
   <xacro:fanuc_lrmate200id7l>
   </xacro:fanuc_lrmate200id7l>
 
-  <xacro:macro name="transmission_block" params="joint_name">
+  <xacro:macro name="position_transmission_block" params="joint_name">
     <transmission name = "trans_${joint_name}">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name = "${joint_name}">
@@ -755,24 +755,37 @@
       </actuator>
     </transmission>
   </xacro:macro>
-  <xacro:transmission_block joint_name = "joint_1"/>
-  <xacro:transmission_block joint_name = "joint_2"/>
-  <xacro:transmission_block joint_name = "joint_3"/>
-  <xacro:transmission_block joint_name = "joint_4"/>
-  <xacro:transmission_block joint_name = "joint_5"/>
-  <xacro:transmission_block joint_name = "joint_6"/>
-  <xacro:transmission_block joint_name = "finger_A_joint_0"/>
-  <xacro:transmission_block joint_name = "finger_A_joint_1"/>
-  <xacro:transmission_block joint_name = "finger_A_joint_2"/>
-  <xacro:transmission_block joint_name = "finger_A_joint_3"/>
-  <xacro:transmission_block joint_name = "finger_B_joint_0"/>
-  <xacro:transmission_block joint_name = "finger_B_joint_1"/>
-  <xacro:transmission_block joint_name = "finger_B_joint_2"/>
-  <xacro:transmission_block joint_name = "finger_B_joint_3"/>
-  <xacro:transmission_block joint_name = "finger_C_joint_0"/>
-  <xacro:transmission_block joint_name = "finger_C_joint_1"/>
-  <xacro:transmission_block joint_name = "finger_C_joint_2"/>
-  <xacro:transmission_block joint_name = "finger_C_joint_3"/>
+
+  <xacro:macro name="effort_transmission_block" params="joint_name">
+    <transmission name = "trans_${joint_name}">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name = "${joint_name}">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name = "${joint_name}_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+  <xacro:position_transmission_block joint_name = "joint_1"/>
+  <xacro:position_transmission_block joint_name = "joint_2"/>
+  <xacro:position_transmission_block joint_name = "joint_3"/>
+  <xacro:position_transmission_block joint_name = "joint_4"/>
+  <xacro:position_transmission_block joint_name = "joint_5"/>
+  <xacro:position_transmission_block joint_name = "joint_6"/>
+  <xacro:position_transmission_block joint_name = "finger_A_joint_0"/>
+  <xacro:position_transmission_block joint_name = "finger_A_joint_1"/>
+  <xacro:position_transmission_block joint_name = "finger_A_joint_2"/>
+  <xacro:position_transmission_block joint_name = "finger_A_joint_3"/>
+  <xacro:position_transmission_block joint_name = "finger_B_joint_0"/>
+  <xacro:position_transmission_block joint_name = "finger_B_joint_1"/>
+  <xacro:position_transmission_block joint_name = "finger_B_joint_2"/>
+  <xacro:position_transmission_block joint_name = "finger_B_joint_3"/>
+  <xacro:position_transmission_block joint_name = "finger_C_joint_0"/>
+  <xacro:position_transmission_block joint_name = "finger_C_joint_1"/>
+  <xacro:position_transmission_block joint_name = "finger_C_joint_2"/>
+  <xacro:position_transmission_block joint_name = "finger_C_joint_3"/>
 
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
@@ -787,23 +800,23 @@
         <arm>
            <arm_name>fanuc_arm_/fanuc_gazebo/</arm_name>
            <palm_link> link_6  </palm_link>
-           <gripper_link> finger_A_link_0 </gripper_link>
+           <!-- <gripper_link> finger_A_link_0 </gripper_link>
            <gripper_link> finger_A_link_1 </gripper_link>
-           <gripper_link> finger_A_link_2 </gripper_link>
+           <gripper_link> finger_A_link_2 </gripper_link> -->
            <gripper_link> finger_A_link_3 </gripper_link>
-           <gripper_link> finger_B_link_0 </gripper_link>
+           <!-- <gripper_link> finger_B_link_0 </gripper_link>
            <gripper_link> finger_B_link_1 </gripper_link>
-           <gripper_link> finger_B_link_2 </gripper_link>
+           <gripper_link> finger_B_link_2 </gripper_link> -->
            <gripper_link> finger_B_link_3 </gripper_link>
-           <gripper_link> finger_C_link_0 </gripper_link>
+           <!-- <gripper_link> finger_C_link_0 </gripper_link>
            <gripper_link> finger_C_link_1 </gripper_link>
-           <gripper_link> finger_C_link_2 </gripper_link>
+           <gripper_link> finger_C_link_2 </gripper_link> -->
            <gripper_link> finger_C_link_3 </gripper_link>
         </arm>
-       <forces_angle_tolerance>90</forces_angle_tolerance>
+       <forces_angle_tolerance>180</forces_angle_tolerance>
        <update_rate>20</update_rate>
-       <grip_count_threshold>2</grip_count_threshold>
-       <max_grip_count>50</max_grip_count>
+       <grip_count_threshold>1</grip_count_threshold>
+       <max_grip_count>100</max_grip_count>
        <release_tolerance>0.005</release_tolerance>
        <disable_collisions_on_attach>true</disable_collisions_on_attach>
        <contact_topic>__default_topic__</contact_topic>

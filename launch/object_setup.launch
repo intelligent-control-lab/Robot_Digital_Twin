@@ -348,5 +348,47 @@
             -model $(arg sphere_obstacle_3)"
       respawn="false" output="screen">
     </node>
+
+    <arg name = "sphere_loco_1" default="sphere_loco_1"/>
+    <param name="sphere_loco_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_loco_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_loco_1_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_loco_1)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_loco_2" default="sphere_loco_2"/>
+    <param name="sphere_loco_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_loco_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_loco_2_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_loco_2)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "sphere_loco_3" default="sphere_loco_3"/>
+    <param name="sphere_loco_3_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Green'
+                                                    sphere_radius:='0.06'"/>
+    <node name="spawn_sphere_loco_3" pkg="gazebo_ros" type="spawn_model"
+      args="-param sphere_loco_3_description
+            -urdf 
+            -x 0
+            -y 0
+            -z 10
+            -model $(arg sphere_loco_3)"
+      respawn="false" output="screen">
+    </node>
     
 </launch>

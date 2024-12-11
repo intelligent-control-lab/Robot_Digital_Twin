@@ -1,0 +1,223 @@
+<launch>
+  
+    <!-- <include
+      file="$(find gazebo_ros)/launch/empty_world.launch">
+    </include> -->
+
+    <arg name = "cc_block_color" default="Green" />
+    <arg name = "rc_block_color" default="Red" />
+    <arg name = "rr_block_color" default="Blue" />
+    <arg name = "nut_color" default="Yellow" />
+    <arg name = "bolt_color" default="Orange" />
+    
+    <arg name = "cc_block_1" default="cc_block_1"/>
+    <param name="cc_block_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/cc_block.xacro 
+                                                    cc_block_color:=$(arg cc_block_color)"/>
+    <node name="spawn_cc_block_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param cc_block_1_description
+            -urdf 
+            -x -0.5
+            -y 0
+            -z 0.05
+            -model $(arg cc_block_1)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "cc_block_2" default="cc_block_2"/>
+    <param name="cc_block_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/cc_block.xacro 
+                                                    cc_block_color:=$(arg cc_block_color)"/>
+    <node name="spawn_cc_block_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param cc_block_2_description
+            -urdf 
+            -x -0.5
+            -y 0.2
+            -z 0.05
+            -model $(arg cc_block_2)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "cc_block_3" default="cc_block_3"/>
+    <param name="cc_block_3_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/cc_block.xacro 
+                                                    cc_block_color:=$(arg cc_block_color)"/>
+    <node name="spawn_cc_block_3" pkg="gazebo_ros" type="spawn_model"
+      args="-param cc_block_3_description
+            -urdf 
+            -x -0.5
+            -y 0.4
+            -z 0.05
+            -model $(arg cc_block_3)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "cc_block_4" default="cc_block_4"/>
+    <param name="cc_block_4_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/cc_block.xacro 
+                                                    cc_block_color:=$(arg cc_block_color)"/>
+    <node name="spawn_cc_block_4" pkg="gazebo_ros" type="spawn_model"
+      args="-param cc_block_4_description
+            -urdf 
+            -x -0.5
+            -y 0.6
+            -z 0.05
+            -model $(arg cc_block_4)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "rr_block_1" default="rr_block_1"/>
+    <param name="rr_block_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/rr_block.xacro 
+                                                    rr_block_color:=$(arg rr_block_color)"/>
+    <node name="spawn_rr_block_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param rr_block_1_description
+            -urdf 
+            -x -0.8
+            -y 0
+            -z 0.01
+            -model $(arg rr_block_1)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "rr_block_2" default="rr_block_2"/>
+    <param name="rr_block_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/rr_block.xacro 
+                                                    rr_block_color:=$(arg rr_block_color)"/>
+    <node name="spawn_rr_block_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param rr_block_2_description
+            -urdf 
+            -x -0.8
+            -y 0.2
+            -z 0.01
+            -model $(arg rr_block_2)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "nut_1" default="nut_1"/>
+    <param name="nut_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/nut.xacro 
+                                                    nut_color:=$(arg nut_color)"/>
+    <node name="spawn_nut_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param nut_1_description
+            -urdf 
+            -x -1.0
+            -y 0.0
+            -z 0.05
+            -model $(arg nut_1)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "nut_2" default="nut_2"/>
+    <param name="nut_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/nut.xacro 
+                                                    nut_color:=$(arg nut_color)"/>
+    <node name="spawn_nut_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param nut_2_description
+            -urdf 
+            -x -1.0
+            -y 0.2
+            -z 0.05
+            -model $(arg nut_2)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "nut_3" default="nut_3"/>
+    <param name="nut_3_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/nut.xacro 
+                                                    nut_color:=$(arg nut_color)"/>
+    <node name="spawn_nut_3" pkg="gazebo_ros" type="spawn_model"
+      args="-param nut_3_description
+            -urdf 
+            -x -1.0
+            -y 0.4
+            -z 0.05
+            -model $(arg nut_3)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "nut_4" default="nut_4"/>
+    <param name="nut_4_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/nut.xacro 
+                                                    nut_color:=$(arg nut_color)"/>
+    <node name="spawn_nut_4" pkg="gazebo_ros" type="spawn_model"
+      args="-param nut_4_description
+            -urdf 
+            -x -1.0
+            -y 0.6
+            -z 0.05
+            -model $(arg nut_4)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "bolt_1" default="bolt_1"/>
+    <param name="bolt_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/bolt.xacro 
+                                                    bolt_color:=$(arg bolt_color)"/>
+    <node name="spawn_bolt_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param bolt_1_description
+            -urdf 
+            -x -1.2
+            -y 0.0
+            -z 0.1
+            -Y 1.5707
+            -model $(arg bolt_1)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "bolt_2" default="bolt_2"/>
+    <param name="bolt_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/bolt.xacro 
+                                                    bolt_color:=$(arg bolt_color)"/>
+    <node name="spawn_bolt_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param bolt_2_description
+            -urdf 
+            -x -1.2
+            -y 0.4
+            -z 0.1
+            -Y 1.5707
+            -model $(arg bolt_2)"
+      respawn="false" output="screen">
+    </node>
+    
+    <arg name = "green_plate" default="green_plate"/>
+    <param name="green_plate_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/plate.xacro 
+                                                    plate_color:=Green"/>
+    <node name="spawn_green_plate" pkg="gazebo_ros" type="spawn_model"
+      args="-param green_plate_description
+            -urdf 
+            -x -1.5
+            -y 0.0
+            -z 0.1
+            -model $(arg green_plate)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "blue_plate" default="blue_plate"/>
+    <param name="blue_plate_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/plate.xacro 
+                                                    plate_color:=Blue"/>
+    <node name="spawn_blue_plate" pkg="gazebo_ros" type="spawn_model"
+      args="-param blue_plate_description
+            -urdf 
+            -x -1.5
+            -y 0.4
+            -z 0.1
+            -model $(arg blue_plate)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "red_plate" default="red_plate"/>
+    <param name="red_plate_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/plate.xacro 
+                                                    plate_color:=Red"/>
+    <node name="spawn_red_plate" pkg="gazebo_ros" type="spawn_model"
+      args="-param red_plate_description
+            -urdf 
+            -x -1.5
+            -y 0.8
+            -z 0.1
+            -model $(arg red_plate)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "yellow_plate" default="yellow_plate"/>
+    <param name="yellow_plate_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/plate.xacro 
+                                                    plate_color:=Yellow"/>
+    <node name="spawn_yellow_plate" pkg="gazebo_ros" type="spawn_model"
+      args="-param yellow_plate_description
+            -urdf 
+            -x -1.5
+            -y 1.2
+            -z 0.1
+            -model $(arg yellow_plate)"
+      respawn="false" output="screen">
+    </node>
+
+</launch>

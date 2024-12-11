@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot 
+  name="iiwa" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="iiwa">
+  
+  <link name = "world"/>
+
+  <joint name = "world_fixed"
+    type = "fixed">
+    <parent link = "world" />
+    <child link = "base" />
+  </joint>
+
+  <!-- ROS-Industrial 'base' frame: link_0 to Kuka World Coordinates transform -->
+    <link name="base" />
+    <joint name="link_0-base" type="fixed">
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <parent link="base"/>
+      <child link="link_0"/>
+    </joint>
+
+    <!-- links: main serial chain -->
+    <link name="link_0">
+      <inertial>
+        <origin xyz="-0.1 0 0.07" rpy="0 0 0"/>
+        <mass value="5"/>
+        <inertia ixx="0.05"  ixy="0"  ixz="0" iyy="0.06" iyz="0" izz="0.03" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_0.stl"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_0.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="link_1">
+      <inertial>
+        <origin xyz="0 -0.03 0.12" rpy="0 0 0"/>
+        <mass value="3.4525"/>
+        <inertia ixx="0.02183"  ixy="0"  ixz="0" iyy="0.007703" iyz="-0.003887" izz="0.02083" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0.0075" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_1.stl"/>
+        </geometry>
+         
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.0075" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_1.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="link_2">
+      <inertial>
+        <origin xyz="0.0003 0.059 0.042" rpy="0 0 0"/>
+        <mass value="3.4821"/>
+        <inertia ixx="0.02076"  ixy="0"  ixz="-0.003626" iyy="0.02179" iyz="0" izz="0.00779" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_2.stl"/>
+        </geometry>
+         
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_2.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="link_3">
+      <inertial>
+        <origin xyz="0 0.03 0.13" rpy="0 0 0"/>
+        <mass value="4.05623"/>
+        <inertia ixx="0.03204"  ixy="0"  ixz="0" iyy="0.00972" iyz="0.006227" izz="0.03042" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 -0.026" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_3.stl"/>
+        </geometry>
+         
+      </visual>
+      <collision>
+        <origin xyz="0 0 -0.026" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_3.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="link_4">
+      <inertial>
+        <origin xyz="0 0.067 0.034" rpy="0 0 0"/>
+        <mass value="3.4822"/>
+        <inertia ixx="0.02178"  ixy="0"  ixz="0" iyy="0.02075" iyz="-0.003625" izz="0.007785" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_4.stl"/>
+        </geometry>
+         
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_4.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="link_5">
+      <inertial>
+        <origin xyz="0.0001 0.021 0.076" rpy="0 0 0"/>
+        <mass value="2.1633"/>
+        <inertia ixx="0.01287"  ixy="0"  ixz="0" iyy="0.005708" iyz="-0.003946" izz="0.01112" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 -0.026" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_5.stl"/>
+        </geometry>
+         
+      </visual>
+      <collision>
+        <origin xyz="0 0 -0.026" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_5.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="link_6">
+      <inertial>
+        <origin xyz="0 0.0006 0.0004" rpy="0 0 0"/>
+        <mass value="2.3466"/>
+        <inertia ixx="0.006509"  ixy="0"  ixz="0" iyy="0.006259" iyz="0.00031891" izz="0.004527" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_6.stl"/>
+        </geometry>
+         
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_6.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="link_7">
+      <inertial>
+        <origin xyz="0 0 0.02" rpy="0 0 0"/>
+        <mass value="3.129"/>
+        <inertia ixx="0.01464"  ixy="0.0005912"  ixz="0" iyy="0.01465" iyz="0" izz="0.002872" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 -0.0005" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_7.stl"/>
+        </geometry>
+          
+      </visual>
+      <collision>
+        <origin xyz="0 0 -0.0005" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/link_7.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="fts">
+      <collision>
+        <origin xyz="0 0 0" rpy=" 0 0 0"/>
+        <geometry>
+          <cylinder length="0.041" radius="0.035"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder length="0.041" radius="0.035"/>
+        </geometry>
+          
+      </visual>
+      <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      </inertial>
+    </link>
+    <link name="link_tool">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.10811" />
+      <inertia
+        ixx="9.0129E-05"
+        ixy="-1.0891E-08"
+        ixz="9.1598E-09"
+        iyy="9.2026E-05"
+        iyz="-2.749E-07"
+        izz="0.00017818" />
+    </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/kuka_iiwa7/tool_base.stl"/>
+        </geometry>
+          
+      </visual>
+    </link>
+
+
+    <!-- joints: main serial chain -->
+    <joint name="joint_1" type="continuous">
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <parent link="link_0" />
+      <child link="link_1" />
+      <axis xyz="0 0 1" />
+      <!-- <limit effort="0" lower="${radians(-170)}" upper="${radians(170)}" velocity="${radians(370)}" /> -->
+    </joint>
+    <joint name="joint_2" type="continuous">
+      <origin xyz="0 0 0.19" rpy="${pi / 2}   0 ${pi}"/>
+      <parent link="link_1" />
+      <child link="link_2" />
+      <axis xyz="0 0 1"/>
+      <!-- <limit effort="100" lower="${radians(-100)}" upper="${radians(145)}" velocity="${radians(310)}" /> -->
+    </joint>
+    <joint name="joint_3" type="continuous">
+      <origin xyz="0 0.21 0" rpy="${pi / 2} 0 ${pi}"/>
+      <parent link="link_2" />
+      <child link="link_3" />
+      <axis xyz="0 0 1"/>
+      <!-- <limit effort="0" lower="${radians(-70)}" upper="${radians(213)}" velocity="${radians(410)}" /> -->
+    </joint>
+    <joint name="joint_4" type="continuous">
+      <origin xyz="0 0 0.19" rpy="${pi / 2} 0 0"/>
+      <parent link="link_3"/>
+      <child link="link_4"/>
+      <axis xyz="0 0 1"/>
+      <!-- <limit effort="0" lower="${radians(-190)}" upper="${radians(190)}" velocity="${radians(550)}" /> -->
+    </joint>
+    <joint name="joint_5" type="continuous">
+      <origin xyz="0 0.21 0" rpy="${-pi / 2} ${pi} 0"/>
+      <parent link="link_4"/>
+      <child link="link_5"/>
+      <axis xyz="0 0 1"/>
+      <!-- <limit effort="0" lower="${radians(-125)}" upper="${radians(125)}" velocity="${radians(545)}" /> -->
+    </joint>
+    <joint name="joint_6" type="continuous">
+      <origin xyz="0 0.06070 0.19" rpy="${pi / 2} 0 0"/>
+      <parent link="link_5"/>
+      <child link="link_6"/>
+      <axis xyz="0 0 1"/>
+      <!-- <limit effort="0" lower="${radians(-360)}" upper="${radians(360)}" velocity="${radians(1000)}" /> -->
+    </joint>
+
+    <joint name="joint_7" type="continuous">
+      <origin xyz="0 0.081 0.06070" rpy="${- pi / 2} ${pi} 0"/>
+      <parent link="link_6"/>
+      <child link="link_7"/>
+      <axis xyz="0 0 1"/>
+      <!-- <limit effort="0" lower="${radians(-360)}" upper="${radians(360)}" velocity="${radians(1000)}" /> -->
+    </joint>
+
+    <joint name="link_7_fts" type="fixed">
+      <origin xyz="0 0 0.0437" rpy="0 0 0" />
+      <parent link="link_7" />
+      <child link="fts" />
+    </joint>
+
+    <joint name="fts_tool" type="revolute">
+      <origin xyz="0 0 ${0.0437/2}" rpy="0 0 0" />
+      <parent link="fts" />
+      <child link="link_tool" />
+      <axis xyz="0 0 1" />
+      <limit velocity="0" effort="0" lower="0" upper="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:iiwa>
+  </xacro:iiwa>
+
+  <xacro:macro name="transmission_block" params="joint_name">
+    <transmission name = "trans_${joint_name}">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name = "${joint_name}">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name = "${joint_name}_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+  <xacro:transmission_block joint_name = "joint_1"/>
+  <xacro:transmission_block joint_name = "joint_2"/>
+  <xacro:transmission_block joint_name = "joint_3"/>
+  <xacro:transmission_block joint_name = "joint_4"/>
+  <xacro:transmission_block joint_name = "joint_5"/>
+  <xacro:transmission_block joint_name = "joint_6"/>
+  <xacro:transmission_block joint_name = "joint_7"/>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/kuka_gazebo</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <provideFeedback>true</provideFeedback>
+      <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+      <robotNamespace>/kuka_gazebo</robotNamespace>
+          <alwaysOn> true </alwaysOn>
+          <updateRate>125.0</updateRate>
+          <topicName>ft_sensor</topicName>
+          <jointName>fts_tool</jointName>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.001</stddev>
+          </noise>
+      </plugin>
+  </gazebo>
+
+
+  <gazebo reference="link_camera_origin">
+  <sensor name="$depth_camera" type="depth">
+    <update_rate>30</update_rate>
+    <camera>
+      <horizontal_fov>1.22173</horizontal_fov> <!-- 70deg -->
+      <image>
+        <width>1920</width>
+        <height>1080</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.01</near>
+        <far>2</far>
+      </clip>
+    </camera>
+    <plugin name="$depth_camera_controller" filename="libgazebo_ros_openni_kinect.so">
+      <baseline>0.2</baseline>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>0</updateRate>
+      <cameraName>wrist_camera</cameraName>
+      <imageTopicName>/kuka_wrist_camera/depth/image_raw</imageTopicName>
+      <cameraInfoTopicName>/kuka_wrist_camera/depth/camera_info</cameraInfoTopicName>
+      <depthImageTopicName>/kuka_wrist_camera/depth/depth_image_raw</depthImageTopicName>
+      <depthImageInfoTopicName>/kuka_wrist_camera/depth/depth_camera_info</depthImageInfoTopicName>
+      <pointCloudTopicName>/kuka_wrist_camera/depth/depth_camera_points</pointCloudTopicName>
+      <frameName>depth_camera_link</frameName>
+      <pointCloudCutoff>0.25</pointCloudCutoff>
+      <pointCloudCutoffMax>2.0</pointCloudCutoffMax>
+      <distortionK1>0</distortionK1>
+      <distortionK2>0</distortionK2>
+      <distortionK3>0</distortionK3>
+      <distortionT1>0</distortionT1>
+      <distortionT2>0</distortionT2>
+      <CxPrime>0</CxPrime>
+      <Cx>0</Cx>
+      <Cy>0</Cy>
+      <focalLength>0</focalLength>
+      <hackBaseline>0</hackBaseline>
+    </plugin>
+  </sensor>
+</gazebo>
+
+  <gazebo reference="link_0">
+     <material>Gazebo/Grey</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo>
+  <gazebo reference="link_1">
+     <material>Gazebo/Orange</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo>
+  <gazebo reference="link_2">
+     <material>Gazebo/Orange</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo>
+  <gazebo reference="link_3">
+     <material>Gazebo/Orange</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo>
+  <gazebo reference="link_4">
+     <material>Gazebo/Orange</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo>
+  <gazebo reference="link_5">
+     <material>Gazebo/Orange</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo>
+  <gazebo reference="link_6">
+     <material>Gazebo/Orange</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo>
+  <gazebo reference="link_7">
+     <material>Gazebo/Grey</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo>
+  <gazebo reference="link_tool0">
+     <material>Gazebo/White</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo> 
+  <gazebo reference="fts">
+     <material>Gazebo/Black</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo> 
+  <!-- <gazebo reference="link_camera_origin">
+     <material>Gazebo/Black</material>
+    <visual> <transparency> 0 </transparency> </visual>
+  </gazebo>  -->
+</robot>

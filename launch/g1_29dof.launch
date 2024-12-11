@@ -13,7 +13,8 @@
   <arg name="pitch" default="0"/>
   <arg name="yaw" default="0"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro $(find robot_digital_twin)/urdf/g1_29dof.urdf"/>
+  <param name="robot_description" command="$(find xacro)/xacro $(find robot_digital_twin)/urdf/g1_29dof_fixed.urdf"/>
+  <!-- <param name="robot_description" command="$(find xacro)/xacro $(find robot_digital_twin)/urdf/g1_29dof.urdf"/> -->
 
   <rosparam file="$(find robot_digital_twin)/launch/g1_29dof_control.yaml" command="load"/>
 
@@ -29,7 +30,8 @@
   </group>
 
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-  args="-x $(arg x)
+  args="
+        -x $(arg x)
         -y $(arg y)
         -z $(arg z)
         -R $(arg roll)

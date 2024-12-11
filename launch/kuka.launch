@@ -6,7 +6,7 @@
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
-  <arg name="namespace" default="/fanuc_gazebo/"/>
+  <arg name="namespace" default="/kuka_gazebo/"/>
   <arg name="launch_world" default="true"/>
   <arg name="x" default="0"/>
   <arg name="y" default="0"/>
@@ -28,9 +28,9 @@
   </group>
   
   <group ns="$(arg namespace)">
-    <arg name = "fanuc_arm" default="fanuc_arm_$(arg namespace)"/>
-    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/fanuc_3f_gripper.xacro"/>
-    <node name="spawn_fanuc_arm" pkg="gazebo_ros" type="spawn_model" ns="$(arg namespace)"
+    <arg name = "kuka_arm" default="kuka_arm_$(arg namespace)"/>
+     <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/kuka_arm.xacro"/>
+    <node name="spawn_kuka_arm" pkg="gazebo_ros" type="spawn_model" ns="$(arg namespace)"
       args="-param robot_description
             -urdf 
             -x $(arg x)
@@ -39,12 +39,12 @@
             -R $(arg roll)
             -P $(arg pitch)
             -Y $(arg yaw)
-            -model $(arg fanuc_arm)"
+            -model $(arg kuka_arm)"
       respawn="false" output="screen">
     </node>
 
 
-  <rosparam file="$(find robot_digital_twin)/launch/robot_control_3f_gripper copy.yaml" command="load"/>
+  <rosparam file="$(find robot_digital_twin)/launch/kuka_control.yaml" command="load"/>
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" ns="$(arg namespace)"
@@ -56,18 +56,7 @@
           joint4_position_controller
           joint5_position_controller
           joint6_position_controller
-          joint0_finger_A_position_controller
-          joint1_finger_A_position_controller
-          joint2_finger_A_position_controller
-          joint3_finger_A_position_controller
-          joint0_finger_B_position_controller
-          joint1_finger_B_position_controller
-          joint2_finger_B_position_controller
-          joint3_finger_B_position_controller
-          joint0_finger_C_position_controller
-          joint1_finger_C_position_controller
-          joint2_finger_C_position_controller
-          joint3_finger_C_position_controller"
+          joint7_position_controller"
   />
   
   <!-- convert joint states to TF transforms for rviz, etc -->

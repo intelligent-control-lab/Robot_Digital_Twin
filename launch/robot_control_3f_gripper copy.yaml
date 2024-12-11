@@ -32,52 +32,64 @@ joint6_position_controller:
 
 joint0_finger_A_position_controller:
   type: position_controllers/JointPositionController
+  joint: joint_6
   joint: finger_A_joint_0
   pid: {p: 1000.0, i: 0.01, d: 10.0}
 joint1_finger_A_position_controller:
-  type: effort_controllers/JointEffortController
+  type: position_controllers/JointPositionController
+  joint: joint_6
   joint: finger_A_joint_1
   pid: {p: 1000.0, i: 0.01, d: 10.0}
 joint2_finger_A_position_controller:
   type: position_controllers/JointPositionController
+  joint: joint_6
   joint: finger_A_joint_2
   pid: {p: 1000.0, i: 0.01, d: 10.0}
 joint3_finger_A_position_controller:
   type: position_controllers/JointPositionController
+  joint: joint_6
   joint: finger_A_joint_3
   pid: {p: 1000.0, i: 0.01, d: 10.0}    
 
 joint0_finger_B_position_controller:
   type: position_controllers/JointPositionController
+  joint: joint_6
   joint: finger_B_joint_0
   pid: {p: 1000.0, i: 0.01, d: 10.0}
 joint1_finger_B_position_controller:
-  type: effort_controllers/JointEffortController
+  type: position_controllers/JointPositionController
+  joint: joint_6
   joint: finger_B_joint_1
   pid: {p: 1000.0, i: 0.01, d: 10.0}
 joint2_finger_B_position_controller:
   type: position_controllers/JointPositionController
+  joint: joint_6
   joint: finger_B_joint_2
   pid: {p: 1000.0, i: 0.01, d: 10.0}
 joint3_finger_B_position_controller:
   type: position_controllers/JointPositionController
+  joint: joint_6
   joint: finger_B_joint_3
   pid: {p: 1000.0, i: 0.01, d: 10.0}    
 
 joint0_finger_C_position_controller:
   type: position_controllers/JointPositionController
+  joint: joint_6
   joint: finger_C_joint_0
   pid: {p: 1000.0, i: 0.01, d: 10.0}
 joint1_finger_C_position_controller:
-  type: effort_controllers/JointEffortController
+  type: position_controllers/JointPositionController
+  joint: joint_6
   joint: finger_C_joint_1
   pid: {p: 1000.0, i: 0.01, d: 10.0}
 joint2_finger_C_position_controller:
   type: position_controllers/JointPositionController
+  joint: joint_6
   joint: finger_C_joint_2
   pid: {p: 1000.0, i: 0.01, d: 10.0}
 joint3_finger_C_position_controller:
   type: position_controllers/JointPositionController
+  joint: joint_6
   joint: finger_C_joint_3
   pid: {p: 1000.0, i: 0.01, d: 10.0}    
 
