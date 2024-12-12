@@ -237,7 +237,7 @@
         <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
       </inertial>
     </link>
-    <link name="${arm_id}_link_mountplate">
+    <!-- <link name="${arm_id}_link_mountplate">
     <inertial>
       <origin
         xyz="0 0 0"
@@ -298,7 +298,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/D405_inflated.stl"/>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/D405.stl"/>
         </geometry>
       </collision>
     </link>
@@ -315,7 +315,7 @@
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
       </inertial>
-    </link>
+    </link> -->
     <link name="${arm_id}_link_tool">
     <inertial>
       <origin
@@ -406,7 +406,7 @@
       <child link="${arm_id}_fts" />
     </joint>
 
-    <joint name="${arm_id}_fts_plate" type="fixed">
+    <!-- <joint name="${arm_id}_fts_plate" type="fixed">
       <origin xyz="0 0 ${0.0505/2+0.00001}" rpy="${pi/2.0} 0 0" />
       <parent link="${arm_id}_fts" />
       <child link="${arm_id}_link_mountplate" />
@@ -425,9 +425,9 @@
       <origin xyz="0.009 0 0" rpy="0 ${pi/2 + pi} -${pi/2}" />
       <parent link="${arm_id}_link_camera" />
       <child link="${arm_id}_link_camera_origin" />
-    </joint>
+    </joint> -->
     <joint name="${arm_id}_fts_tool" type="revolute">
-      <origin xyz="0 0 ${0.0505/2 + 0.00254}" rpy="0 0 ${pi}" />
+      <origin xyz="0 0 ${0.0505/2}" rpy="0 0 ${pi}" />
       <parent link="${arm_id}_fts" />
       <child link="${arm_id}_link_tool" />
       <axis xyz="0 0 1" />
