@@ -71,7 +71,7 @@
     <!-- joints: main serial chain -->
     
     <joint name="precam_camera" type="fixed">
-      <origin xyz="0 0 0" rpy="0 ${pi*45/180} 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <parent link="base" />
       <child link="link_camera" />
     </joint>
