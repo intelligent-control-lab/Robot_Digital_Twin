@@ -26,7 +26,7 @@
       <arg name="headless" value="$(arg headless)"/>
     </include>
   </group>
-  
+  <include file="$(find robot_digital_twin)/launch/share_exp_setup.launch"/>
   <group ns="$(arg namespace)">
     <arg name = "kuka_arm" default="kuka_arm_$(arg namespace)"/>
      <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/kuka_arm.xacro"/>
