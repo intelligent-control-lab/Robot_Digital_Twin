@@ -88,6 +88,32 @@
       respawn="false" output="screen">
     </node>
 
+    <arg name = "rc_block_1" default="rc_block_1"/>
+    <param name="rc_block_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/rc_block.xacro 
+                                                    rc_block_color:=$(arg rc_block_color)"/>
+    <node name="spawn_rc_block_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param rc_block_1_description
+            -urdf 
+            -x -0.8
+            -y 0.4
+            -z 0.01
+            -model $(arg rc_block_1)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "rc_block_2" default="rc_block_2"/>
+    <param name="rc_block_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/rc_block.xacro 
+                                                    rc_block_color:=$(arg rc_block_color)"/>
+    <node name="spawn_rc_block_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param rc_block_2_description
+            -urdf 
+            -x -0.8
+            -y 0.6
+            -z 0.01
+            -model $(arg rc_block_2)"
+      respawn="false" output="screen">
+    </node>
+
     <arg name = "nut_1" default="nut_1"/>
     <param name="nut_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/nut.xacro 
                                                     nut_color:=$(arg nut_color)"/>
@@ -223,7 +249,7 @@
     <arg name = "sphere_obstacle_1_1" default="sphere_obstacle_1_1"/>
     <param name="sphere_obstacle_1_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
                                                     sphere_color:='Red'
-                                                    sphere_radius:='0.06'"/>
+                                                    sphere_radius:='0.03'"/>
     <node name="spawn_sphere_obstacle_1_1" pkg="gazebo_ros" type="spawn_model"
       args="-param sphere_obstacle_1_1_description
             -urdf 
@@ -237,7 +263,7 @@
     <arg name = "sphere_obstacle_1_2" default="sphere_obstacle_1_2"/>
     <param name="sphere_obstacle_1_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
                                                     sphere_color:='Red'
-                                                    sphere_radius:='0.06'"/>
+                                                    sphere_radius:='0.03'"/>
     <node name="spawn_sphere_obstacle_1_2" pkg="gazebo_ros" type="spawn_model"
       args="-param sphere_obstacle_1_2_description
             -urdf 
@@ -248,17 +274,31 @@
       respawn="false" output="screen">
     </node>
 
-    <arg name = "robo_cart" default="robo_cart"/>
-    <param name="robo_cart_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+    <arg name = "robo_cart_1" default="robo_cart_1"/>
+    <param name="robo_cart_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
                                                     sphere_color:='Red'
-                                                    sphere_radius:='0.06'"/>
-    <node name="spawn_robo_cart" pkg="gazebo_ros" type="spawn_model"
-      args="-param robo_cart_description
+                                                    sphere_radius:='0.1'"/>
+    <node name="spawn_robo_cart_1" pkg="gazebo_ros" type="spawn_model"
+      args="-param robo_cart_1_description
             -urdf 
             -x 0.3
             -y 0
             -z 1
-            -model $(arg robo_cart)"
+            -model $(arg robo_cart_1)"
+      respawn="false" output="screen">
+    </node>
+
+    <arg name = "robo_cart_2" default="robo_cart_2"/>
+    <param name="robo_cart_2_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
+                                                    sphere_color:='Red'
+                                                    sphere_radius:='0.1'"/>
+    <node name="spawn_robo_cart_2" pkg="gazebo_ros" type="spawn_model"
+      args="-param robo_cart_2_description
+            -urdf 
+            -x 0.3
+            -y 0
+            -z 1
+            -model $(arg robo_cart_2)"
       respawn="false" output="screen">
     </node>
 

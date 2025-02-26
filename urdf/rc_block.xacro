@@ -55,7 +55,7 @@
   
 
   <gazebo reference="rc_block">
-  <kinematic>0</kinematic>
+  <kinematic>1</kinematic>
   <xacro:if value="${color == 'Orange'}">
      <material>Gazebo/Orange</material>
     </xacro:if>
