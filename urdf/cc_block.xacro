@@ -5,6 +5,7 @@
   <xacro:arg name="cc_block_color" default="Grey" />
   <xacro:property name="scale" value="0.001"/>
   <xacro:property name="color" value="$(arg cc_block_color)"/>
+  <xacro:property name="enable_dynamics" value="false"/>
   <link
     name="cc_block">
     <inertial>
@@ -21,7 +22,7 @@
         iyz="0.0" 
         izz="0.00005" />
       </inertial> -->
-      <mass
+       <mass
         value="0.0001" />
       <inertia
         ixx="0.00000007"
@@ -30,7 +31,7 @@
         iyy="0.00000047" 
         iyz="0.0" 
         izz="0.0000005" />
-      </inertial>
+      </inertial> 
     <visual>
       <origin
         xyz="0 0 0"
@@ -45,22 +46,8 @@
           rgba="1 1 1 1" />
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh scale="${scale} ${scale} ${scale}"
-          filename="file://$(find robot_digital_twin)/meshes/share_parts/cc_block.STL"/>
-      </geometry>
-      <gazebo>
-        <mu>100000.0</mu>        <!-- Lateral friction coefficient -->
-        <mu2>100000.0</mu2>      <!-- Second friction coefficient for anisotropic friction -->
-        <kp>100000</kp>     <!-- Spring coefficient (stiffness) -->
-        <kd>1</kd>          <!-- Damping coefficient -->
-      </gazebo>
-    </collision>
-    <gravity>1</gravity>
+    
+    <gravity>0</gravity>
   </link>
   
 

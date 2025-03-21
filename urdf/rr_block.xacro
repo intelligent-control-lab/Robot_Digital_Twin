@@ -50,7 +50,7 @@
         <kd>1</kd>          <!-- Damping coefficient -->
       </gazebo>
     </collision>
-    <gravity>1</gravity>
+    <gravity>0</gravity>
   </link>
   
 
