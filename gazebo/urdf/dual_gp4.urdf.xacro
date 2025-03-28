@@ -24,7 +24,7 @@
     <xacro:Yaskawa_gp4 arm_id="$(arg arm_id_1)" connected_to="base" xyz="0 0 0.9246" rpy="0 0 0" />
     <!-- left arm gazebo -->
     <!-- right arm -->
-    <xacro:Yaskawa_gp4 arm_id="$(arg arm_id_2)" connected_to="base" xyz="0.88072888 -0.01296058 0.92460000" rpy="0 0 3.13661625" />
+    <xacro:Yaskawa_gp4 arm_id="$(arg arm_id_2)" connected_to="base" xyz="0.88101137 -0.01304334 0.92460000" rpy="0 0 3.13585279" />
     <!-- right arm gazebo-->
     <xacro:gp4_gazebo arm_id="$(arg arm_id_2)" />
 
