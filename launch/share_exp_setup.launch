@@ -249,7 +249,7 @@
     <arg name = "robo_cart_1" default="robo_cart_1"/>
     <param name="robo_cart_1_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/sphere.xacro 
                                                     sphere_color:='Red'
-                                                    sphere_radius:='0.068'"/>
+                                                    sphere_radius:='0.15'"/>
     <node name="spawn_robo_cart_1" pkg="gazebo_ros" type="spawn_model"
       args="-param robo_cart_1_description
             -urdf 
@@ -281,7 +281,7 @@
     <node name="spawn_obstacle_1" pkg="gazebo_ros" type="spawn_model"
       args="-param obstacle_1_description
             -urdf 
-            -x 0.5
+            -x 0.4
             -y 0
             -z 0.0
             -model $(arg obstacle_1)"
@@ -295,7 +295,7 @@
     <node name="spawn_obstacle_2" pkg="gazebo_ros" type="spawn_model"
       args="-param obstacle_2_description
             -urdf 
-            -x 0.5
+            -x 0.4
             -y 0
             -z 0.2
             -model $(arg obstacle_2)"
