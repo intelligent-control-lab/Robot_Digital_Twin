@@ -123,5 +123,8 @@ class Lego():
 
 if __name__ == '__main__':
     task_fname = "./scripts/task_graph.json"
-    lego = Lego(task_fname, "./scripts/lego_library.json")
+    lego = Lego(task_fname, "./scripts/lego_library.json",
+     plate_x=0.40842053781513565, 
+     plate_y=0.04519264491562785,
+     plate_z=0.1899+0.926)
     lego.visualize()
