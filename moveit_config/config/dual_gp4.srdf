@@ -384,7 +384,6 @@
     <disable_collisions link1="left_arm_link_6" link2="left_arm_link_tool" reason="Never"/>
     <disable_collisions link1="left_arm_link_6" link2="right_arm_base_link" reason="Never"/>
     <disable_collisions link1="left_arm_link_6" link2="right_arm_link_1" reason="Never"/>
-    <disable_collisions link1="left_arm_link_6" link2="right_arm_link_6" reason="Never"/>
     <disable_collisions link1="left_arm_link_tool" link2="right_arm_base_link" reason="Never"/>
     <disable_collisions link1="left_arm_link_tool" link2="right_arm_fts" reason="Default"/>
     <disable_collisions link1="left_arm_link_tool" link2="right_arm_link_1" reason="Never"/>
