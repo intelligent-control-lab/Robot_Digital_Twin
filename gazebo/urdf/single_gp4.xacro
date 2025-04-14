@@ -334,13 +334,13 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool_with_cam_gen35.stl"/>
+        <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool.stl"/>
       </geometry>
     </collision>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool_with_cam_gen35.stl"/>
+          <mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool.stl"/>
         </geometry>
         <xacro:material_yaskawa_silver />
       </visual>
