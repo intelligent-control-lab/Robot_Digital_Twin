@@ -18,8 +18,22 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   sensor_msgs
+  message_generation
 )
-catkin_package()
+
+add_service_files(
+  FILES
+  TriggerImageSave.srv
+)
+
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
+
+catkin_package(
+  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime # Add message_runtime\
+)
 include_directories(
     ${catkin_INCLUDE_DIRS})
 

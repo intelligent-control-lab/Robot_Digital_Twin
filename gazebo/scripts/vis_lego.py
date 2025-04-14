@@ -4,7 +4,10 @@ import rospkg
 from gazebo_msgs.srv import GetModelState
 from gazebo_msgs.msg import ModelState
 from gazebo_msgs.srv import SetModelState
+from robot_digital_twin.srv import TriggerImageSave, TriggerImageSaveRequest
+from std_msgs.msg import Float64
 import rosnode
+import argparse
 
 class Brick():
     def __init__(self, graph_node, lego_lib, brick_cnt):
@@ -45,12 +48,51 @@ class Lego():
         self.lego_lib = load_json(lego_lib)
         self.brick_cnt = dict()
 
+        r1_j1_topic = "/r1/joint1_position_controller/command"
+        r1_j2_topic = "/r1/joint2_position_controller/command"
+        r1_j3_topic = "/r1/joint3_position_controller/command"
+        r1_j4_topic = "/r1/joint4_position_controller/command"
+        r1_j5_topic = "/r1/joint5_position_controller/command"
+        r1_j6_topic = "/r1/joint6_position_controller/command"
+        self.r1_j1_pub = rospy.Publisher(r1_j1_topic, Float64, queue_size=1)
+        self.r1_j2_pub = rospy.Publisher(r1_j2_topic, Float64, queue_size=1)
+        self.r1_j3_pub = rospy.Publisher(r1_j3_topic, Float64, queue_size=1)
+        self.r1_j4_pub = rospy.Publisher(r1_j4_topic, Float64, queue_size=1)
+        self.r1_j5_pub = rospy.Publisher(r1_j5_topic, Float64, queue_size=1)
+        self.r1_j6_pub = rospy.Publisher(r1_j6_topic, Float64, queue_size=1)
+        self.r1_j1_msg = Float64()
+        self.r1_j2_msg = Float64()
+        self.r1_j3_msg = Float64()
+        self.r1_j4_msg = Float64() 
+        self.r1_j5_msg = Float64()
+        self.r1_j6_msg = Float64()
+
+        r2_j1_topic = "/r2/joint1_position_controller/command"
+        r2_j2_topic = "/r2/joint2_position_controller/command"
+        r2_j3_topic = "/r2/joint3_position_controller/command"
+        r2_j4_topic = "/r2/joint4_position_controller/command"
+        r2_j5_topic = "/r2/joint5_position_controller/command"
+        r2_j6_topic = "/r2/joint6_position_controller/command"
+        self.r2_j1_pub = rospy.Publisher(r2_j1_topic, Float64, queue_size=1)
+        self.r2_j2_pub = rospy.Publisher(r2_j2_topic, Float64, queue_size=1)
+        self.r2_j3_pub = rospy.Publisher(r2_j3_topic, Float64, queue_size=1)
+        self.r2_j4_pub = rospy.Publisher(r2_j4_topic, Float64, queue_size=1)
+        self.r2_j5_pub = rospy.Publisher(r2_j5_topic, Float64, queue_size=1)
+        self.r2_j6_pub = rospy.Publisher(r2_j6_topic, Float64, queue_size=1)
+        self.r2_j1_msg = Float64()
+        self.r2_j2_msg = Float64()
+        self.r2_j3_msg = Float64()
+        self.r2_j4_msg = Float64()
+        self.r2_j5_msg = Float64()
+        self.r2_j6_msg = Float64()
+        
     def parse_brick(self, graph_node):
         brick_id = graph_node["brick_id"]
         if(brick_id not in self.brick_cnt.keys()):
             self.brick_cnt[brick_id] = 1
         else:
             self.brick_cnt[brick_id] += 1
+       
         return Brick(graph_node, self.lego_lib, self.brick_cnt)
     
     def calc_brick_loc(self, graph_node):
@@ -64,7 +106,7 @@ class Lego():
                           [0, 0, 0, 1]])
         brick_offset[0, 3] = brick.x * self.P_len - self.brick_len_offset
         brick_offset[1, 3] = brick.y * self.P_len - self.brick_len_offset
-        brick_offset[2, 3] = brick.z * self.brick_height_m
+        brick_offset[2, 3] = (brick.z-1) * self.brick_height_m
 
         brick_center_offset[0, 3] = (brick.height * self.P_len - self.brick_len_offset) / 2.0
         brick_center_offset[1, 3] = (brick.width * self.P_len - self.brick_len_offset) / 2.0
@@ -104,8 +146,10 @@ class Lego():
     def visualize(self):
         self.reset()
         self.set_pose(self.plate_pose, "assemble_plate")
-        for i in range(1, len(self.task_graph)+1):
-            node = self.task_graph[str(i)]
+        for key in self.task_graph.keys():
+            node = self.task_graph[key]
+            if "attached_robot_id" in node.keys():
+                continue
             bname, T = self.calc_brick_loc(node)
             ret = self.set_pose(T, bname)
             if(not ret):
@@ -120,8 +164,72 @@ class Lego():
                 if(not ret):
                     self.brick_cnt[bid] = 0
                     break
+    
+    def update_robot(self, pose1, pose2):
+        i = 0
+        while i < 20:
+            i += 1
+            self.r1_j1_msg.data = pose1[0]
+            self.r1_j2_msg.data = pose1[1]
+            self.r1_j3_msg.data = pose1[2]
+            self.r1_j4_msg.data = pose1[3]
+            self.r1_j5_msg.data = pose1[4]
+            self.r1_j6_msg.data = pose1[5]
+            self.r1_j1_pub.publish(self.r1_j1_msg)
+            self.r1_j2_pub.publish(self.r1_j2_msg)
+            self.r1_j3_pub.publish(self.r1_j3_msg)
+            self.r1_j4_pub.publish(self.r1_j4_msg)
+            self.r1_j5_pub.publish(self.r1_j5_msg)
+            self.r1_j6_pub.publish(self.r1_j6_msg)
+
+            self.r2_j1_msg.data = pose2[0]
+            self.r2_j2_msg.data = pose2[1]
+            self.r2_j3_msg.data = pose2[2]
+            self.r2_j4_msg.data = pose2[3]
+            self.r2_j5_msg.data = pose2[4]
+            self.r2_j6_msg.data = pose2[5]
+            self.r2_j1_pub.publish(self.r2_j1_msg)
+            self.r2_j2_pub.publish(self.r2_j2_msg)
+            self.r2_j3_pub.publish(self.r2_j3_msg)
+            self.r2_j4_pub.publish(self.r2_j4_msg)
+            self.r2_j5_pub.publish(self.r2_j5_msg)
+            self.r2_j6_pub.publish(self.r2_j6_msg)
+            time.sleep(0.1)
+    
+    def save_imgs(self, prefix):
+        rospy.wait_for_service('/save_gazebo_images')
+        save_service = rospy.ServiceProxy('/save_gazebo_images', TriggerImageSave)
+        req = TriggerImageSaveRequest()
+        req.base_save_path = "/home/philip/gazebo_images/{}".format(prefix)
+        print("Saving images to: ", req.base_save_path)
+
+        resp = save_service(req)
+        if resp.success:
+            rospy.loginfo("Images saved successfully.")
+            print(resp.image_path_cam1, resp.image_path_cam2)
+        else:
+            rospy.logerr("Failed to save images.")
+            print(req.message)
 
 if __name__ == '__main__':
-    task_fname = "./scripts/task_graph.json"
-    lego = Lego(task_fname, "./scripts/lego_library.json")
+    rospy.init_node('vis_lego')
+    rospy.sleep(1)
+    
+    # the task is xxxx.json, read xxxx from the command line
+    parser = argparse.ArgumentParser(description='Visualize Lego task graph')
+    parser.add_argument('task', type=str, help='Task name')
+    args = parser.parse_args()
+
+    task_fname = "./scripts/tasks/" + args.task + ".json"
+    lego = Lego(task_fname, "./scripts/lego_library.json",
+     plate_x=0.40842053781513565, 
+     plate_y=0.04519264491562785,
+     plate_z=0.1899+0.926)
+    
+    home_pose = np.array([0.0,-15.456,-40.357,0,-65.099,0]) / 180.0 * np.pi
+    lego.update_robot(home_pose, home_pose)
+    
     lego.visualize()
+    rospy.sleep(4)
+
+    lego.save_imgs(args.task)
