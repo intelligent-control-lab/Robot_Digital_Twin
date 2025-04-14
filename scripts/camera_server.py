@@ -6,7 +6,7 @@ import os
 import time
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
-from my_package.srv import TriggerImageSave, TriggerImageSaveResponse # CHANGE my_package
+from robot_digital_twin.srv import TriggerImageSave, TriggerImageSaveResponse # CHANGE my_package
 
 class GazeboImageSaver:
     def __init__(self):
