@@ -455,7 +455,7 @@
 
     "71": {
         "brick_id": 12,
-        "attached_robot_id": 1,
+        "attached_robot_id": 2,
         "manipulate_type": 0
     }
     

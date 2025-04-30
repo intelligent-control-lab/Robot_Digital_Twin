@@ -593,7 +593,7 @@
     },
     "53":
     {
-        "attached_robot_id":1,
+        "attached_robot_id":2,
         "brick_id":5,
         "manipulate_type":0
     }

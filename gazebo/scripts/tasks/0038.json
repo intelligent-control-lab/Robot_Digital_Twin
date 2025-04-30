@@ -358,7 +358,7 @@
         "ori": 0
     },
     "60": {
-        "attached_robot_id": 2,
+        "attached_robot_id": 1,
         "brick_id": 12,
         "manipulate_type": 0
     },

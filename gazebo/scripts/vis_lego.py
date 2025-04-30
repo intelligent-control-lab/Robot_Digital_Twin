@@ -200,7 +200,7 @@ class Lego():
         r1_base_str = """
         1 0 0 0
         0 1 0 0
-        0 0 1 0.33
+        0 0 1 1.2546
         0 0 0 1
         """
         
@@ -215,10 +215,10 @@ class Lego():
         # --- End Definitions ---
 
         # Select parameters based on robot_id and manipulate_type
-        if robot_id == 0: # Assuming robot ID 1 corresponds to r1
+        if robot_id == 1: # Assuming robot ID 1 corresponds to r1
             base_frame = r1_base
             dh_params = dh_tool_alt if manipulate_type == 1 else dh_tool
-        elif robot_id == 1: # Assuming robot ID 2 corresponds to r2
+        elif robot_id == 2: # Assuming robot ID 2 corresponds to r2
             base_frame = r2_base
             # Assuming r2 also uses alt DH for type 1, adjust if needed
             dh_params = dh_tool_alt if manipulate_type == 1 else dh_tool
@@ -369,6 +369,7 @@ class Lego():
             else:
                 bname, T = self.calc_brick_loc(node)
             ret = self.set_pose(T, bname)
+            print(bname, T)
             if(not ret):
                 print(bname, "failed!")
             time.sleep(0.1)
@@ -450,7 +451,7 @@ if __name__ == '__main__':
         # Find all json files in the tasks directory
         json_files = glob.glob(os.path.join(tasks_dir, '*.json'))
         # Extract task names (filename without extension)
-        task_names = [os.path.splitext(os.path.basename(f))[0] for f in json_files]
+        task_names = [os.path.splitext(os.path.basename(f))[0] for f in sorted(json_files)]
         if not task_names:
             rospy.logwarn(f"No task files (.json) found in {tasks_dir}")
     elif args.task:

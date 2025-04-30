@@ -600,7 +600,7 @@
     },
     "57":
     {
-        "attached_robot_id":0,
+        "attached_robot_id":1,
         "brick_id":5,
         "manipulate_type":0
     }
