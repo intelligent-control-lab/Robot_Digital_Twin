@@ -6,14 +6,14 @@
     <arg name="headless" default="false"/>
     <arg name="debug" default="false"/>
     <arg name="env" default="vis_lego"/>
-    <arg name="num_b2" default="15"/> 
-    <arg name="num_b3" default="5"/> 
-    <arg name="num_b4" default="10"/> 
-    <arg name="num_b5" default="5"/> 
-    <arg name="num_b6" default="5"/> 
-    <arg name="num_b9" default="12"/> 
-    <arg name="num_b10" default="5"/> 
-    <arg name="num_b12" default="5"/> 
+    <arg name="num_b2" default="50"/> 
+    <arg name="num_b3" default="4"/> 
+    <arg name="num_b4" default="0"/> 
+    <arg name="num_b5" default="26"/> 
+    <arg name="num_b6" default="2"/> 
+    <arg name="num_b9" default="6"/> 
+    <arg name="num_b10" default="0"/> 
+    <arg name="num_b12" default="20"/> 
     <arg name="color_b2" default="Red"/> 
     <arg name="color_b3" default="Red"/> 
     <arg name="color_b4" default="Red"/> 
@@ -49,7 +49,7 @@
         <arg name="launch_world" value="true"/>
         <arg name="x" value="0"/>
         <arg name="y" value="0"/>
-        <arg name="z" value="0.9246"/>
+        <arg name="z" value="0.9946"/>
         <arg name="roll" value="0"/>
         <arg name="pitch" value="0"/>
         <arg name="yaw" value="0"/>
@@ -81,7 +81,7 @@
 
     <include
         file="$(find robot_digital_twin)/launch/camera.launch">
-        <arg name="namespace" value="/camera/"/>
+        <arg name="namespace" value="/camera1/"/>
         <arg name="launch_world" value="false"/>
         <arg name="x" value="-0.22457"/>
         <arg name="y" value="-0.51733"/>
