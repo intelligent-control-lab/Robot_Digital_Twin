@@ -83,23 +83,36 @@
         file="$(find robot_digital_twin)/launch/camera.launch">
         <arg name="namespace" value="/camera1/"/>
         <arg name="launch_world" value="false"/>
-        <arg name="x" value="-0.22457"/>
-        <arg name="y" value="-0.51733"/>
-        <arg name="z" value="1.290"/>
-        <arg name="roll" value="-0.005"/>
-        <arg name="pitch" value="0.21"/>
-        <arg name="yaw" value="0.67"/>
+        <arg name="x" value="-0.23"/>
+        <arg name="y" value="0.40"/>
+        <arg name="z" value="1.24"/>
+        <!-- <arg name="x" value="-0.22457"/>
+        <arg name="y" value="-0.50733"/>
+        <arg name="z" value="1.250"/> -->
+        <arg name="roll" value="0"/>
+        <arg name="pitch" value="0"/>
+        <arg name="yaw" value="-0.2618"/>
+        <!-- <arg name="roll" value="0"/>
+        <arg name="pitch" value="0.17"/>
+        <arg name="yaw" value="0.65"/> -->
+
     </include>
 
     <include
         file="$(find robot_digital_twin)/launch/camera.launch">
         <arg name="namespace" value="/camera2/"/>
         <arg name="launch_world" value="false"/>
-        <arg name="x" value="1.059"/>
-        <arg name="y" value="0.47733"/>
-        <arg name="z" value="1.290"/>
-        <arg name="roll" value="-0.01"/>
-        <arg name="pitch" value="0.21"/>
-        <arg name="yaw" value="-2.5615926"/>
+        <arg name="x" value="1.0843"/>
+        <arg name="y" value="0.254"/>
+        <arg name="z" value="1.24"/>
+        <arg name="roll" value="0"/>
+        <arg name="pitch" value="0"/>
+        <arg name="yaw" value="-3.0456"/>
+        <!-- <arg name="x" value="1.059"/>
+        <arg name="y" value="0.50733"/>
+        <arg name="z" value="1.250"/>
+        <arg name="roll" value="0"/>
+        <arg name="pitch" value="0.17"/>
+        <arg name="yaw" value="-2.5415926"/> -->
     </include>
 </launch>
