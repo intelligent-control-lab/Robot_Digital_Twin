@@ -27,19 +27,27 @@ roslaunch robot_digital_twin single_fanuc_lego.launch
 roslaunch robot_digital_twin dual_gp4.launch
 ```
 
-## Lego Visualization
-1. Specify the Lego structure in `./scripts/task_graph.json`.
+## Lego Visualization (single scene)
+1. Specify the task json under gazebo/scripts/task
 2. Launch the environment
 ```
-roslaunch robot_digital_twin vis_lego.launch num_bx:="number of bricks you want" color_bx:="color you want"
+roslaunch robot_digital_twin dual_gp4.launch
 ```
-Example
+and the camera server
 ```
-roslaunch robot_digital_twin vis_lego.launch num_b2:=10 color_b2:=Red
+cd gazebo
+python3 ./scripts/camera_server.py
 ```
 3. Run script
 ```
-python3 ./scripts/vis_lego.py
+python3 ./scripts/vis_lego.py --task 0000
+```
+where 0000 is the task name of the json file specification
+
+## Lego Visualization (entire assembly sequence)
+Script to visualize each assembly step for a given assembly sequence
+```
+python3 ./scripts/vis_assembly_seq.py --base_dir {path to assembly seq folder} --task {name of assembly}
 ```
 
 ## Citation
