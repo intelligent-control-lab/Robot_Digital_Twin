@@ -476,8 +476,9 @@ if __name__ == '__main__':
     save_dir = os.path.join(args.save_dir, task_name)
     if not os.path.exists(save_dir):
         os.makedirs(save_dir, exist_ok=True)
-        os.makedirs(os.path.join(save_dir, "cam1"), exist_ok=True)
-        os.makedirs(os.path.join(save_dir, "cam2"), exist_ok=True)
+    os.makedirs(os.path.join(save_dir, "cam1"), exist_ok=True)
+    os.makedirs(os.path.join(save_dir, "cam2"), exist_ok=True)
+    print("make dir at ", os.path.join(save_dir, "cam1"), os.path.join(save_dir, "cam2"))
 
     if not os.path.exists(task_fname):
         rospy.logerr(f"Task file not found: {task_fname}")
@@ -495,7 +496,9 @@ if __name__ == '__main__':
     lego.add_environment()
     rospy.loginfo("Environment setup complete. Waiting before adding steps...")
     
-    rospy.sleep(1) # Wait for visualization to stabilize
+    rospy.sleep(3) # Wait for visualization to stabilize
+    lego.save_imgs(save_dir, '0000')
+    rospy.loginfo("Initial images saved. Starting to add steps...")
 
     for step in range(1, len(lego.task_graph)+1):
         lego.add_step(step)
