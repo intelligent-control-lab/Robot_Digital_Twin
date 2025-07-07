@@ -7,6 +7,7 @@ import time
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 from robot_digital_twin.srv import TriggerImageSave, TriggerImageSaveResponse # CHANGE my_package
+import numpy as np
 
 class GazeboImageSaver:
     def __init__(self):
@@ -16,6 +17,8 @@ class GazeboImageSaver:
         # Get camera topics from parameters or use defaults
         self.camera_topic_1 = rospy.get_param('~camera_topic_1', '/camera1/fixed_camera/image_raw')
         self.camera_topic_2 = rospy.get_param('~camera_topic_2', '/camera2/fixed_camera/image_raw')
+        self.depth_topic_1 = rospy.get_param('~depth_topic_1', '/camera1/fixed_camera/depth/image_raw')
+        self.depth_topic_2 = rospy.get_param('~depth_topic_2', '/camera2/fixed_camera/depth/image_raw')
         self.save_dir = rospy.get_param('~save_dir', os.path.expanduser('~/gazebo_images'))
         self.cam1_name = rospy.get_param('~cam1_name', 'cam1')
         self.cam2_name = rospy.get_param('~cam2_name', 'cam2')
@@ -26,6 +29,10 @@ class GazeboImageSaver:
         self.latest_image_cam2 = None
         self.image_received_cam1 = False
         self.image_received_cam2 = False
+        self.latest_depth_cam1 = None
+        self.latest_depth_cam2 = None
+        self.depth_received_cam1 = False
+        self.depth_received_cam2 = False
         self.save_counter = 0
 
         # Ensure save directory exists
@@ -39,6 +46,11 @@ class GazeboImageSaver:
         rospy.loginfo("Subscribed to {} for {}".format(self.camera_topic_1, self.cam1_name))
         rospy.loginfo("Subscribed to {} for {}".format(self.camera_topic_2, self.cam2_name))
 
+        # Depth Subscribers (if needed)
+        self.depth_sub_cam1 = rospy.Subscriber(self.depth_topic_1, Image, self.depth_callback_cam1)
+        self.depth_sub_cam2 = rospy.Subscriber(self.depth_topic_2, Image, self.depth_callback_cam2)
+        rospy.loginfo("Subscribed to {} for depth {}".format(self.depth_topic_1, self.cam1_name))
+        rospy.loginfo("Subscribed to {} for depth {}".format(self.depth_topic_2, self.cam2_name))
 
         # Service Server
         self.save_service = rospy.Service('save_gazebo_images', TriggerImageSave, self.handle_save_request)
@@ -55,13 +67,26 @@ class GazeboImageSaver:
         if not self.image_received_cam2:
             self.image_received_cam2 = True
             rospy.loginfo("First image received from {}".format(self.cam2_name))
+    
+    def depth_callback_cam1(self, data):
+        self.latest_depth_cam1 = data
+        if not self.depth_received_cam1:
+            self.depth_received_cam1 = True
+            rospy.loginfo("First depth image received from {}".format(self.cam1_name))
+    
+    def depth_callback_cam2(self, data):
+        self.latest_depth_cam2 = data
+        if not self.depth_received_cam2:
+            self.depth_received_cam2 = True
+            rospy.loginfo("First depth image received from {}".format(self.cam2_name))
 
     def handle_save_request(self, req):
         rospy.loginfo("Save request received.")
         response = TriggerImageSaveResponse()
         response.success = False # Default to failure
 
-        if not self.image_received_cam1 or not self.image_received_cam2:
+        if not self.image_received_cam1 or not self.image_received_cam2 \
+            or not self.depth_received_cam1 or not self.depth_received_cam2:
             response.message = "Images not yet received from both cameras."
             rospy.logwarn(response.message)
             return response
@@ -70,10 +95,24 @@ class GazeboImageSaver:
         img_msg_cam1 = self.latest_image_cam1
         img_msg_cam2 = self.latest_image_cam2
 
+        depth_msg_cam1 = self.latest_depth_cam1
+        depth_msg_cam2 = self.latest_depth_cam2
+
         try:
             # Convert ROS Image messages to OpenCV images
             cv_image_cam1 = self.bridge.imgmsg_to_cv2(img_msg_cam1, "bgr8")
             cv_image_cam2 = self.bridge.imgmsg_to_cv2(img_msg_cam2, "bgr8")
+
+            # convert Depth image to OpenCV format
+            cv_depth_cam1 = self.bridge.imgmsg_to_cv2(depth_msg_cam1, "32FC1")
+            cv_depth_cam2 = self.bridge.imgmsg_to_cv2(depth_msg_cam2, "32FC1")
+            # make a copy
+            np_depth1 = np.copy(cv_depth_cam1)
+            np_depth2 = np.copy(cv_depth_cam2)
+            cv_depth_cam1 = cv2.normalize(np.nan_to_num(cv_depth_cam1), None, 0, 255, cv2.NORM_MINMAX)
+            cv_depth_cam2 = cv2.normalize(np.nan_to_num(cv_depth_cam2), None, 0, 255, cv2.NORM_MINMAX)
+            cv_depth_cam1 = np.uint8(cv_depth_cam1)
+            cv_depth_cam2 = np.uint8(cv_depth_cam2)
         except CvBridgeError as e:
             response.message = "CvBridge Error: {}".format(e)
             rospy.logerr(response.message)
@@ -129,12 +168,20 @@ class GazeboImageSaver:
         try:
             save_ok_1 = cv2.imwrite(filename_cam1, cv_image_cam1)
             save_ok_2 = cv2.imwrite(filename_cam2, cv_image_cam2)
+            save_ok_depth_1 = cv2.imwrite(filename_cam1.replace('.png', '_depth.png'), cv_depth_cam1)
+            save_ok_depth_2 = cv2.imwrite(filename_cam2.replace('.png', '_depth.png'), cv_depth_cam2)
 
-            if save_ok_1 and save_ok_2:
+            np.savez_compressed(filename_cam1.replace('.png', '_depth'), self.process_depth_image(np_depth1))
+            np.savez_compressed(filename_cam2.replace('.png', '_depth'), self.process_depth_image(np_depth2))
+
+
+            if save_ok_1 and save_ok_2 and save_ok_depth_1 and save_ok_depth_2:
                 response.success = True
                 response.message = "Images saved successfully."
                 response.image_path_cam1 = filename_cam1
                 response.image_path_cam2 = filename_cam2
+                response.depth_path_cam1 = filename_cam1.replace('.png', '_depth.png')
+                response.depth_path_cam2 = filename_cam2.replace('.png', '_depth.png')
                 rospy.loginfo("Saved: {}".format(filename_cam1))
                 rospy.loginfo("Saved: {}".format(filename_cam2))
                 self.save_counter += 1
@@ -151,6 +198,10 @@ class GazeboImageSaver:
             response.success = False # Ensure success is false on exception
 
         return response
+
+    def process_depth_image(self, depth_image):
+        img = np.nan_to_num(depth_image)
+        return np.float16(img)
 
 if __name__ == '__main__':
     try:

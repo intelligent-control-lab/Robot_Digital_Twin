@@ -27,8 +27,8 @@ roslaunch robot_digital_twin single_fanuc_lego.launch
 roslaunch robot_digital_twin dual_gp4.launch
 ```
 
-## Lego Visualization (single scene)
-1. Specify the task json under gazebo/scripts/task
+## Lego Visualization
+1. Update calibration for cameras, robots in gazebo/launch/dual_gp4.launch
 2. Launch the environment
 ```
 roslaunch robot_digital_twin dual_gp4.launch
@@ -38,14 +38,13 @@ and the camera server
 cd gazebo
 python3 ./scripts/camera_server.py
 ```
-3. Run script
+3. Run script below if you want to visualize a single scene
 ```
 python3 ./scripts/vis_lego.py --task 0000
 ```
 where 0000 is the task name of the json file specification
 
-## Lego Visualization (entire assembly sequence)
-Script to visualize each assembly step for a given assembly sequence
+or, run this script to visualize each assembly step for a given assembly sequence
 ```
 python3 ./scripts/vis_assembly_seq.py --base_dir {path to assembly seq folder} --task {name of assembly}
 ```

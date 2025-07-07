@@ -83,18 +83,20 @@
         file="$(find robot_digital_twin)/launch/camera.launch">
         <arg name="namespace" value="/camera1/"/>
         <arg name="launch_world" value="false"/>
-        <!-- <arg name="x" value="-0.23"/>
-        <arg name="y" value="0.40"/>
-        <arg name="z" value="1.24"/> -->
-        <arg name="x" value="-0.22457"/>
+        <!-- <arg name="x" value="-0.22457"/>
         <arg name="y" value="-0.50733"/>
-        <arg name="z" value="1.250"/>
+        <arg name="z" value="1.250"/> -->
         <!-- <arg name="roll" value="0"/>
-        <arg name="pitch" value="0"/>
-        <arg name="yaw" value="-0.2618"/> -->
-        <arg name="roll" value="0"/>
         <arg name="pitch" value="0.17"/>
-        <arg name="yaw" value="0.65"/>
+        <arg name="yaw" value="0.65"/> -->
+
+        <!-- cam 1 destroyer -->
+        <arg name="x" value="-0.17428713864526849"/> 
+        <arg name="y" value="-0.5333643116306368"/>
+        <arg name="z" value="1.2560177695126984"/>
+        <arg name="roll" value="-0.0018609626813419083"/>
+        <arg name="pitch" value="0.19306289259920684"/>
+        <arg name="yaw" value="0.6819540243959487"/>
 
     </include>
 
@@ -102,17 +104,19 @@
         file="$(find robot_digital_twin)/launch/camera.launch">
         <arg name="namespace" value="/camera2/"/>
         <arg name="launch_world" value="false"/>
-        <!-- <arg name="x" value="1.0843"/>
-        <arg name="y" value="0.254"/>
-        <arg name="z" value="1.24"/>
-        <arg name="roll" value="0"/>
-        <arg name="pitch" value="0"/>
-        <arg name="yaw" value="-3.0456"/> -->
-        <arg name="x" value="1.059"/>
+        <!-- <arg name="x" value="1.059"/>
         <arg name="y" value="0.50733"/>
-        <arg name="z" value="1.250"/>
-        <arg name="roll" value="0"/>
+        <arg name="z" value="1.250"/> -->
+        <!-- <arg name="roll" value="0"/>
         <arg name="pitch" value="0.17"/>
-        <arg name="yaw" value="-2.5415926"/>
+        <arg name="yaw" value="-2.5415926"/> -->
+
+        <!-- cam 2 architect -->
+        <arg name="x" value="1.0344068672214615"/> 
+        <arg name="y" value="0.5098252461217685"/>
+        <arg name="z" value="1.278917991094222"/>
+        <arg name="roll" value="0.010932407149833987"/>
+        <arg name="pitch" value="0.22208233965429947"/>
+        <arg name="yaw" value="-2.477748065746713"/>
     </include>
 </launch>

@@ -443,8 +443,17 @@ class Lego():
             # move cam1 image to cam1 folder
             cam1_path = os.path.join(save_dir, "cam1", os.path.basename(resp.image_path_cam1))
             cam2_path = os.path.join(save_dir, "cam2", os.path.basename(resp.image_path_cam2))
+            depth1_path = os.path.join(save_dir, "cam1", os.path.basename(resp.depth_path_cam1))
+            depth2_path = os.path.join(save_dir, "cam2", os.path.basename(resp.depth_path_cam2))
+            depth1_np_path = os.path.join(save_dir, "cam1", os.path.basename(resp.depth_path_cam1).replace(".png", ".npz"))
+            depth2_np_path = os.path.join(save_dir, "cam2", os.path.basename(resp.depth_path_cam2).replace(".png", ".npz"))
             os.rename(resp.image_path_cam1, cam1_path)
             os.rename(resp.image_path_cam2, cam2_path)
+            os.rename(resp.depth_path_cam1, depth1_path)
+            os.rename(resp.depth_path_cam2, depth2_path)
+            os.rename(resp.depth_path_cam1.replace(".png", ".npz"), depth1_np_path)
+            os.rename(resp.depth_path_cam2.replace(".png", ".npz"), depth2_np_path)
+
         else:
             rospy.logerr("Failed to save images.")
             print(req.message)
