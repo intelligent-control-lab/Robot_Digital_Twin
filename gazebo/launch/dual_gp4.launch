@@ -8,7 +8,7 @@
     <arg name="env" default="vis_lego"/>
     <arg name="num_b2" default="50"/> 
     <arg name="num_b3" default="4"/> 
-    <arg name="num_b4" default="0"/> 
+    <arg name="num_b4" default="8"/> 
     <arg name="num_b5" default="26"/> 
     <arg name="num_b6" default="2"/> 
     <arg name="num_b9" default="6"/> 

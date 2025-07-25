@@ -11,7 +11,8 @@ set +e
 
 # Default values
 DEFAULT_TASK="guitar"
-BASE_DIR="/home/mfi/repos/ros1_ws/src/philip/mr_planner/config/lego_tasks"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BASE_DIR="$(realpath "$SCRIPT_DIR/../../../mr_planner/config/lego_tasks")"
 SAVE_DIR="../outputs"
 SIM_DELAY=50  # seconds to wait for simulation to start
 
@@ -160,7 +161,7 @@ echo "Step 1: Starting Gazebo simulation..."
 echo "----------------------------------------"
 
 # Start the simulation in background
-roslaunch robot_digital_twin dual_gp4.launch &
+roslaunch robot_digital_twin dual_gp4.launch num_b3:=9 num_b6:=8 num_b9:=14 &
 DUAL_GP4_PID=$!
 
 echo "Started dual_gp4.launch (PID: $DUAL_GP4_PID)"
@@ -190,7 +191,7 @@ echo "Step 2: Starting camera server..."
 echo "----------------------------------------"
 
 # Start camera server in background
-cd /home/mfi/repos/ros1_ws/src/ruixuan/Robot_Digital_Twin/gazebo/scripts
+cd "$SCRIPT_DIR"
 python3 camera_server.py &
 CAMERA_SERVER_PID=$!
 

@@ -512,7 +512,7 @@ if __name__ == '__main__':
     for step in range(1, len(lego.task_graph)+1):
         lego.add_step(step)
         rospy.loginfo(f"Added step {step} to the environment.")
-        rospy.sleep(3)
+        rospy.sleep(3.5)
         lego.save_imgs(save_dir, f'{step:04d}')
 
     
