@@ -19,12 +19,51 @@ SIM_DELAY=50  # seconds to wait for simulation to start
 # Get task name from command line argument or use default
 TASK=${1:-$DEFAULT_TASK}
 
+# Function to count bricks from JSON file
+count_bricks_from_json() {
+    local task_name=$1
+    local json_file="$BASE_DIR/env_setup/env_setup_${task_name}.json"
+    
+    # Check if JSON file exists
+    if [ ! -f "$json_file" ]; then
+        echo "⚠ Warning: JSON file not found: $json_file"
+        echo "Using default values: all brick counts = 0"
+        num_b2=0; num_b3=0; num_b4=0; num_b5=0; num_b6=0; num_b9=0; num_b10=0; num_b12=0
+        return
+    fi
+    
+    echo "Parsing brick counts from: $json_file"
+    
+    # Count each brick type using grep and counting matches
+    num_b2=$(grep -o '"b2_[0-9]*"' "$json_file" | wc -l)
+    num_b3=$(grep -o '"b3_[0-9]*"' "$json_file" | wc -l)
+    num_b4=$(grep -o '"b4_[0-9]*"' "$json_file" | wc -l)
+    num_b5=$(grep -o '"b5_[0-9]*"' "$json_file" | wc -l)
+    num_b6=$(grep -o '"b6_[0-9]*"' "$json_file" | wc -l)
+    num_b9=$(grep -o '"b9_[0-9]*"' "$json_file" | wc -l)
+    num_b10=$(grep -o '"b10_[0-9]*"' "$json_file" | wc -l)
+    num_b12=$(grep -o '"b12_[0-9]*"' "$json_file" | wc -l)
+    
+    echo "Brick counts detected:"
+    echo "  b2: $num_b2"
+    echo "  b3: $num_b3" 
+    echo "  b4: $num_b4"
+    echo "  b5: $num_b5"
+    echo "  b6: $num_b6"
+    echo "  b9: $num_b9"
+    echo "  b10: $num_b10"
+    echo "  b12: $num_b12"
+}
+
 echo "============================================="
 echo "Starting Visualization Assembly Pipeline"
 echo "Task: $TASK"
 echo "Base Dir: $BASE_DIR"
 echo "Save Dir: $SAVE_DIR"
 echo "============================================="
+
+# Count bricks from JSON file
+count_bricks_from_json "$TASK"
 
 # Function to check if a ROS node is running
 check_node_running() {
@@ -161,7 +200,7 @@ echo "Step 1: Starting Gazebo simulation..."
 echo "----------------------------------------"
 
 # Start the simulation in background
-roslaunch robot_digital_twin dual_gp4.launch num_b3:=9 num_b6:=8 num_b9:=14 &
+roslaunch robot_digital_twin dual_gp4.launch num_b2:=$num_b2 num_b3:=$num_b3 num_b4:=$num_b4 num_b5:=$num_b5 num_b6:=$num_b6 num_b9:=$num_b9 num_b10:=$num_b10 num_b12:=$num_b12 &
 DUAL_GP4_PID=$!
 
 echo "Started dual_gp4.launch (PID: $DUAL_GP4_PID)"
