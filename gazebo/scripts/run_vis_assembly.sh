@@ -236,7 +236,7 @@ CAMERA_SERVER_PID=$!
 
 echo "Started camera_server.py (PID: $CAMERA_SERVER_PID)"
 echo "Giving camera server time to initialize..."
-sleep 3
+sleep 10
 
 echo "Waiting for camera service to be available..."
 
