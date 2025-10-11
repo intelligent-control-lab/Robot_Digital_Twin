@@ -343,6 +343,7 @@
     <disable_collisions link1="left_arm_base_link" link2="right_arm_link_6" reason="Never"/>
     <disable_collisions link1="left_arm_base_link" link2="right_arm_link_tool" reason="Never"/>
     <disable_collisions link1="left_arm_fts" link2="left_arm_link_3" reason="Never"/>
+    <disable_collisions link1="left_arm_fts" link2="left_arm_link_4" reason="Adjacent"/>
     <disable_collisions link1="left_arm_fts" link2="left_arm_link_5" reason="Default"/>
     <disable_collisions link1="left_arm_fts" link2="left_arm_link_6" reason="Adjacent"/>
     <disable_collisions link1="left_arm_fts" link2="left_arm_link_tool" reason="Adjacent"/>
@@ -351,6 +352,7 @@
     <disable_collisions link1="left_arm_fts" link2="right_arm_link_tool" reason="Default"/>
     <disable_collisions link1="left_arm_link_1" link2="left_arm_link_2" reason="Adjacent"/>
     <disable_collisions link1="left_arm_link_1" link2="left_arm_link_3" reason="Never"/>
+    <disable_collisions link1="left_arm_link_1" link2="left_arm_link_4" reason="Adjacent"/>
     <disable_collisions link1="left_arm_link_1" link2="right_arm_base_link" reason="Never"/>
     <disable_collisions link1="left_arm_link_1" link2="right_arm_fts" reason="Never"/>
     <disable_collisions link1="left_arm_link_1" link2="right_arm_link_1" reason="Never"/>
@@ -361,6 +363,7 @@
     <disable_collisions link1="left_arm_link_1" link2="right_arm_link_6" reason="Never"/>
     <disable_collisions link1="left_arm_link_1" link2="right_arm_link_tool" reason="Never"/>
     <disable_collisions link1="left_arm_link_2" link2="left_arm_link_3" reason="Adjacent"/>
+    <disable_collisions link1="left_arm_link_2" link2="left_arm_link_4" reason="Adjacent"/>
     <disable_collisions link1="left_arm_link_2" link2="right_arm_base_link" reason="Never"/>
     <disable_collisions link1="left_arm_link_2" link2="right_arm_link_1" reason="Never"/>
     <disable_collisions link1="left_arm_link_2" link2="right_arm_link_2" reason="Never"/>
@@ -374,6 +377,7 @@
     <disable_collisions link1="left_arm_link_3" link2="right_arm_link_2" reason="Never"/>
     <disable_collisions link1="left_arm_link_3" link2="right_arm_link_3" reason="Never"/>
     <disable_collisions link1="left_arm_link_4" link2="left_arm_link_5" reason="Adjacent"/>
+    <disable_collisions link1="left_arm_link_4" link2="left_arm_link_6" reason="Adjacent"/>
     <disable_collisions link1="left_arm_link_4" link2="left_arm_link_tool" reason="Never"/>
     <disable_collisions link1="left_arm_link_4" link2="right_arm_base_link" reason="Never"/>
     <disable_collisions link1="left_arm_link_4" link2="right_arm_link_1" reason="Never"/>
@@ -391,17 +395,21 @@
     <disable_collisions link1="right_arm_base_link" link2="right_arm_link_1" reason="Adjacent"/>
     <disable_collisions link1="right_arm_base_link" link2="right_arm_link_2" reason="Never"/>
     <disable_collisions link1="right_arm_fts" link2="right_arm_link_3" reason="Never"/>
+    <disable_collisions link1="right_arm_fts" link2="right_arm_link_4" reason="Adjacent"/>
     <disable_collisions link1="right_arm_fts" link2="right_arm_link_5" reason="Default"/>
     <disable_collisions link1="right_arm_fts" link2="right_arm_link_6" reason="Adjacent"/>
     <disable_collisions link1="right_arm_fts" link2="right_arm_link_tool" reason="Adjacent"/>
     <disable_collisions link1="right_arm_link_1" link2="right_arm_link_2" reason="Adjacent"/>
+    <disable_collisions link1="right_arm_link_1" link2="right_arm_link_4" reason="Adjacent"/>
     <disable_collisions link1="right_arm_link_1" link2="right_arm_link_3" reason="Never"/>
     <disable_collisions link1="right_arm_link_2" link2="right_arm_link_3" reason="Adjacent"/>
+    <disable_collisions link1="right_arm_link_2" link2="right_arm_link_4" reason="Adjacent"/>
     <disable_collisions link1="right_arm_link_3" link2="right_arm_link_4" reason="Adjacent"/>
     <disable_collisions link1="right_arm_link_3" link2="right_arm_link_5" reason="Never"/>
     <disable_collisions link1="right_arm_link_3" link2="right_arm_link_6" reason="Never"/>
     <disable_collisions link1="right_arm_link_3" link2="right_arm_link_tool" reason="Never"/>
     <disable_collisions link1="right_arm_link_4" link2="right_arm_link_5" reason="Adjacent"/>
+    <disable_collisions link1="right_arm_link_4" link2="right_arm_link_6" reason="Adjacent"/>
     <disable_collisions link1="right_arm_link_4" link2="right_arm_link_tool" reason="Never"/>
     <disable_collisions link1="right_arm_link_5" link2="right_arm_link_6" reason="Adjacent"/>
     <disable_collisions link1="right_arm_link_5" link2="right_arm_link_tool" reason="Never"/>

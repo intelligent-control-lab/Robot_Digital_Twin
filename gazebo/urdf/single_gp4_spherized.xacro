@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot 
+  name="Yaskawa_gp4" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="Yaskawa_gp4" params="arm_id:='gp4' description_pkg:='robot_digital_twin' connected_to:='' xyz:='0 0 0' rpy:='0 0 0'">
+  <xacro:include 
+    filename="$(find robot_digital_twin)/urdf/common_materials.xacro"/>
+
+	<xacro:if value="${connected_to == ''}">
+		<link name="world" />
+		<xacro:property name="base_frame_name" value="world"/>
+	</xacro:if>
+	<xacro:unless value="${connected_to == ''}">
+		<xacro:property name="base_frame_name" value="${connected_to}"/>
+	</xacro:unless>
+
+	<joint name="${arm_id}_to_${base_frame_name}" type="fixed">
+		<parent link="${base_frame_name}"/>
+		<child link="${arm_id}_base"/>
+		<origin rpy="${rpy}" xyz="${xyz}"/>
+		<dynamics damping="1.0"/>
+	</joint>
+
+    <!-- ROS-Industrial 'base' frame: base_link to gp4 World Coordinates transform -->
+    <link name="${arm_id}_base" />
+    <joint name="${arm_id}_base_link-base" type="fixed">
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <parent link="${arm_id}_base"/>
+      <child link="${arm_id}_base_link"/>
+    </joint>
+
+    <link name="${arm_id}_base_link">
+		<inertial>
+			<origin xyz="-0.073983 0.00022734 0.13031" rpy="0 0 0"></origin>
+			<mass value="42.212"></mass>
+			<inertia ixx="0.64296" ixy="0.0012624" ixz="-0.068804" iyy="1.2709" iyz="-0.0010754" izz="1.3497"></inertia>
+		</inertial>
+		<visual>
+			<geometry>
+          		<mesh filename="file://$(find robot_digital_twin)/meshes/gp4/base_link.stl"/>
+			</geometry>
+			<xacro:material_yaskawa_blue/>
+		</visual>
+		<collision>
+			<geometry>
+				<sphere radius="0.145161"></sphere>
+			</geometry>
+			<origin xyz="-0.030634019150972365 -2.3021806955337534e-05 0.07861094463970823" rpy="0 0 0"></origin>
+		</collision>
+	</link>
+    <link name="${arm_id}_link_1">
+		<inertial>
+			<origin xyz="0.058962 0.24363 -0.018725" rpy="0 0 0"></origin>
+			<mass value="37.265"></mass>
+			<inertia ixx="0.95018" ixy="-0.14402" ixz="-0.064915" iyy="1.0578" iyz="0.037699" izz="1.094"></inertia>
+		</inertial>
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find robot_digital_twin)/meshes/gp4/link_1.stl"/>
+			</geometry>
+			<xacro:material_yaskawa_blue/>
+		</visual>
+		<collision>
+			<geometry>
+				<sphere radius="0.142768"></sphere>
+			</geometry>
+			<origin xyz="-0.002622012403726578 1.8048428773880005e-05 -0.04698198797893524" rpy="0 0 0"></origin>
+		</collision>
+	</link>
+	<link name="${arm_id}_link_2">
+		<inertial>
+			<origin xyz="3.5083E-05 0.39008 0.15036" rpy="0 0 0"></origin>
+			<mass value="22.632"></mass>
+			<inertia ixx="1.7745" ixy="-0.0054743" ixz="0.00063015" iyy="0.15511" iyz="-0.09224" izz="1.826"></inertia>
+		</inertial>
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find robot_digital_twin)/meshes/gp4/link_2.stl"/>
+			</geometry>
+			<xacro:material_yaskawa_blue/>
+		</visual>
+		<collision>
+			<geometry>
+				<sphere radius="0.09793"></sphere>
+			</geometry>
+			<origin xyz="-0.029720542814776534 -0.023862420774672922 0.10512294650002602" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.091307"></sphere>
+			</geometry>
+			<origin xyz="-0.03905554281477654 0.04388957922532708 0.129623946500026" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.061789"></sphere>
+			</geometry>
+			<origin xyz="-0.008863542814776536 0.05901957922532708 0.146398946500026" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.088217"></sphere>
+			</geometry>
+			<origin xyz="-0.03972254281477654 -0.03973442077467292 0.130174946500026" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.095999"></sphere>
+			</geometry>
+			<origin xyz="-0.020234542814776536 0.01789657922532708 0.05338594650002601" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.088623"></sphere>
+			</geometry>
+			<origin xyz="-0.0030135428147765354 0.02176557922532708 0.0008929465000260123" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.098809"></sphere>
+			</geometry>
+			<origin xyz="-0.018074542814776537 -0.0025994207746729203 0.05415094650002601" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.088389"></sphere>
+			</geometry>
+			<origin xyz="-0.003957542814776536 0.00091857922532708 -0.002976053499973999" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.079826"></sphere>
+			</geometry>
+			<origin xyz="-0.026058542814776535 -0.05560342077467292 0.162718946500026" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.062428"></sphere>
+			</geometry>
+			<origin xyz="-0.042745542814776535 -0.07226342077467293 0.205902946500026" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.055841"></sphere>
+			</geometry>
+			<origin xyz="0.026478457185223465 -0.07517142077467293 0.24198194650002602" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.056388"></sphere>
+			</geometry>
+			<origin xyz="-0.010712542814776536 -0.07403242077467292 0.274466946500026" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.076935"></sphere>
+			</geometry>
+			<origin xyz="-0.028701542814776534 0.05970057922532708 0.167062946500026" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.058835"></sphere>
+			</geometry>
+			<origin xyz="0.029858457185223466 0.07896457922532707 0.222125946500026" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.057534"></sphere>
+			</geometry>
+			<origin xyz="-0.039346542814776536 0.07962557922532709 0.244992946500026" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.05257"></sphere>
+			</geometry>
+			<origin xyz="0.0063094571852234625 0.08002757922532708 0.279773946500026" rpy="0 0 0"></origin>
+		</collision>
+	</link>
+	<link name="${arm_id}_link_3">
+		<inertial>
+			<origin xyz="0.086423 0.14427 -0.035793" rpy="0 0 0"></origin>
+			<mass value="28.467"></mass>
+			<inertia ixx="0.65771" ixy="-0.13627" ixz="-0.026219" iyy="0.52683" iyz="0.051956" izz="0.69722"></inertia>
+		</inertial>
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find robot_digital_twin)/meshes/gp4/link_3.stl"/>
+			</geometry>
+			<xacro:material_yaskawa_blue/>
+		</visual>
+		<collision>
+			<geometry>
+				<sphere radius="0.108494"></sphere>
+			</geometry>
+			<origin xyz="0.01155402389073372 0.00649709885430336 -0.0011659696273803712" rpy="0 0 0"></origin>
+		</collision>
+	</link>
+	<link name="${arm_id}_link_4">
+		<inertial>
+			<origin xyz="0.37337 0.00033491 0.012656" rpy="0 0 0"></origin>
+			<mass value="7.629"></mass>
+			<inertia ixx="0.018151" ixy="-0.00033527" ixz="-0.031589" iyy="0.48072" iyz="3.3917E-05" izz="0.47647"></inertia>
+		</inertial>
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find robot_digital_twin)/meshes/gp4/link_4.stl"/>
+			</geometry>
+			<xacro:material_yaskawa_blue/>
+		</visual>
+		<collision>
+			<geometry>
+				<sphere radius="0.070971"></sphere>
+			</geometry>
+			<origin xyz="-0.14405002021551133 0.0012611188665628433 0.00023096638298034664" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.073196"></sphere>
+			</geometry>
+			<origin xyz="-0.09581802021551132 -9.088113343715663e-05 0.0001579663829803467" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.069293"></sphere>
+			</geometry>
+			<origin xyz="-0.05042802021551132 0.0003211188665628433 -0.00012603361701965326" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.065365"></sphere>
+			</geometry>
+			<origin xyz="-0.0019150202155113205 -0.0009398811334371568 -0.0003610336170196532" rpy="0 0 0"></origin>
+		</collision>
+	</link>
+	<link name="${arm_id}_link_5">
+		<inertial>
+			<origin xyz="0.062818 3.3289E-05 0.0048991" rpy="0 0 0"></origin>
+			<mass value="2.5794"></mass>
+			<inertia ixx="0.015161" ixy="-2.4835E-06" ixz="0.0016647" iyy="0.021382" iyz="-2.248E-06" izz="0.013473"></inertia>
+		</inertial>
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find robot_digital_twin)/meshes/gp4/link_5.stl"/>
+			</geometry>
+			<xacro:material_yaskawa_blue/>
+		</visual>
+		<collision>
+			<geometry>
+				<sphere radius="0.065188"></sphere>
+			</geometry>
+			<origin xyz="0.014196006263256074 -0.0016248214304447174 -9.637603759765764e-07" rpy="0 0 0"></origin>
+		</collision>
+	</link>
+	<link name="${arm_id}_link_6">
+		<inertial>
+			<origin xyz="0.00015982 -0.00063018 -0.008266" rpy="0 0 0"></origin>
+			<mass value="0.10811"></mass>
+			<inertia ixx="9.0129E-05" ixy="-1.0891E-08" ixz="9.1598E-09" iyy="9.2026E-05" iyz="-2.749E-07" izz="0.00017818"></inertia>
+		</inertial>
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find robot_digital_twin)/meshes/gp4/link_6.stl"/>
+			</geometry>
+			<xacro:material_yaskawa_silver/>
+		</visual>
+		<collision>
+			<geometry>
+				<sphere radius="0.011791"></sphere>
+			</geometry>
+			<origin xyz="0.06751601335144043 0.011423152736902238 -0.013029910593032837" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.012894"></sphere>
+			</geometry>
+			<origin xyz="0.06760901335144043 -0.010561847263097763 -0.014903910593032837" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.013813"></sphere>
+			</geometry>
+			<origin xyz="0.06725001335144043 0.0016691527369022368 -0.013650910593032837" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.012136"></sphere>
+			</geometry>
+			<origin xyz="0.06774301335144042 -0.01764584726309776 -0.0018779105930328368" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.013689"></sphere>
+			</geometry>
+			<origin xyz="0.06727001335144044 -0.011706847263097763 0.006601089406967163" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.012118"></sphere>
+			</geometry>
+			<origin xyz="0.06802401335144043 -0.007895847263097763 0.019695089406967164" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.012798"></sphere>
+			</geometry>
+			<origin xyz="0.06769401335144043 0.017394152736902237 -0.001605910593032837" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.013974"></sphere>
+			</geometry>
+			<origin xyz="0.06726401335144043 0.011569152736902236 0.005421089406967163" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.01301"></sphere>
+			</geometry>
+			<origin xyz="0.06777501335144043 0.010122152736902238 0.016643089406967165" rpy="0 0 0"></origin>
+		</collision>
+	</link>
+	<link name="${arm_id}_fts">
+		<collision>
+			<geometry>
+				<sphere radius="0.058"></sphere>
+			</geometry>
+			<origin xyz="0.0 0.0 0.0" rpy="0 0 0"></origin>
+		</collision>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"></origin>
+			<geometry>
+				<cylinder length="0.0505" radius="0.0472"></cylinder>
+			</geometry>
+			<xacro:material_yaskawa_silver />
+		</visual>
+		<inertial>
+			<mass value="1e-5"></mass>
+			<origin xyz="0 0 0" rpy="0 0 0"></origin>
+			<inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"></inertia>
+		</inertial>
+	</link>
+	<link name="${arm_id}_link_tool">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"></origin>
+			<mass value="0.10811"></mass>
+			<inertia ixx="9.0129E-05" ixy="-1.0891E-08" ixz="9.1598E-09" iyy="9.2026E-05" iyz="-2.749E-07" izz="0.00017818"></inertia>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"></origin>
+			<geometry>
+				<mesh filename="file://$(find robot_digital_twin)/meshes/eoat/tool_with_cam_gen35.stl"></mesh>
+			</geometry>
+			<xacro:material_yaskawa_silver />
+		</visual>
+		<collision>
+			<geometry>
+				<sphere radius="0.007566"></sphere>
+			</geometry>
+			<origin xyz="-0.00812526059785581 0.020722512432185928 0.041226901189082864" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.015878"></sphere>
+			</geometry>
+			<origin xyz="-0.0014272605978558112 -0.000456487567814073 0.06422290118908286" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.019951"></sphere>
+			</geometry>
+			<origin xyz="-0.0025242605978558113 0.00015551243218592706 0.045856901189082866" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.023908"></sphere>
+			</geometry>
+			<origin xyz="-0.004176260597855811 1.8512432185927062e-05 0.03335690118908286" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.02149"></sphere>
+			</geometry>
+			<origin xyz="-0.0032202605978558113 0.006482512432185927 0.02346890118908286" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.019783"></sphere>
+			</geometry>
+			<origin xyz="0.009670739402144189 0.015605512432185928 0.007847901189082861" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.021634"></sphere>
+			</geometry>
+			<origin xyz="-0.007474260597855811 0.015229512432185927 0.008738901189082864" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.012498"></sphere>
+			</geometry>
+			<origin xyz="0.02037173940214419 0.007351512432185927 0.004500901189082862" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.017566"></sphere>
+			</geometry>
+			<origin xyz="0.012428739402144189 -0.013928487567814073 0.007362901189082862" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.019796"></sphere>
+			</geometry>
+			<origin xyz="0.000674739402144189 -0.006403487567814073 0.020150901189082863" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.01449"></sphere>
+			</geometry>
+			<origin xyz="0.00021573940214418894 -0.023956487567814072 0.004920901189082866" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.013901"></sphere>
+			</geometry>
+			<origin xyz="0.02613373940214419 -0.004951487567814073 0.003919901189082864" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.027207"></sphere>
+			</geometry>
+			<origin xyz="-0.00999526059785581 0.001222512432185927 0.014604901189082864" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.017205"></sphere>
+			</geometry>
+			<origin xyz="-0.01505326059785581 0.009620512432185927 0.0078119011890828635" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.017734"></sphere>
+			</geometry>
+			<origin xyz="-0.016864260597855812 -0.011968487567814073 0.006466901189082861" rpy="0 0 0"></origin>
+		</collision>
+		<collision>
+			<geometry>
+				<sphere radius="0.018122"></sphere>
+			</geometry>
+			<origin xyz="-0.005438260597855811 -0.015421487567814075 0.007465901189082861" rpy="0 0 0"></origin>
+		</collision>
+	</link>
+	<link name="${arm_id}_flange"></link>
+
+	<joint name="${arm_id}_joint_1" type="revolute">
+		<parent link="${arm_id}_base_link"></parent>
+		<child link="${arm_id}_link_1"></child>
+		<origin xyz="0 0 0.330" rpy="0 0 0"></origin>
+		<axis xyz="0 0 1"></axis>
+		<limit effort="200" lower="-2.9670597283903604" upper="2.9670597283903604" velocity="2"></limit>
+	</joint>
+	<joint name="${arm_id}_joint_2" type="revolute">
+		<parent link="${arm_id}_link_1"></parent>
+		<child link="${arm_id}_link_2"></child>
+		<origin xyz="0 0 0" rpy="0 0 0"></origin>
+		<axis xyz="0 1 0"></axis>
+		<limit effort="200" lower="-1.9198621771937625" upper="2.2689280275926285" velocity="2"></limit>
+	</joint>
+	<joint name="${arm_id}_joint_3" type="revolute">
+		<parent link="${arm_id}_link_2"></parent>
+		<child link="${arm_id}_link_3"></child>
+		<origin xyz="0 0 0.260" rpy="0 0 0"></origin>
+		<axis xyz="0 -1 0"></axis>
+		<limit effort="200" lower="-0.99" upper="3.30" velocity="2"></limit>
+	</joint>
+	<joint name="${arm_id}_joint_4" type="revolute">
+		<parent link="${arm_id}_link_3"></parent>
+		<child link="${arm_id}_link_4"></child>
+		<origin xyz="0.290 0 0.015" rpy="0 0 0"></origin>
+		<axis xyz="-1 0 0"></axis>
+		<limit effort="200" lower="-3.490658503988659" upper="3.490658503988659" velocity="2"></limit>
+	</joint>
+	<joint name="${arm_id}_joint_5" type="revolute">
+		<parent link="${arm_id}_link_4"></parent>
+		<child link="${arm_id}_link_5"></child>
+		<origin xyz="0 0 0" rpy="0 0 0"></origin>
+		<axis xyz="0 -1 0"></axis>
+		<limit effort="200" lower="-1.98968" upper="1.98968" velocity="2"></limit>
+	</joint>
+	<joint name="${arm_id}_joint_6" type="revolute">
+		<parent link="${arm_id}_link_5"></parent>
+		<child link="${arm_id}_link_6"></child>
+		<origin xyz="0 0 0" rpy="0 0 0"></origin>
+		<axis xyz="-1 0 0"></axis>
+		<limit effort="200" lower="-7.941248096574199" upper="7.941248096574199" velocity="2"></limit>
+	</joint>
+	<joint name="${arm_id}_joint_6_t-flange" type="fixed">
+		<origin xyz="0.072 0 0" rpy="0 0 0"></origin>
+		<parent link="${arm_id}_link_6"></parent>
+		<child link="${arm_id}_flange"></child>
+	</joint>
+	<joint name="${arm_id}_link_6_fts" type="fixed">
+		<origin rpy="0 1.5707963267948966 0" xyz="0.02525 0 0"></origin>
+		<parent link="${arm_id}_flange"></parent>
+		<child link="${arm_id}_fts"></child>
+	</joint>
+	<joint name="${arm_id}_fts_tool" type="revolute">
+		<origin rpy="0 0 3.141592653589793" xyz="0 0 0.02525"></origin>
+		<parent link="${arm_id}_fts"></parent>
+		<child link="${arm_id}_link_tool"></child>
+		<limit velocity="0" effort="0" lower="0" upper="0" />
+	</joint>
+	</xacro:macro>
+
+</robot>

@@ -16,8 +16,13 @@
     </node>    
     
     <include file="$(find robot_digital_twin)/launch/b2.launch" if="$(eval arg('id') - 1 > 0)">
-        <arg name="color" value="$(arg color)"/>
         <arg name="id" value="$(eval arg('id') - 1)"/>
+        <!-- advance color: Red -> Blue -> Green -> Pink -> Yellow -> Red ... -->
+        <arg name="color" value="Blue" if="$(eval arg('color') == 'Red')"/>
+        <arg name="color" value="Black" if="$(eval arg('color') == 'Blue')"/>
+        <arg name="color" value="Purple" if="$(eval arg('color') == 'Black')"/>
+        <arg name="color" value="Yellow" if="$(eval arg('color') == 'Purple')"/>
+        <arg name="color" value="Red" if="$(eval arg('color') == 'Yellow')"/>
    </include>
 
 </launch>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot name="gp4" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <!-- add arms names prefixes -->
+    <xacro:arg name="arm_id_1" default="" />
+
+    <!-- load arm/hand models and utils (which adds the robot inertia tags to be Gazebo-simulation ready) -->
+    <xacro:include filename="$(find robot_digital_twin)/urdf/single_gp4.xacro" />
+
+    <link name="world"/>
+    
+    <!-- left arm -->
+    <xacro:Yaskawa_gp4 arm_id="$(arg arm_id_1)" connected_to="world" xyz="0 0 0" rpy="0 0 0" />
+
+</robot>
