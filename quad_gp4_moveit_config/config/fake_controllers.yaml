@@ -1,0 +1,75 @@
+controller_list:
+  - name: fake_left_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - left_arm_joint_1
+      - left_arm_joint_2
+      - left_arm_joint_3
+      - left_arm_joint_4
+      - left_arm_joint_5
+      - left_arm_joint_6
+      - left_arm_fts_tool
+  - name: fake_right_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - right_arm_joint_1
+      - right_arm_joint_2
+      - right_arm_joint_3
+      - right_arm_joint_4
+      - right_arm_joint_5
+      - right_arm_joint_6
+      - right_arm_fts_tool
+  - name: fake_top_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - top_arm_joint_1
+      - top_arm_joint_2
+      - top_arm_joint_3
+      - top_arm_joint_4
+      - top_arm_joint_5
+      - top_arm_joint_6
+      - top_arm_fts_tool
+  - name: fake_bottom_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - bottom_arm_joint_1
+      - bottom_arm_joint_2
+      - bottom_arm_joint_3
+      - bottom_arm_joint_4
+      - bottom_arm_joint_5
+      - bottom_arm_joint_6
+      - bottom_arm_fts_tool
+  - name: fake_quad_arms_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - bottom_arm_joint_1
+      - bottom_arm_joint_2
+      - bottom_arm_joint_3
+      - bottom_arm_joint_4
+      - bottom_arm_joint_5
+      - bottom_arm_joint_6
+      - bottom_arm_fts_tool
+      - left_arm_joint_1
+      - left_arm_joint_2
+      - left_arm_joint_3
+      - left_arm_joint_4
+      - left_arm_joint_5
+      - left_arm_joint_6
+      - left_arm_fts_tool
+      - right_arm_joint_1
+      - right_arm_joint_2
+      - right_arm_joint_3
+      - right_arm_joint_4
+      - right_arm_joint_5
+      - right_arm_joint_6
+      - right_arm_fts_tool
+      - top_arm_joint_1
+      - top_arm_joint_2
+      - top_arm_joint_3
+      - top_arm_joint_4
+      - top_arm_joint_5
+      - top_arm_joint_6
+      - top_arm_fts_tool
+initial:  # Define initial robot poses per group
+  - group: quad_arms
+    pose: ready_pose
