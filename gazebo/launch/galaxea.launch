@@ -1,0 +1,83 @@
+<launch>
+
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="namespace" default="/galaxea_gazebo/"/>
+  <arg name="launch_world" default="true"/>
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="0"/>
+  <arg name="roll" default="0"/>
+  <arg name="pitch" default="0"/>
+  <arg name="yaw" default="0"/>
+
+  <!-- the include to include other launch files  -->
+  <group if="$(eval launch_world)">
+    <include
+      file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="debug" value="$(arg debug)" />
+      <arg name="gui" value="$(arg gui)" />
+      <arg name="paused" value="$(arg paused)"/>
+      <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+      <arg name="headless" value="$(arg headless)"/>
+    </include>
+  </group>
+  
+  <group ns="$(arg namespace)">
+    <arg name = "galaxea_r1_lite" default="galaxea_r1_lite_$(arg namespace)"/>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robot_digital_twin)/urdf/galaxea.xacro"/>
+    <node name="spawn_galaxea_r1_lite" pkg="gazebo_ros" type="spawn_model" ns="$(arg namespace)"
+      args="-param robot_description
+            -urdf 
+            -x $(arg x)
+            -y $(arg y)
+            -z $(arg z)
+            -R $(arg roll)
+            -P $(arg pitch)
+            -Y $(arg yaw)
+            -model $(arg galaxea_r1_lite)"
+      respawn="false" output="screen">
+    </node>
+
+
+    <rosparam file="$(find robot_digital_twin)/launch/galaxea_control.yaml" command="load" ns="$(arg namespace)"/>
+
+    <!-- load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" ns="$(arg namespace)"
+      output="screen" 
+      args="joint_state_controller
+            steer1_position_controller
+            wheel1_position_controller
+            steer2_position_controller
+            wheel2_position_controller
+            steer3_position_controller
+            wheel3_position_controller
+            torso1_position_controller
+            torso2_position_controller
+            torso3_position_controller
+            left1_position_controller
+            left2_position_controller
+            left3_position_controller
+            left4_position_controller
+            left5_position_controller
+            left6_position_controller
+            right1_position_controller
+            right2_position_controller
+            right3_position_controller
+            right4_position_controller
+            right5_position_controller
+            right6_position_controller"
+    />
+  
+    <!-- convert joint states to TF transforms for rviz, etc -->
+    <node name = "robot_state_publisher" pkg = "robot_state_publisher" type = "robot_state_publisher" ns="$(arg namespace)"
+      respawn="false" output="screen">
+      <remap from="/joint_states" to="$(arg namespace)/joint_states" />
+    </node>
+  </group>
+
+</launch>
