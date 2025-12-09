@@ -1,0 +1,61 @@
+# Place this file to /usr/share/gazebo-11/media/materials/scripts/
+
+material Galaxea/Grey
+{
+  technique
+  {
+    pass ambient
+    {
+      ambient 0.294117647058824 0.294117647058824 0.294117647058824 1
+      diffuse 0.294117647058824 0.294117647058824 0.294117647058824 1
+    }
+  }
+}
+
+material Galaxea/Steer
+{
+  technique
+  {
+    pass ambient
+    {
+      ambient 1 0.6 0 1
+      diffuse 1 0.6 0 1
+    }
+  }
+}
+
+material Galaxea/Grey1
+{
+  technique
+  {
+    pass ambient
+    {
+      ambient 0.4 0.4 0.4 1
+      diffuse 0.4 0.4 0.4 1
+    }
+  }
+}
+
+material Galaxea/Sky
+{
+  technique
+  {
+    pass ambient
+    {
+      ambient 0.807843137254902 0.843137254901961 0.9058823529411761 1
+      diffuse 0.807843137254902 0.843137254901961 0.9058823529411761 1
+    }
+  }
+}
+
+material Galaxea/Tool
+{
+  technique
+  {
+    pass ambient
+    {
+      ambient 1 1 1 1
+      diffuse 1 1 1 1 
+    }
+  }
+}
