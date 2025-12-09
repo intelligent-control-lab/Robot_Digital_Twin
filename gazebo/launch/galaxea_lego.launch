@@ -6,14 +6,14 @@
     <arg name="headless" default="false"/>
     <arg name="debug" default="false"/>
     <arg name="env" default="vis_lego"/>
-    <arg name="num_b2" default="50"/> 
-    <arg name="num_b3" default="4"/> 
-    <arg name="num_b4" default="0"/> 
-    <arg name="num_b5" default="26"/> 
+    <arg name="num_b2" default="2"/> 
+    <arg name="num_b3" default="2"/> 
+    <arg name="num_b4" default="2"/> 
+    <arg name="num_b5" default="2"/> 
     <arg name="num_b6" default="2"/> 
-    <arg name="num_b9" default="6"/> 
-    <arg name="num_b10" default="0"/> 
-    <arg name="num_b12" default="20"/> 
+    <arg name="num_b9" default="2"/> 
+    <arg name="num_b10" default="2"/> 
+    <arg name="num_b12" default="2"/> 
     <arg name="color_b2" default="Red"/> 
     <arg name="color_b3" default="Red"/> 
     <arg name="color_b4" default="Red"/> 
@@ -21,7 +21,9 @@
     <arg name="color_b6" default="Red"/> 
     <arg name="color_b9" default="Red"/> 
     <arg name="color_b10" default="Red"/> 
-    <arg name="color_b12" default="Red"/> 
+    <arg name="color_b12" default="Red"/>
+    <arg name="assemble_plate_color" default="White"/>
+    <arg name="storage_plate_color" default="White"/>
 
     <include 
         file="$(find robot_digital_twin)/launch/$(arg env).launch">
@@ -42,6 +44,8 @@
         <arg name="color_b9" default="$(arg color_b9)"/> 
         <arg name="color_b10" default="$(arg color_b10)"/> 
         <arg name="color_b12" default="$(arg color_b12)"/> 
+        <arg name="assemble_plate_color" default="assemble_plate_color"/>
+        <arg name="storage_plate_color" default="storage_plate_color"/>
     </include>
 
     <include
@@ -59,12 +63,12 @@
         file="$(find robot_digital_twin)/launch/galaxea.launch">
         <arg name="namespace" value="/galaxea/"/>
         <arg name="launch_world" value="false"/>
-        <arg name="x" value="0"/>
-        <arg name="y" value="0"/>
-        <arg name="z" value="0.9246"/>
+        <arg name="x" value="-1.08"/>
+        <arg name="y" value="-0.7"/>
+        <arg name="z" value="0.2"/>
         <arg name="roll" value="0"/>
         <arg name="pitch" value="0"/>
-        <arg name="yaw" value="0"/>
+        <arg name="yaw" value="3.1415926"/>
     </include>
 
 </launch>
