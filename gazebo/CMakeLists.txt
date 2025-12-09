@@ -6,7 +6,7 @@ project(robot_digital_twin VERSION 1.0.0 LANGUAGES CXX)
 # /*                              Build Properties                              */
 # /* -------------------------------------------------------------------------- */
 
-add_compile_options(-std=c++11)
+add_compile_options(-std=c++17)
 add_definitions(-D_OS_UNIX)
 
 # /* -------------------------------------------------------------------------- */
