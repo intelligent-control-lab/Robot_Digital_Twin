@@ -975,7 +975,7 @@
         xyz="0.1347 0 0"
         rpy="0 0 0" />
       <mass
-        value="0.604" />
+        value="0.05" />
       <inertia
         ixx="0.000175881544189539"
         ixy="-6.06026450851008E-11"
@@ -998,7 +998,7 @@
           rgba="0.807843137254902 0.843137254901961 0.905882352941176 1" />
       </material>
     </visual>
-    <collision>
+    <!-- <collision>
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
@@ -1006,13 +1006,13 @@
         <mesh
           filename="file://$(find robot_digital_twin)/meshes/eoat/galaxea_eoat.STL" />
       </geometry>
-    </collision>
+    </collision> -->
   </link>
   <joint name="left_eoat_joint" type="fixed">
     <origin xyz="0.1397 0 0" rpy="0 0 0" />
     <parent link="left_arm_link6" />
     <child link="left_arm_eoat" />
-    <axis xyz="0 0 1" />
+    <axis xyz="0 0 0" />
   </joint>
 
   
@@ -1424,7 +1424,7 @@
         xyz="0.1347 0 0"
         rpy="0 0 0" />
       <mass
-        value="0.604" />
+        value="0.05" />
       <inertia
         ixx="0.000175881544189539"
         ixy="-6.06026450851008E-11"
@@ -1447,7 +1447,7 @@
           rgba="0.807843137254902 0.843137254901961 0.905882352941176 1" />
       </material>
     </visual>
-    <collision>
+    <!-- <collision>
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
@@ -1455,13 +1455,13 @@
         <mesh
           filename="file://$(find robot_digital_twin)/meshes/eoat/galaxea_eoat.STL" />
       </geometry>
-    </collision>
+    </collision> -->
   </link>
   <joint name="right_eoat_joint" type="fixed">
     <origin xyz="0.1397 0 0" rpy="0 0 0" />
     <parent link="right_arm_link6" />
     <child link="right_arm_eoat" />
-    <axis xyz="0 0 1" />
+    <axis xyz="0 0 0" />
   </joint>
   </xacro:macro>
 
@@ -1509,6 +1509,45 @@
       <legacyModeNS>true</legacyModeNS>
     </plugin>
   </gazebo>
+
+  <xacro:include filename="$(find realsense_gazebo_description)/urdf/_d435i.urdf.xacro"/>
+  <xacro:sensor_d435i parent="torso_link3"
+                      name="head_camera"
+                      topics_ns="/galaxea/head_camera"
+                      color_width="1280"
+                      color_height="720"
+                      color_fps="15"
+                      enable_pointCloud="true"
+                      depth_width="1280"
+                      depth_height="720"
+                      depth_fps="15" > 
+      <origin xyz="0 0 0.4" rpy="0 ${pi/4} 0"/> 
+  </xacro:sensor_d435i>
+  <xacro:include filename="$(find realsense_gazebo_description)/urdf/_d405.urdf.xacro"/>
+  <xacro:sensor_d405 parent="left_arm_eoat"
+                        name="left_wrist_camera"
+                        topics_ns="/galaxea/left_wrist_camera"
+                        color_width="1280"
+                        color_height="720"
+                        color_fps="15"
+                        enable_pointCloud="true"
+                        depth_width="1280"
+                        depth_height="720"
+                        depth_fps="15" > 
+      <origin xyz="-0.095 0 0.08" rpy="0 ${pi/4} 0"/> 
+  </xacro:sensor_d405>
+  <xacro:sensor_d405 parent="right_arm_eoat"
+                        name="right_wrist_camera"
+                        topics_ns="/galaxea/right_wrist_camera"
+                        color_width="1280"
+                        color_height="720"
+                        color_fps="15"
+                        enable_pointCloud="true"
+                        depth_width="1280"
+                        depth_height="720"
+                        depth_fps="15" > 
+      <origin xyz="-0.095 0 0.08" rpy="0 ${pi/4} 0"/> 
+  </xacro:sensor_d405>
 
   <gazebo reference="base">
     <material>Galaxea/Grey</material>
