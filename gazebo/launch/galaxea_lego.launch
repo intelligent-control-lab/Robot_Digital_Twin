@@ -24,6 +24,7 @@
     <arg name="color_b12" default="Red"/>
     <arg name="assemble_plate_color" default="White"/>
     <arg name="storage_plate_color" default="White"/>
+    <arg name="world_file" default="$(find robot_digital_twin)/worlds/world.world"/>
 
     <include 
         file="$(find robot_digital_twin)/launch/$(arg env).launch">
@@ -50,6 +51,7 @@
 
     <include
         file="$(find robot_digital_twin)/launch/env.launch">
+        <arg name="world_file" value="$(arg world_file)" />
         <arg name="launch_world" value="true"/>
         <arg name="x" value="0"/>
         <arg name="y" value="0"/>

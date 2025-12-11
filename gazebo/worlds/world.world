@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <physics name="ode_physics" type="ode">
+      <!-- ODE solver configuration -->
+      <ode>
+        <solver>
+          <iters>500</iters>   <!-- solver iterations: increased from 50 to 100-->
+        </solver>
+      </ode>
+    </physics>
+  </world>
+</sdf>
