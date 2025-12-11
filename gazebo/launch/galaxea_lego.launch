@@ -45,8 +45,8 @@
         <arg name="color_b9" default="$(arg color_b9)"/> 
         <arg name="color_b10" default="$(arg color_b10)"/> 
         <arg name="color_b12" default="$(arg color_b12)"/> 
-        <arg name="assemble_plate_color" default="assemble_plate_color"/>
-        <arg name="storage_plate_color" default="storage_plate_color"/>
+        <arg name="assemble_plate_color" default="$(arg assemble_plate_color)"/>
+        <arg name="storage_plate_color" default="$(arg storage_plate_color)"/>
     </include>
 
     <include
