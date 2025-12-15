@@ -102,7 +102,7 @@
   </link>
   <joint
     name="steer_motor_joint1"
-    type="revolute">
+    type="fixed">
     <origin
       xyz="0.29183 -0.0014897 0.18165"
       rpy="0 0 0" />
@@ -160,7 +160,7 @@
   </link>
   <joint
     name="wheel_motor_joint1"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="0 0 -0.11165"
       rpy="0 0 0" />
@@ -213,7 +213,7 @@
   </link>
   <joint
     name="steer_motor_joint2"
-    type="revolute">
+    type="fixed">
     <origin
       xyz="-0.16817 0.23851 0.18165"
       rpy="0 0 0" />
@@ -271,7 +271,7 @@
   </link>
   <joint
     name="wheel_motor_joint2"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="0 0 -0.11165"
       rpy="0 0 0" />
@@ -324,7 +324,7 @@
   </link>
   <joint
     name="steer_motor_joint3"
-    type="revolute">
+    type="fixed">
     <origin
       xyz="-0.16817 -0.24149 0.18165"
       rpy="0 0 0" />
@@ -382,7 +382,7 @@
   </link>
   <joint
     name="wheel_motor_joint3"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="0 0 -0.11165"
       rpy="0 0 0" />
@@ -1480,12 +1480,6 @@
       </actuator>
     </transmission>
   </xacro:macro>
-  <xacro:transmission_block joint_name = "steer_motor_joint1"/>
-  <xacro:transmission_block joint_name = "wheel_motor_joint1"/>
-  <xacro:transmission_block joint_name = "steer_motor_joint2"/>
-  <xacro:transmission_block joint_name = "wheel_motor_joint2"/>
-  <xacro:transmission_block joint_name = "steer_motor_joint3"/>
-  <xacro:transmission_block joint_name = "wheel_motor_joint3"/>
   <xacro:transmission_block joint_name = "torso_joint1"/>
   <xacro:transmission_block joint_name = "torso_joint2"/>
   <xacro:transmission_block joint_name = "torso_joint3"/>

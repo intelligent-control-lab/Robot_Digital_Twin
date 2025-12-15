@@ -4,32 +4,6 @@ joint_state_controller:
   publish_rate: 125
 
 # Position Controllers ---------------------------------------
-steer1_position_controller:
-  type: position_controllers/JointPositionController
-  joint: steer_motor_joint1
-  pid: {p: 1000.0, i: 0.01, d: 10.0}
-wheel1_position_controller:
-  type: position_controllers/JointPositionController
-  joint: wheel_motor_joint1
-  pid: {p: 1000.0, i: 0.01, d: 10.0}
-steer2_position_controller:
-  type: position_controllers/JointPositionController
-  joint: steer_motor_joint2
-  pid: {p: 1000.0, i: 0.01, d: 10.0}
-wheel2_position_controller:
-  type: position_controllers/JointPositionController
-  joint: wheel_motor_joint2
-  pid: {p: 1000.0, i: 0.01, d: 10.0}
-steer3_position_controller:
-  type: position_controllers/JointPositionController
-  joint: steer_motor_joint3
-  pid: {p: 1000.0, i: 0.01, d: 10.0}
-wheel3_position_controller:
-  type: position_controllers/JointPositionController
-  joint: wheel_motor_joint3
-  pid: {p: 1000.0, i: 0.01, d: 10.0}
-
-  
 torso1_position_controller:
   type: position_controllers/JointPositionController
   joint: torso_joint1

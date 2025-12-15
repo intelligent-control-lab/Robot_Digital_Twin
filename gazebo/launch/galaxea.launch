@@ -50,12 +50,6 @@
     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" ns="$(arg namespace)"
       output="screen" 
       args="joint_state_controller
-            steer1_position_controller
-            wheel1_position_controller
-            steer2_position_controller
-            wheel2_position_controller
-            steer3_position_controller
-            wheel3_position_controller
             torso1_position_controller
             torso2_position_controller
             torso3_position_controller
