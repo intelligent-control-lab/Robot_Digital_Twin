@@ -1508,37 +1508,38 @@
   <xacro:sensor_d435i parent="torso_link3"
                       name="head_camera"
                       topics_ns="/galaxea/head_camera"
-                      color_width="1280"
-                      color_height="720"
+                      color_width="640"
+                      color_height="480"
                       color_fps="15"
                       enable_pointCloud="true"
-                      depth_width="1280"
-                      depth_height="720"
-                      depth_fps="15" > 
+                      depth_width="640"
+                      depth_height="480"
+                      depth_fps="15" 
+                      align_depth="true"> 
       <origin xyz="0 0 0.4" rpy="0 ${pi/4} 0"/> 
   </xacro:sensor_d435i>
   <xacro:include filename="$(find realsense_gazebo_description)/urdf/_d405.urdf.xacro"/>
   <xacro:sensor_d405 parent="left_arm_eoat"
                         name="left_wrist_camera"
                         topics_ns="/galaxea/left_wrist_camera"
-                        color_width="1280"
-                        color_height="720"
+                        color_width="640"
+                        color_height="480"
                         color_fps="15"
                         enable_pointCloud="true"
-                        depth_width="1280"
-                        depth_height="720"
+                        depth_width="640"
+                        depth_height="480"
                         depth_fps="15" > 
       <origin xyz="-0.095 0 0.08" rpy="0 ${pi/4} 0"/> 
   </xacro:sensor_d405>
   <xacro:sensor_d405 parent="right_arm_eoat"
                         name="right_wrist_camera"
                         topics_ns="/galaxea/right_wrist_camera"
-                        color_width="1280"
-                        color_height="720"
+                        color_width="640"
+                        color_height="480"
                         color_fps="15"
                         enable_pointCloud="true"
-                        depth_width="1280"
-                        depth_height="720"
+                        depth_width="640"
+                        depth_height="480"
                         depth_fps="15" > 
       <origin xyz="-0.095 0 0.08" rpy="0 ${pi/4} 0"/> 
   </xacro:sensor_d405>
