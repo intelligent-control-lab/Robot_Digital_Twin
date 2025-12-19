@@ -1528,7 +1528,8 @@
                         enable_pointCloud="true"
                         depth_width="640"
                         depth_height="480"
-                        depth_fps="15" > 
+                        depth_fps="15"
+                        align_depth="true" > 
       <origin xyz="-0.095 0 0.08" rpy="0 ${pi/4} 0"/> 
   </xacro:sensor_d405>
   <xacro:sensor_d405 parent="right_arm_eoat"
@@ -1540,7 +1541,8 @@
                         enable_pointCloud="true"
                         depth_width="640"
                         depth_height="480"
-                        depth_fps="15" > 
+                        depth_fps="15"
+                        align_depth="true" > 
       <origin xyz="-0.095 0 0.08" rpy="0 ${pi/4} 0"/> 
   </xacro:sensor_d405>
 
