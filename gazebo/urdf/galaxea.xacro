@@ -1014,6 +1014,36 @@
     <child link="left_arm_eoat" />
     <axis xyz="0 0 0" />
   </joint>
+  <link name = "left_tmp1"/>
+  <joint name = "left_tool_tmp1_joint" type="fixed">
+    <parent link = "left_arm_eoat" />
+    <child link = "left_tmp1" />
+    <origin xyz="0 0 0" rpy="-${pi/4} 0 0" />
+  </joint>
+  <link name = "left_tmp2"/>
+  <joint name = "left_tmp1_tmp2_joint" type="fixed">
+    <parent link = "left_tmp1" />
+    <child link = "left_tmp2" />
+    <origin xyz="0 0 0" rpy="0 -${pi/2} 0" />
+  </joint>
+  <link name = "left_attach"/>
+  <joint name = "left_tmp2_attach_joint" type="fixed">
+    <parent link = "left_tmp2" />
+    <child link = "left_attach" />
+    <origin xyz="0 0 0.0032" rpy="0 0 0" />
+  </joint>
+  <link name = "left_assemble"/>
+  <joint name = "left_attach_assemble_joint" type="fixed">
+    <parent link = "left_attach" />
+    <child link = "left_assemble" />
+    <origin xyz="0.008 0 0" rpy="0 0 0" />
+  </joint>
+  <link name = "left_disassemble"/>
+  <joint name = "left_attach_disassemble_joint" type="fixed">
+    <parent link = "left_attach" />
+    <child link = "left_disassemble" />
+    <origin xyz="0 0 -0.0096" rpy="0 0 0" />
+  </joint>
 
   
   <link
@@ -1462,6 +1492,37 @@
     <parent link="right_arm_link6" />
     <child link="right_arm_eoat" />
     <axis xyz="0 0 0" />
+  </joint>
+
+  <link name = "right_tmp1"/>
+  <joint name = "right_tool_tmp1_joint" type="fixed">
+    <parent link = "right_arm_eoat" />
+    <child link = "right_tmp1" />
+    <origin xyz="0 0 0" rpy="-${pi/4} 0 0" />
+  </joint>
+  <link name = "right_tmp2"/>
+  <joint name = "right_tmp1_tmp2_joint" type="fixed">
+    <parent link = "right_tmp1" />
+    <child link = "right_tmp2" />
+    <origin xyz="0 0 0" rpy="0 -${pi/2} 0" />
+  </joint>
+  <link name = "right_attach"/>
+  <joint name = "right_tmp2_attach_joint" type="fixed">
+    <parent link = "right_tmp2" />
+    <child link = "right_attach" />
+    <origin xyz="0 0 0.0032" rpy="0 0 0" />
+  </joint>
+  <link name = "right_assemble"/>
+  <joint name = "right_attach_assemble_joint" type="fixed">
+    <parent link = "right_attach" />
+    <child link = "right_assemble" />
+    <origin xyz="0.008 0 0" rpy="0 0 0" />
+  </joint>
+  <link name = "right_disassemble"/>
+  <joint name = "right_attach_disassemble_joint" type="fixed">
+    <parent link = "right_attach" />
+    <child link = "right_disassemble" />
+    <origin xyz="0 0 -0.0096" rpy="0 0 0" />
   </joint>
   </xacro:macro>
 
